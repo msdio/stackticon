@@ -1,2 +1,3 @@
-# skill-set-generator
+# stackticon
+
 Make skill sets image for readme
