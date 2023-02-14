@@ -1,0 +1,16 @@
+export const Stacks = [
+  { label: 'React', id: 1 },
+  { label: 'MUI', id: 2 },
+  { label: 'Firebase', id: 3 },
+  { label: 'TypeScript', id: 4 },
+  { label: 'Github', id: 5 },
+  { label: 'GitHub Pages', id: 6 },
+  { label: 'Visual Studio Code', id: 7 },
+  { label: 'Notion', id: 8 },
+  { label: 'Javascript', id: 9 },
+  { label: 'HTML5', id: 10 },
+  { label: 'CSS3', id: 11 },
+  { label: 'Tailwind CSS', id: 12 },
+  { label: 'Next.js', id: 13 },
+  { label: 'C++', id: 14 },
+];
