@@ -112,7 +112,7 @@
       }
     ],
     "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": ["error", "window"],
     "quotes": ["error", "single"],
     "semi": ["error", "always"]
   }
