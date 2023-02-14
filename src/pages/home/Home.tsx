@@ -1,5 +1,11 @@
+import Input from 'components/input';
+
 const Home = () => {
-  return <></>;
+  return (
+    <>
+      <Input></Input>
+    </>
+  );
 };
 
 export default Home;
