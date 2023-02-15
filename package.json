@@ -5,7 +5,7 @@
   "description": "make skill sets image for readme",
   "main": "index.js",
   "repository": "https://github.com/msdio/skill-set-generator.git",
-  "author": "msdio <rlagofka1@gmail.com>",
+  "author": "msdio <rlagofka1@gmail.com>, userJu <boochickenood@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
