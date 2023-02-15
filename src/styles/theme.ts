@@ -22,5 +22,9 @@ export const theme = createTheme({
       main: '#D9E532',
       dark: '#99A419',
     },
+    common: {
+      black: '#191919',
+      white: '#F5F5F5',
+    },
   },
 });
