@@ -1,7 +1,9 @@
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Box, Button, Container, Typography } from '@mui/material';
 import Header from 'components/header';
 import Input from 'components/input';
+import { useEffect, useState } from 'react';
 
 const CustomContainer = styled.div`
   width: 100%;
@@ -11,7 +13,46 @@ const CustomContainer = styled.div`
   position: relative;
 `;
 
+const fadeFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+`;
+
+const fadeFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+`;
+
 const Home = () => {
+  const [scroll, setScroll] = useState(false);
+
+  const handleScroll = () => {
+    const { scrollTop } = document.documentElement;
+    if (scrollTop < 10) {
+      setScroll(false);
+    }
+    if (scrollTop >= 300) {
+      setScroll(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <CustomContainer>
       <Header />
@@ -41,7 +82,12 @@ const Home = () => {
           gap: '10px',
         }}
       >
-        <Box>
+        <Box
+          sx={{
+            animation: scroll ? `${fadeFromLeft} 1s` : '',
+            display: scroll ? '' : 'none',
+          }}
+        >
           <Typography variant='h4'>Simple, Fast</Typography>
           <Typography marginLeft={5} marginTop={1}>
             just input your skills and get it
@@ -52,6 +98,8 @@ const Home = () => {
             width: '450px',
             height: '300px',
             background: 'grey',
+            animation: scroll ? `${fadeFromRight} 1s` : '',
+            display: scroll ? '' : 'none',
           }}
         />
       </Container>
@@ -70,10 +118,20 @@ const Home = () => {
             width: '500px',
             height: '350px',
             background: 'grey',
+            animation: scroll ? `${fadeFromLeft} 1s` : '',
+            display: scroll ? '' : 'none',
           }}
         />
         <Box>
-          <Typography variant='h4'>Recognize in a glance</Typography>
+          <Typography
+            variant='h4'
+            sx={{
+              animation: scroll ? `${fadeFromRight} 1s` : '',
+              display: scroll ? '' : 'none',
+            }}
+          >
+            Recognize in a glance
+          </Typography>
         </Box>
       </Container>
     </CustomContainer>
