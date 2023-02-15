@@ -1,15 +1,8 @@
-import { Autocomplete, TextField } from '@mui/material';
-import { useState } from 'react';
-import { makeIconInfoArray } from 'utils/getAllIconInfo';
+import { Autocomplete, SvgIcon, TextField } from '@mui/material';
+import { makeIconInfoArray } from 'utils/allIconInfo';
 
 const Input = () => {
-  const [selectedIconNames, setSelectedIconNames] = useState<string[]>([]);
   const iconArr = makeIconInfoArray();
-
-  const onStackChange = (e: React.SyntheticEvent) => {
-    const { textContent } = e.currentTarget;
-    textContent && setSelectedIconNames((prev) => [...prev, textContent]);
-  };
 
   return (
     <div>
@@ -20,15 +13,17 @@ const Input = () => {
         renderOption={(props, option) => {
           return (
             <li {...props} key={option.path}>
+              <SvgIcon>
+                <path d={option.path} />
+              </SvgIcon>
               {option.title}
             </li>
           );
         }}
         getOptionLabel={(option) => option.title}
-        onChange={onStackChange}
         filterSelectedOptions
         renderInput={(params) => (
-          <TextField {...params} label='Choose User Stacks!' placeholder='Stacks' />
+          <TextField {...params} label='Choose Your Stacks!' placeholder='Stacks' />
         )}
       />
     </div>
