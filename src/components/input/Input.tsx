@@ -12,7 +12,7 @@ const Input = () => {
   };
 
   return (
-    <div>
+    <div style={{ width: '50%' }}>
       <Autocomplete
         multiple
         id='tags-outlined'
