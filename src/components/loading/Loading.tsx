@@ -1,4 +1,4 @@
-import Skills from 'components/skills';
+import Stacks from 'components/stacks';
 import { useRef } from 'react';
 
 const Loading = (props: any) => {
@@ -6,7 +6,7 @@ const Loading = (props: any) => {
 
   return (
     <div>
-      <Skills ref={targetRef} />
+      <Stacks ref={targetRef} />
     </div>
   );
 };
