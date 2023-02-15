@@ -11,13 +11,7 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": [
-    "react",
-    "@typescript-eslint/eslint-plugin",
-    "import",
-    "simple-import-sort",
-    "unused-imports"
-  ],
+  "plugins": ["react", "@typescript-eslint/eslint-plugin", "simple-import-sort", "unused-imports"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -56,52 +50,6 @@
       "error",
       {
         "prefer": "type-imports"
-      }
-    ],
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          ["sibling", "parent", "index"],
-          "type",
-          "unknown"
-        ],
-        "pathGroups": [
-          {
-            "pattern": "{react*,react*/**}",
-            "group": "external",
-            "position": "before"
-          },
-          {
-            "pattern": "pages/**/*.style",
-            "group": "unknown"
-          },
-          {
-            "pattern": "components/**/*.style",
-            "group": "unknown"
-          },
-          {
-            "pattern": "./**/*.style",
-            "group": "unknown"
-          },
-          {
-            "pattern": "../**/*.style",
-            "group": "unknown"
-          },
-          {
-            "pattern": ".style",
-            "group": "unknown"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": ["react", "unknown"],
-        "newlines-between": "always",
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
       }
     ],
     "comma-spacing": [
