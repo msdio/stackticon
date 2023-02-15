@@ -4,6 +4,7 @@ import { Box, Button, Container, Typography } from '@mui/material';
 import Header from 'components/header';
 import Input from 'components/input';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CustomContainer = styled.div`
   width: 100%;
@@ -37,9 +38,13 @@ const fadeFromRight = keyframes`
 
 const Home = () => {
   const [scroll, setScroll] = useState(false);
+  const [skills, setSkills] = useState<string[]>([]);
+
+  const navigate = useNavigate();
 
   const handleScroll = () => {
     const { scrollTop } = document.documentElement;
+
     if (scrollTop < 10) {
       setScroll(false);
     }
@@ -52,6 +57,14 @@ const Home = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const changeSkillSet = (inputSkills: string[]) => {
+    setSkills(inputSkills);
+  };
+
+  const submitSkills = () => {
+    navigate('/loading', { state: skills });
+  };
 
   return (
     <CustomContainer>
@@ -66,8 +79,8 @@ const Home = () => {
           gap: '10px',
         }}
       >
-        <Input />
-        <Button variant='contained' color='success' size='large'>
+        <Input handler={changeSkillSet} />
+        <Button variant='contained' color='success' size='large' onClick={submitSkills}>
           Create Set
         </Button>
       </Container>
