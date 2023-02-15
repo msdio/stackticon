@@ -1,18 +1,12 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Box, Button, Container, Typography } from '@mui/material';
+import { Box, Button, Container, SvgIcon, Typography } from '@mui/material';
 import Header from 'components/header';
 import Input from 'components/input';
-import { useEffect, useState } from 'react';
+import { Svg } from 'constants/Svg';
+import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-const CustomContainer = styled.div`
-  width: 100%;
-  height: fit-content;
-  min-height: 100vh;
-
-  position: relative;
-`;
 
 const fadeFromLeft = keyframes`
   from {
@@ -36,9 +30,50 @@ const fadeFromRight = keyframes`
   }
 `;
 
+const CustomContainer = styled.div`
+  width: 100%;
+  height: fit-content;
+  min-height: 100vh;
+
+  position: relative;
+`;
+
+const MotionDiv = styled(motion.div)`
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
+`;
+
+const JavascriptIcon = () => (
+  <SvgIcon viewBox='0 0 24 24'>
+    <path d={Svg.javascript} />
+  </SvgIcon>
+);
+
+const ReactIcon = () => (
+  <SvgIcon viewBox='0 0 24 24'>
+    <path d={Svg.react} />
+  </SvgIcon>
+);
+
+const NodeJSIcon = () => (
+  <SvgIcon viewBox='0 0 24 24'>
+    <path d={Svg.nodejs} />
+  </SvgIcon>
+);
+
+const SpringIcon = () => (
+  <SvgIcon viewBox='0 0 24 24'>
+    <path d={Svg.spring} />
+  </SvgIcon>
+);
+
 const Home = () => {
   const [scroll, setScroll] = useState(false);
   const [skills, setSkills] = useState<string[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const navigate = useNavigate();
 
@@ -71,18 +106,34 @@ const Home = () => {
       <Header />
 
       <Container
+        ref={containerRef}
         sx={{
+          width: '100vw',
           height: '100vh',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           gap: '10px',
+          overflow: 'hidden',
         }}
       >
         <Input handler={changeSkillSet} />
         <Button variant='contained' color='success' size='large' onClick={submitSkills}>
           Create Set
         </Button>
+
+        <MotionDiv drag dragElastic={2} dragConstraints={containerRef}>
+          <ReactIcon />
+        </MotionDiv>
+        <MotionDiv drag dragElastic={2} dragConstraints={containerRef}>
+          <NodeJSIcon />
+        </MotionDiv>
+        <MotionDiv drag dragElastic={2} dragConstraints={containerRef}>
+          <JavascriptIcon />
+        </MotionDiv>
+        <MotionDiv drag dragElastic={2} dragConstraints={containerRef}>
+          <SpringIcon />
+        </MotionDiv>
       </Container>
 
       <Container
