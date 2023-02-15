@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { Autocomplete, TextField } from '@mui/material';
+import { useState } from 'react';
 import { makeIconInfoArray } from 'utils/getAllIconInfo';
 
 const Input = () => {
@@ -17,6 +17,13 @@ const Input = () => {
         multiple
         id='tags-outlined'
         options={iconArr}
+        renderOption={(props, option) => {
+          return (
+            <li {...props} key={option.path}>
+              {option.title}
+            </li>
+          );
+        }}
         getOptionLabel={(option) => option.title}
         onChange={onStackChange}
         filterSelectedOptions
