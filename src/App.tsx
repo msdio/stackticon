@@ -14,7 +14,7 @@ function App() {
       <img height='32' width='32' src='https://cdn.simpleicons.org/javascript' />
       <img height='32' width='32' src='https://cdn.simpleicons.org/spring' />
 
-      <Home></Home>
+      <Home />
     </ThemeProvider>
   );
 }
