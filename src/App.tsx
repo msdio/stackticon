@@ -7,7 +7,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Typography variant='h1' color='primary.main'>
-        adfadfadf
+        Stackticon
       </Typography>
 
       <img height='32' width='32' src='https://cdn.simpleicons.org/react' />
