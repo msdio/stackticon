@@ -17,6 +17,13 @@ const Input = () => {
         multiple
         id='tags-outlined'
         options={iconArr}
+        renderOption={(props, option) => {
+          return (
+            <li {...props} key={option.path}>
+              {option.title}
+            </li>
+          );
+        }}
         getOptionLabel={(option) => option.title}
         onChange={onStackChange}
         filterSelectedOptions
