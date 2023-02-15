@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Box, Link, Stack, SvgIcon, Typography } from '@mui/material';
 import { Svg } from 'constants/Svg';
+import { Link as RLink } from 'react-router-dom';
 
 const Container = styled.header`
   display: flex;
@@ -12,18 +13,24 @@ const Container = styled.header`
   padding: 10px 30px;
 `;
 
+const RouterLink = styled(RLink)`
+  text-decoration: none;
+`;
+
 const Header = () => {
   return (
     <Container>
-      <Typography
-        variant='h4'
-        color='primary.main'
-        sx={{
-          cursor: 'pointer',
-        }}
-      >
-        Stackticon
-      </Typography>
+      <RouterLink to='/'>
+        <Typography
+          variant='h4'
+          color='primary.main'
+          sx={{
+            cursor: 'pointer',
+          }}
+        >
+          Stackticon
+        </Typography>
+      </RouterLink>
 
       <Stack direction='row' spacing={2} marginLeft='auto'>
         <Link
