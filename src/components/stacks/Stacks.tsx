@@ -1,24 +1,27 @@
+import { Box } from '@mui/material';
 import Stack from 'components/stack/Stack';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-const Stacks = React.forwardRef<HTMLDivElement>((props: any, targetRef) => {
-  const stackArr = ['Javascript', 'React', 'Typescript'];
+interface Props {
+  selecteds: string[];
+}
+
+const Stacks = forwardRef<HTMLDivElement, Props>(({ selecteds }, targetRef) => {
   return (
-    <div
-      ref={targetRef}
-      style={{
-        margin: '50px',
-        padding: '50px',
-        display: 'grid',
-        gridTemplateRows: '1fr ',
-        gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr',
-        backgroundColor: 'gray',
-      }}
+    <Box
+      bgcolor='common.black'
+      display='grid'
+      gridTemplateRows='auto'
+      gridTemplateColumns='1fr 1fr 1fr 1fr 1fr 1fr'
+      color='common.white'
+      width='700px'
+      height='auto'
     >
-      {stackArr.map((stack) => (
-        <Stack key={stack} stackName={stack}></Stack>
+      {selecteds.map((select: string) => (
+        <Stack key={select} stackName={select}></Stack>
       ))}
-    </div>
+    </Box>
+    // </div>
   );
 });
 Stacks.displayName = 'Stacks';
