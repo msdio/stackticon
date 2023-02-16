@@ -1,4 +1,8 @@
+import { useLocation } from 'react-router-dom';
+
 const Result = () => {
+  const { state } = useLocation();
+  console.log(state);
   const clickCopyUrl = () => {
     console.log('temp');
   };
