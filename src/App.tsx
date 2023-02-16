@@ -7,7 +7,7 @@ import { theme } from 'styles/theme';
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.REACT_APP_PUBLIC_URL}>
         <Box bgcolor='background.default' width='100vw' height='fit-content' minHeight='100vh'>
           <Router />
         </Box>
