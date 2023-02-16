@@ -21,7 +21,6 @@ const Stacks = forwardRef<HTMLDivElement, Props>(({ selecteds }, targetRef) => {
         <Stack key={select} stackName={select}></Stack>
       ))}
     </Box>
-    // </div>
   );
 });
 Stacks.displayName = 'Stacks';

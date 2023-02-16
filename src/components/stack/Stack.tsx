@@ -32,7 +32,7 @@ const Stack = ({ stackName }: StackProps) => {
           <path d={path} fill={`#${hex}`} />
         </SvgIcon>
       </div>
-      <p style={{ margin: '0' }}>{title}</p>
+      <p style={{ margin: '0', textAlign: 'center' }}>{title}</p>
     </div>
   );
 };
