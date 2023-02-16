@@ -39,7 +39,7 @@ const Loading = () => {
   return (
     <>
       {state === null || state.length === 0 ? (
-        <Page404 />
+        <Page404 title={'잘못된 경로로 접근하였습니다!'} />
       ) : (
         <div>
           <Stacks ref={targetRef} selecteds={state} />
