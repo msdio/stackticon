@@ -1,5 +1,5 @@
 const Page404 = () => {
-  return <></>;
+  return <>에러!</>;
 };
 
 export default Page404;
