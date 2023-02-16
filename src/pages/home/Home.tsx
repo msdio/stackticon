@@ -1,4 +1,3 @@
-import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Box, Button, Container, SvgIcon, Typography } from '@mui/material';
 import Header from 'components/header';
@@ -8,27 +7,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const fadeFromLeft = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateZ(0);
-  }
-`;
-
-const fadeFromRight = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateZ(0);
-  }
-`;
+import { fadeFromLeft, fadeFromRight } from '../../constants/animations';
 
 const CustomContainer = styled.div`
   width: 100%;
