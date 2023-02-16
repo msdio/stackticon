@@ -1,6 +1,7 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import React from 'react';
+import { useNavigate } from 'react-router';
 // @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lato');
 
 const whiteColor = '#EDEDED';
@@ -248,6 +249,16 @@ const Footer = styled.div`
 `;
 
 const Cute404 = () => {
+  const navigate = useNavigate();
+
+  const goBackPage = () => {
+    navigate(-1);
+  };
+
+  const goToHomePage = () => {
+    navigate('/');
+  };
+
   return (
     <Container>
       <div id='background'></div>
@@ -274,8 +285,8 @@ const Cute404 = () => {
       <Bottom>
         <p>Boo, looks like a ghost stole this page!</p>
         <Buttons>
-          <Btn>Back</Btn>
-          <Btn>Home</Btn>
+          <Btn onClick={goBackPage}>Back</Btn>
+          <Btn onClick={goToHomePage}>Home</Btn>
         </Buttons>
       </Bottom>
 
