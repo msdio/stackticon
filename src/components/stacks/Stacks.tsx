@@ -17,6 +17,7 @@ const Stacks = forwardRef<HTMLDivElement, Props>(({ selecteds }, targetRef) => {
       color='common.white'
       width='700px'
       height='auto'
+      padding='10px'
     >
       {selecteds.map((select: string) => (
         <Stack key={select} stackName={select}></Stack>
