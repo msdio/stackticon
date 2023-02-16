@@ -13,6 +13,8 @@ const Container = styled.header`
   padding: 10px 30px;
 
   position: fixed;
+
+  z-index: 100;
 `;
 
 const RouterLink = styled(RLink)`

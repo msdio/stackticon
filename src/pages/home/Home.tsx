@@ -108,7 +108,15 @@ const Home = () => {
         }}
       >
         <Input handler={changeSkillSet} />
-        <Button variant='contained' color='success' size='large' onClick={submitSkills}>
+        <Button
+          variant='contained'
+          color='success'
+          size='large'
+          onClick={submitSkills}
+          sx={{
+            zIndex: 50,
+          }}
+        >
           Create Set
         </Button>
 

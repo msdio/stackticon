@@ -22,7 +22,7 @@ const Input = ({ handler }: InputProps) => {
   };
 
   return (
-    <div style={{ width: '50%', zIndex: '10' }}>
+    <div style={{ width: '50%', zIndex: '50' }}>
       <Autocomplete
         multiple
         id='tags-outlined'
