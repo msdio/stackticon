@@ -19,7 +19,10 @@ const Loading = () => {
     const resultUrl = imageRef && (await getCreatedImageUrl(imageRef));
     if (resultUrl) {
       navigateToResult(resultUrl);
+      return;
     }
+    navigate('/');
+    throw new Error('이미지를 만드는 데 실패했습니다 다시 시도해주세요');
   };
 
   useEffect(() => {
