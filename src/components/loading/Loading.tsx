@@ -10,13 +10,6 @@ const Loading = () => {
   const targetRef = useRef<HTMLDivElement>(null);
   const { state } = useLocation();
 
-  useEffect(() => {
-    if (state.length === 0) {
-      navigate('/');
-      // 깜빡거리는 issue 발생. cover component를 만들어서 해결 가능할거라 예상
-    }
-  }, []);
-
   const getPngToImage = async () => {
     if (targetRef.current === null) {
       return;
@@ -26,10 +19,16 @@ const Loading = () => {
     return dataUrl;
   };
 
+  const navigateToResult = (resultUrl: string) => {
+    navigate('/result', { state: resultUrl });
+  };
+
   const makeResult = async () => {
     const imageRef = await getPngToImage();
     const resultUrl = imageRef && (await getCreatedImageUrl(imageRef));
-    console.log(resultUrl);
+    if (resultUrl) {
+      navigateToResult(resultUrl);
+    }
   };
 
   useEffect(() => {
