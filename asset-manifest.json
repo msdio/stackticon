@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/stackticon/static/js/main.263b3ae6.js",
-    "index.html": "/stackticon/index.html",
-    "main.263b3ae6.js.map": "/stackticon/static/js/main.263b3ae6.js.map"
+    "main.js": "./static/js/main.5350f75a.js",
+    "index.html": "./index.html",
+    "main.5350f75a.js.map": "./static/js/main.5350f75a.js.map"
   },
   "entrypoints": [
-    "static/js/main.263b3ae6.js"
+    "static/js/main.5350f75a.js"
   ]
 }
