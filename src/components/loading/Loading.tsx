@@ -5,10 +5,18 @@ import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getCreatedImageUrl } from 'services/firebase/storage';
 
+
 const Loading = () => {
+  const navigate = useNavigate();
   const targetRef = useRef<HTMLDivElement>(null);
   const { state } = useLocation();
-  console.log(state);
+
+  useEffect(() => {
+    if (state.length === 0) {
+      navigate('/');
+      // 깜빡거리는 issue 발생. cover component를 만들어서 해결 가능할거라 예상
+    }
+  }, []);
 
   const getPngToImage = async () => {
     if (targetRef.current === null) {
