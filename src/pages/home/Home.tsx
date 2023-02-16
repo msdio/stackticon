@@ -63,7 +63,9 @@ const Home = () => {
   };
 
   const submitSkills = () => {
-    navigate('/loading', { state: skills });
+    if (skills.length > 0) {
+      navigate('/loading', { state: skills });
+    }
   };
 
   return (
