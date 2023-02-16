@@ -7,6 +7,8 @@ import { getCreatedImageUrl } from 'services/firebase/storage';
 
 const Loading = () => {
   const targetRef = useRef<HTMLDivElement>(null);
+  const { state } = useLocation();
+  console.log(state);
 
   const getPngToImage = async () => {
     if (targetRef.current === null) {
