@@ -28,7 +28,6 @@ const Loading = () => {
   useEffect(() => {
     makeResult();
   }, []);
-  const { state } = useLocation();
 
   return (
     <>
