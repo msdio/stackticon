@@ -1,6 +1,6 @@
 # stackticon
 
-Make skill sets image for readme
+Make skill sets image for readme <br/>
 https://msdio.github.io/stackticon/
 
 ### Environments
