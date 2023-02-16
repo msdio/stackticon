@@ -1,3 +1,3 @@
-import Page404 from './Page404';
+import Cute404 from './Cute404';
 
-export default Page404;
+export default Cute404;

@@ -1,5 +1,5 @@
 import Stacks from 'components/stacks';
-import Page404 from 'pages/page404';
+import Cute404 from 'pages/page404/Cute404';
 import { useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getCreatedImageUrl } from 'services/firebase/storage';
@@ -32,7 +32,7 @@ const Loading = () => {
   return (
     <>
       {state === null || state.length === 0 ? (
-        <Page404 title={'잘못된 경로로 접근하였습니다!'} />
+        <Cute404 />
       ) : (
         <div>
           <Stacks ref={targetRef} selecteds={state} />
