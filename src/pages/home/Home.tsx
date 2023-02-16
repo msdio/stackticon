@@ -18,34 +18,44 @@ const CustomContainer = styled.div`
 `;
 
 const MotionDiv = styled(motion.div)`
-  width: 100px;
-  height: 100px;
-  background-color: rgba(255, 255, 255, 1);
+  width: 70px;
+  height: 70px;
+  background-color: transparent;
   border-radius: 20px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0), 0 10px 20px rgba(0, 0, 0, 0);
+  font-size: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  position: absolute;
+  bottom: 0%;
+  right: 10%;
 `;
 
 const JavascriptIcon = () => (
-  <SvgIcon viewBox='0 0 24 24'>
-    <path d={Svg.javascript} />
+  <SvgIcon viewBox='0 0 24 24' fontSize='inherit'>
+    <path d={Svg.javascript} fill='#F7DF1E' />
   </SvgIcon>
 );
 
 const ReactIcon = () => (
-  <SvgIcon viewBox='0 0 24 24'>
-    <path d={Svg.react} />
+  <SvgIcon viewBox='0 0 24 24' fontSize='inherit'>
+    <path d={Svg.react} fill='#61DAFB' />
   </SvgIcon>
 );
 
 const NodeJSIcon = () => (
-  <SvgIcon viewBox='0 0 24 24'>
-    <path d={Svg.nodejs} />
+  <SvgIcon viewBox='0 0 24 24' fontSize='inherit'>
+    <path d={Svg.nodejs} fill='#339933' />
   </SvgIcon>
 );
 
 const SpringIcon = () => (
-  <SvgIcon viewBox='0 0 24 24'>
-    <path d={Svg.spring} />
+  <SvgIcon viewBox='0 0 24 24' fontSize='inherit'>
+    <path d={Svg.spring} fill='#6DB33F' />
   </SvgIcon>
 );
 
@@ -59,7 +69,7 @@ const Home = () => {
   const handleScroll = () => {
     const { scrollTop } = document.documentElement;
 
-    if (scrollTop < 10) {
+    if (scrollTop < 50) {
       setScroll(false);
     }
     if (scrollTop >= 300) {
@@ -84,16 +94,17 @@ const Home = () => {
     <CustomContainer>
       <Header />
 
-      <Container
+      <div
         ref={containerRef}
-        sx={{
-          width: '100vw',
-          height: '100vh',
+        style={{
+          width: '100vw !important',
+          height: '95vh',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           gap: '10px',
           overflow: 'hidden',
+          position: 'relative',
         }}
       >
         <Input handler={changeSkillSet} />
@@ -101,19 +112,55 @@ const Home = () => {
           Create Set
         </Button>
 
-        <MotionDiv drag dragElastic={2} dragConstraints={containerRef}>
+        <MotionDiv
+          drag
+          dragElastic={2}
+          dragConstraints={containerRef}
+          style={{
+            position: 'absolute',
+            bottom: '10%',
+            right: '5%',
+          }}
+        >
           <ReactIcon />
         </MotionDiv>
-        <MotionDiv drag dragElastic={2} dragConstraints={containerRef}>
+        <MotionDiv
+          drag
+          dragElastic={2}
+          dragConstraints={containerRef}
+          style={{
+            position: 'absolute',
+            top: '20%',
+            right: '20%',
+          }}
+        >
           <NodeJSIcon />
         </MotionDiv>
-        <MotionDiv drag dragElastic={2} dragConstraints={containerRef}>
+        <MotionDiv
+          drag
+          dragElastic={2}
+          dragConstraints={containerRef}
+          style={{
+            position: 'absolute',
+            top: '30%',
+            left: '13%',
+          }}
+        >
           <JavascriptIcon />
         </MotionDiv>
-        <MotionDiv drag dragElastic={2} dragConstraints={containerRef}>
+        <MotionDiv
+          drag
+          dragElastic={2}
+          dragConstraints={containerRef}
+          style={{
+            position: 'absolute',
+            bottom: '17%',
+            left: '25%',
+          }}
+        >
           <SpringIcon />
         </MotionDiv>
-      </Container>
+      </div>
 
       <Container
         sx={{
