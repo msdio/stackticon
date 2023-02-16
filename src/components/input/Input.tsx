@@ -1,5 +1,5 @@
-import { Autocomplete, TextField } from '@mui/material';
-import { useState } from 'react';
+import { Autocomplete, SvgIcon, TextField } from '@mui/material';
+import { makeIconInfoArray } from 'utils/allIconInfo';
 
 import { makeIconInfoArray } from '../../utils/allIconInfo';
 
@@ -30,6 +30,9 @@ const Input = ({ handler }: InputProps) => {
         renderOption={(props, option) => {
           return (
             <li {...props} key={option.path}>
+              <SvgIcon>
+                <path d={option.path} />
+              </SvgIcon>
               {option.title}
             </li>
           );
@@ -38,7 +41,7 @@ const Input = ({ handler }: InputProps) => {
         onChange={(e, value) => onStackChange(e, value)}
         filterSelectedOptions
         renderInput={(params) => (
-          <TextField {...params} label='Choose User Stacks!' placeholder='Stacks' />
+          <TextField {...params} label='Choose Your Stacks!' placeholder='Stacks' />
         )}
       />
     </div>
