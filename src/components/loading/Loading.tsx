@@ -1,35 +1,28 @@
 import Stacks from 'components/stacks';
-import { toPng } from 'html-to-image';
-import Page404 from 'pages/page404';
+import Cute404 from 'pages/page404/Cute404';
 import { useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getCreatedImageUrl } from 'services/firebase/storage';
+import { pngToImage } from 'utils/imageConverter';
 
 const Loading = () => {
   const navigate = useNavigate();
   const targetRef = useRef<HTMLDivElement>(null);
   const { state } = useLocation();
 
-  useEffect(() => {
-    if (state.length === 0) {
-      navigate('/');
-      // 깜빡거리는 issue 발생. cover component를 만들어서 해결 가능할거라 예상
-    }
-  }, []);
-
-  const getPngToImage = async () => {
-    if (targetRef.current === null) {
-      return;
-    }
-
-    const dataUrl = await toPng(targetRef.current, { cacheBust: true });
-    return dataUrl;
+  const navigateToResult = (resultUrl: string) => {
+    navigate('/result', { state: resultUrl });
   };
 
   const makeResult = async () => {
-    const imageRef = await getPngToImage();
+    const imageRef = await pngToImage(targetRef);
     const resultUrl = imageRef && (await getCreatedImageUrl(imageRef));
-    console.log(resultUrl);
+    if (resultUrl) {
+      navigateToResult(resultUrl);
+      return;
+    }
+    navigate('/');
+    throw new Error('이미지를 만드는 데 실패했습니다 다시 시도해주세요');
   };
 
   useEffect(() => {
@@ -39,7 +32,7 @@ const Loading = () => {
   return (
     <>
       {state === null || state.length === 0 ? (
-        <Page404 title={'잘못된 경로로 접근하였습니다!'} />
+        <Cute404 />
       ) : (
         <div>
           <Stacks ref={targetRef} selecteds={state} />

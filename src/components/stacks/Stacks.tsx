@@ -9,6 +9,7 @@ interface Props {
 const Stacks = forwardRef<HTMLDivElement, Props>(({ selecteds }, targetRef) => {
   return (
     <Box
+      ref={targetRef}
       bgcolor='common.black'
       display='grid'
       gridTemplateRows='auto'

@@ -1,6 +1,6 @@
 import type { StorageReference } from 'firebase/storage';
 import { uploadString } from 'firebase/storage';
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { getDownloadURL, ref } from 'firebase/storage';
 
 import { storage } from './initialize';
 
@@ -18,15 +18,6 @@ const downloadImageURL = async (downLoadRef: StorageReference) => {
   throw new Error('에러가 발생했습니다. 이미지 주소를 받아오지 못했습니다');
 };
 
-const uploadImageByBytes = async (imageRef: string, image: Blob | Uint8Array | ArrayBuffer) => {
-  const stackImageRef = makeImageRef();
-  const uploadRes = await uploadBytes(stackImageRef, image);
-  if (uploadRes) {
-    return uploadRes;
-  }
-  throw new Error('에러가 발생했습니다. 이미지를 생성하지 못했습니다');
-};
-
 const uploadImageByString = async (imageRef: string) => {
   const stackImageRef = makeImageRef();
   const uploadRes = await uploadString(stackImageRef, imageRef, 'data_url');
@@ -38,6 +29,7 @@ const uploadImageByString = async (imageRef: string) => {
 
 export const getCreatedImageUrl = async (imageRef: string) => {
   const uploaded = await uploadImageByString(imageRef);
+
   if (uploaded) {
     return downloadImageURL(uploaded.ref);
   }
