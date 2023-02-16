@@ -7,7 +7,7 @@
   "repository": "https://github.com/msdio/skill-set-generator.git",
   "author": "msdio <rlagofka1@gmail.com>, userJu <boochickenood@gmail.com>",
   "license": "MIT",
-  "homepage": "http://stackticon.com/",
+  "homepage": "https://msdio.github.io/stackticon/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
