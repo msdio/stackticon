@@ -2,9 +2,8 @@ import Stacks from 'components/stacks';
 import { toPng } from 'html-to-image';
 import Page404 from 'pages/page404';
 import { useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getCreatedImageUrl } from 'services/firebase/storage';
-
 
 const Loading = () => {
   const navigate = useNavigate();
