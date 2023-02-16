@@ -47,7 +47,7 @@ export const theme = createTheme({
     },
 
     background: {
-      default: '#FFF8EA',
+      default: '#FFFBF2',
     },
   },
 });
