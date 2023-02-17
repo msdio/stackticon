@@ -26,13 +26,16 @@ yarn start
 ## Features
 
 ### Simply type your skill sets<br/>
-(스킬들 타이핑해서 추가하는 gif)
+<img width="50%" src="https://user-images.githubusercontent.com/59170680/219634902-3ba561ac-cc65-4e1f-aff7-310fd100266e.gif" />
+<br/>
 
 ### Create your own skill sets<br/>
 <img width="50%" src="https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1676566938756?alt=media&token=2376e176-1614-4b10-8503-e0a24449b3c6" />
+<br/>
 
 ### You can copy url and use in your project's readme<br/>
 (결과 창에서 url 복사하는 gif)
+<br/>
 
 ## Authors
 
