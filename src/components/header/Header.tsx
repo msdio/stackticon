@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Link, Stack, SvgIcon, Typography } from '@mui/material';
+import { APP_NAME } from 'constants/constants';
 import { Svg } from 'constants/Svg';
 import { Link as RLink } from 'react-router-dom';
 
@@ -36,7 +37,7 @@ const Header = () => {
             cursor: 'pointer',
           }}
         >
-          Stackticon
+          {APP_NAME}
         </Typography>
       </RouterLink>
 
