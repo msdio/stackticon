@@ -9,12 +9,16 @@ const Container = styled.header`
 
   width: 100%;
   height: 80px;
-  background-color: #ddc6b6;
+  /* background-color: #ddc6b6; */
+  background-color: #02343f;
+  /* background-color: #343148; */
   padding: 10px 30px;
 
   position: fixed;
 
   z-index: 100;
+
+  border-radius: 0 0 10px 10px;
 `;
 
 const RouterLink = styled(RLink)`
@@ -69,7 +73,7 @@ const Header = () => {
           }}
         >
           <SvgIcon viewBox='0 0 512 512'>
-            <path d={Svg.coffee} />
+            <path d={Svg.coffee} fill='#FFF8EA' />
           </SvgIcon>
           <Typography color='primary.main'>buy coffee</Typography>
         </Box>
