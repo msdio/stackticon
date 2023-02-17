@@ -17,8 +17,6 @@ const Container = styled.header`
   position: fixed;
 
   z-index: 100;
-
-  border-radius: 0 0 10px 10px;
 `;
 
 const RouterLink = styled(RLink)`
