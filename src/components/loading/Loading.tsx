@@ -1,3 +1,4 @@
+import Stacks from 'components/stacks';
 import styled from '@emotion/styled';
 import { Typography } from '@mui/material';
 import { tetromino1, tetromino2, tetromino3, tetromino4 } from 'constants/animations';
@@ -63,10 +64,6 @@ const Loading = () => {
   }, []);
 
   return (
-    <>
-      {state === null || state.length === 0 ? (
-        <Cute404 />
-      ) : (
         <div
           style={{
             // position: 'relative',
@@ -92,8 +89,6 @@ const Loading = () => {
             Making Image...
           </Typography>
         </div>
-      )}
-    </>
   );
 };
 
