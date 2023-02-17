@@ -1,5 +1,4 @@
 import Stacks from 'components/stacks';
-import Cute404 from 'pages/page404/Cute404';
 import { useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getCreatedImageUrl } from 'services/firebase/storage';
@@ -30,15 +29,9 @@ const Loading = () => {
   }, []);
 
   return (
-    <>
-      {state === null || state.length === 0 ? (
-        <Cute404 />
-      ) : (
-        <div>
-          <Stacks ref={targetRef} selecteds={state} />
-        </div>
-      )}
-    </>
+    <div>
+      <Stacks ref={targetRef} selecteds={state} />
+    </div>
   );
 };
 
