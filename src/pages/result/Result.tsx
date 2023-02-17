@@ -1,12 +1,14 @@
 import styled from '@emotion/styled';
-import { Button } from '@mui/material';
+import { Button, Typography } from '@mui/material';
+import { APP_NAME } from 'constants/constants';
 import { Link, useLocation } from 'react-router-dom';
 
 const Container = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -70%);
+  text-align: center;
 `;
 
 const Img = styled.img`
@@ -27,6 +29,9 @@ const Result = () => {
   };
   return (
     <Container>
+      <Typography marginBottom={'10%'} fontWeight={'bold'} color={'#02343f'} variant='h1'>
+        {APP_NAME}
+      </Typography>
       <div>
         <Img src={state} alt='' />
       </div>
