@@ -38,8 +38,8 @@ yarn start
 
 <div>
   
-| [msdio](https://github.com/msdio) | [userJu](https://github.com/userJu) | [조도리](https://github.com/msdio)
+| [msdio](https://github.com/msdio) | [userJu](https://github.com/userJu) | [dori cho](https://instagram.com/h_eun1?igshid=YmMyMTA2M2Y=)
 |:---:|:---:|:---:|
-|<img width="120" alt="msdio" src="https://avatars.githubusercontent.com/u/59170680?v=4">|<img width="120" alt="userJu" src="https://avatars.githubusercontent.com/u/87933367?v=4">|<img width="120" alt="userJu" src="https://avatars.githubusercontent.com/u/59170680?v=4">
+|<img width="120" alt="msdio" src="https://avatars.githubusercontent.com/u/59170680?v=4">|<img width="120" alt="userJu" src="https://avatars.githubusercontent.com/u/87933367?v=4">|<img width="120" alt="dori cho" src="https://user-images.githubusercontent.com/59170680/219546425-8e5a6aaa-f974-4028-a6c6-80966fd67972.jpg">
 
 </div>
