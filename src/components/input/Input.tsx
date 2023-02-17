@@ -1,5 +1,5 @@
-import { Autocomplete, SvgIcon, TextField } from '@mui/material';
-import { useState } from 'react';
+import { Autocomplete, createFilterOptions, SvgIcon, TextField } from '@mui/material';
+import type { SimpleIcon } from 'simple-icons';
 
 import { makeIconInfoArray } from '../../utils/allIconInfo';
 
@@ -8,15 +8,13 @@ interface InputProps {
 }
 
 const Input = ({ handler }: InputProps) => {
-  const [selectedIconNames, setSelectedIconNames] = useState<string[]>([]);
   const iconArr = makeIconInfoArray();
 
-  const onStackChange = (e: React.SyntheticEvent, value: any) => {
-    const { textContent } = e.currentTarget;
-    textContent && setSelectedIconNames((prev) => [...prev, textContent]);
+  const onStackChange = (e: React.SyntheticEvent, value: SimpleIcon[]) => {
     handler(
       value.map(
-        (el: any) => el.slug.substring(0, 1).toUpperCase() + el.slug.substring(1, el.slug.length),
+        (el: SimpleIcon) =>
+          el.slug.substring(0, 1).toUpperCase() + el.slug.substring(1, el.slug.length),
       ),
     );
   };
@@ -30,7 +28,11 @@ const Input = ({ handler }: InputProps) => {
         renderOption={(props, option) => {
           return (
             <li {...props} key={option.path}>
-              <SvgIcon>
+              <SvgIcon
+                sx={{
+                  marginRight: '5px',
+                }}
+              >
                 <path d={option.path} />
               </SvgIcon>
               {option.title}
@@ -43,6 +45,9 @@ const Input = ({ handler }: InputProps) => {
         renderInput={(params) => (
           <TextField {...params} label='Choose Your Stacks!' placeholder='Stacks' />
         )}
+        filterOptions={createFilterOptions({
+          limit: 100,
+        })}
       />
     </div>
   );
