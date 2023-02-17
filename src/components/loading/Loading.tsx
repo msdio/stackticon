@@ -87,13 +87,7 @@ const Loading = () => {
           Making Image...
         </Typography>
       </div>
-      <div
-        style={{
-          display: 'none',
-        }}
-      >
-        <Stacks ref={targetRef} selecteds={state} />
-      </div>
+      <Stacks ref={targetRef} selecteds={state} />
     </>
   );
 };
