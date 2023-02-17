@@ -100,13 +100,14 @@ const Home = () => {
         ref={containerRef}
         style={{
           width: '100vw !important',
-          height: '95vh',
+          height: 'calc(100vh - 80px)',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           gap: '10px',
           overflow: 'hidden',
           position: 'relative',
+          transform: 'translateY(80px)',
         }}
       >
         <Input handler={changeSkillSet} />
@@ -172,68 +173,85 @@ const Home = () => {
         </MotionDiv>
       </div>
 
-      <Container
-        sx={{
+      <div
+        style={{
           width: '100%',
-          height: '50vh',
-          display: 'flex',
-          justifyContent: 'space-evenly',
-          alignItems: 'center',
-          gap: '10px',
+          height: '100vh',
         }}
       >
-        <Box
+        <Container
           sx={{
-            animation: scroll ? `${fadeFromLeft} 1s` : '',
-            display: scroll ? '' : 'none',
+            width: '100%',
+            height: '50vh',
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+            gap: '10px',
           }}
         >
-          <Typography variant='h4'>Simple, Fast</Typography>
-          <Typography marginLeft={5} marginTop={1}>
-            just input your skills and get it
-          </Typography>
-        </Box>
-        <Box
-          sx={{
-            width: '450px',
-            height: '300px',
-            background: 'grey',
-            animation: scroll ? `${fadeFromRight} 1s` : '',
-            display: scroll ? '' : 'none',
-          }}
-        />
-      </Container>
-      <Container
-        sx={{
-          width: '100%',
-          height: '50vh',
-          display: 'flex',
-          justifyContent: 'space-evenly',
-          alignItems: 'center',
-          gap: '10px',
-        }}
-      >
-        <Box
-          sx={{
-            width: '500px',
-            height: '350px',
-            background: 'grey',
-            animation: scroll ? `${fadeFromLeft} 1s` : '',
-            display: scroll ? '' : 'none',
-          }}
-        />
-        <Box>
-          <Typography
-            variant='h4'
+          <Box
             sx={{
+              animation: scroll ? `${fadeFromLeft} 1s` : '',
+              display: scroll ? '' : 'none',
+            }}
+          >
+            <Typography variant='h4'>Simple, Fast</Typography>
+            <Typography marginLeft={5} marginTop={1}>
+              just input your skills and get it
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              width: '550px',
               animation: scroll ? `${fadeFromRight} 1s` : '',
               display: scroll ? '' : 'none',
             }}
           >
-            Recognize in a glance
-          </Typography>
-        </Box>
-      </Container>
+            <img
+              width='550px'
+              src='https://user-images.githubusercontent.com/59170680/219634902-3ba561ac-cc65-4e1f-aff7-310fd100266e.gif'
+              alt='choose stacks gif'
+              loading='lazy'
+            />
+          </Box>
+        </Container>
+        <Container
+          sx={{
+            width: '100%',
+            height: '40vh',
+            display: 'flex',
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+            gap: '10px',
+          }}
+        >
+          <Box
+            sx={{
+              width: '500px',
+              animation: scroll ? `${fadeFromLeft} 1s` : '',
+              display: scroll ? '' : 'none',
+            }}
+          >
+            <img
+              width='500px'
+              src='https://user-images.githubusercontent.com/59170680/219640020-46b1972a-968d-495d-8f82-00bb90f03357.png'
+              alt='create your own skill sets'
+              loading='lazy'
+            />
+          </Box>
+          <Box>
+            <Typography
+              variant='h4'
+              sx={{
+                animation: scroll ? `${fadeFromRight} 1s` : '',
+                display: scroll ? '' : 'none',
+              }}
+            >
+              Recognize in a glance
+            </Typography>
+          </Box>
+        </Container>
+      </div>
     </CustomContainer>
   );
 };
