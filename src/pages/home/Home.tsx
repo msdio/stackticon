@@ -62,6 +62,7 @@ const SpringIcon = () => (
 const Home = () => {
   const [scroll, setScroll] = useState(false);
   const [skills, setSkills] = useState<string[]>([]);
+  const [buttonClicked, setButtonClicked] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const navigate = useNavigate();
@@ -87,9 +88,10 @@ const Home = () => {
   };
 
   const submitSkills = () => {
-    if (skills.length > 0) {
+    if (!buttonClicked && skills.length > 0) {
       navigate('/loading', { state: skills });
     }
+    setButtonClicked(true);
   };
 
   return (

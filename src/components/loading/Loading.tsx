@@ -1,10 +1,8 @@
-import Stacks from 'components/stacks';
 import styled from '@emotion/styled';
 import { Typography } from '@mui/material';
 import { tetromino1, tetromino2, tetromino3, tetromino4 } from 'constants/animations';
-import Cute404 from 'pages/page404/Cute404';
 import { useEffect, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getCreatedImageUrl } from 'services/firebase/storage';
 import { pngToImage } from 'utils/imageConverter';
 
@@ -41,11 +39,9 @@ const TetrominoBox4 = styled(Tetromino)`
 const Loading = () => {
   const navigate = useNavigate();
   const targetRef = useRef<HTMLDivElement>(null);
-  const { state } = useLocation();
 
   const navigateToResult = (resultUrl: string) => {
     navigate('/result', { state: resultUrl });
-    console.log('nav');
   };
 
   const makeResult = async () => {
@@ -64,31 +60,30 @@ const Loading = () => {
   }, []);
 
   return (
-        <div
-          style={{
-            // position: 'relative',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            height: '100vh',
-          }}
-        >
-          <Tetrominos>
-            <TetrominoBox1 />
-            <TetrominoBox2 />
-            <TetrominoBox3 />
-            <TetrominoBox4 />
-          </Tetrominos>
-          <Typography
-            variant='h4'
-            sx={{
-              transform: 'translateY(100px)',
-            }}
-          >
-            Making Image...
-          </Typography>
-        </div>
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        height: '100vh',
+      }}
+    >
+      <Tetrominos>
+        <TetrominoBox1 />
+        <TetrominoBox2 />
+        <TetrominoBox3 />
+        <TetrominoBox4 />
+      </Tetrominos>
+      <Typography
+        variant='h4'
+        sx={{
+          transform: 'translateY(100px)',
+        }}
+      >
+        Making Image...
+      </Typography>
+    </div>
   );
 };
 
