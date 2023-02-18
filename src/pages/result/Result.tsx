@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Button, Typography } from '@mui/material';
+import ButtonOptions from 'components/button-options/ButtonOptions';
 import { APP_NAME } from 'constants/constants';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -23,31 +24,20 @@ const Buttons = styled.div`
 
 const Result = () => {
   const { state } = useLocation();
-  const clickCopyUrl = async () => {
-    await navigator.clipboard.writeText(state);
-    alert('url을 복사했습니다');
-  };
+
   return (
     <Container>
       <Typography marginBottom={'10%'} fontWeight={'bold'} color={'#02343f'} variant='h1'>
         {APP_NAME}
       </Typography>
       <div>
-        <Img src={state} alt='' />
+        <Img src={state} alt='stackticon result' />
       </div>
       <Buttons>
-        <Button
-          style={{ marginRight: '10px' }}
-          onClick={clickCopyUrl}
-          variant='contained'
-          color='success'
-          startIcon='🍄'
-        >
-          url 복사하기
-        </Button>
+        <ButtonOptions url={state} />
         <Link to='/' style={{ textDecoration: 'none' }}>
           <Button style={{ marginLeft: '10px' }} variant='contained' color='info' endIcon='🏠'>
-            메인으로
+            Return to main
           </Button>
         </Link>
       </Buttons>
