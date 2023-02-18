@@ -90,8 +90,8 @@ const Home = () => {
   const submitSkills = () => {
     if (!buttonClicked && skills.length > 0) {
       navigate('/loading', { state: skills });
+      setButtonClicked(true);
     }
-    setButtonClicked(true);
   };
 
   return (
