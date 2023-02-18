@@ -1,7 +1,23 @@
-import { Autocomplete, createFilterOptions, SvgIcon, TextField } from '@mui/material';
+import styled from '@emotion/styled';
+import { Autocomplete, createFilterOptions, TextField } from '@mui/material';
 import type { SimpleIcon } from 'simple-icons';
 
 import { makeIconInfoArray } from '../../utils/allIconInfo';
+
+const DropdownSvg = styled.div<{ hex: string }>`
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  path {
+    fill: ${(props) => props.hex};
+  }
+`;
 
 interface InputProps {
   handler: (p: string[]) => void;
@@ -28,13 +44,10 @@ const Input = ({ handler }: InputProps) => {
         renderOption={(props, option) => {
           return (
             <li {...props} key={option.path}>
-              <SvgIcon
-                sx={{
-                  marginRight: '5px',
-                }}
-              >
-                <path d={option.path} />
-              </SvgIcon>
+              <DropdownSvg
+                dangerouslySetInnerHTML={{ __html: option.svg }}
+                hex={'#' + option.hex}
+              ></DropdownSvg>
               {option.title}
             </li>
           );
