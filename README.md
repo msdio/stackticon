@@ -2,8 +2,10 @@
 
 Make skill sets image for readme <br/>
 https://msdio.github.io/stackticon/ 
-<br/>
+
 [![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1676566938756?alt=media&token=2376e176-1614-4b10-8503-e0a24449b3c6)](https://github.com/msdio/stackticon)
+
+<br/>
 
 ## How To Contribute
 You can contribute with adding icon.<br/>
