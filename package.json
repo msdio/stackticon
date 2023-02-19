@@ -37,6 +37,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.9",
     "@mui/material": "^5.11.8",
     "@mui/system": "^5.11.8",
     "firebase": "^9.17.1",

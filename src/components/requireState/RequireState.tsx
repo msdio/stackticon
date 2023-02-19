@@ -1,5 +1,5 @@
 import Cute404 from 'pages/page404';
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 
 interface RequireStateProps {
   component: JSX.Element;

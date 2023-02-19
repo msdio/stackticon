@@ -62,7 +62,7 @@ const Header = () => {
           </Box>
         </Link>
 
-        <Box
+        {/* <Box
           component='div'
           sx={{
             display: 'flex',
@@ -75,7 +75,7 @@ const Header = () => {
             <path d={Svg.coffee} fill='#FFF8EA' />
           </SvgIcon>
           <Typography color='primary.main'>buy coffee</Typography>
-        </Box>
+        </Box> */}
       </Stack>
     </Container>
   );
