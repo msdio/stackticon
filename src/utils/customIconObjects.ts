@@ -26,7 +26,8 @@ export const customIconArray: (SimpleIcon & CustomIconProps)[] = CustomIconsJson
 
 export const customIconObject: CustomObjectProps = {};
 CustomIconsJson.forEach((item) => {
-  const key = 'si' + item.title;
+  const key =
+    'si' + item.slug.substring(0, 1).toUpperCase() + item.slug.substring(1, item.slug.length);
   const value: SimpleIcon & CustomIconProps = {
     ...item,
     get svg() {
