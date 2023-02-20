@@ -20,7 +20,7 @@ You should add like following:
   "viewBox": "viewBox"
 },
 ```
-`title` : Starts with capital letter. Every word should start with capital letter. `ex) Two Words`<br/>
+`title` : Every word should start with capital letter. `ex) Two Words`<br/>
 `slug` : Same as title, but remove space between words and use small letter at very first. `ex) twoWords`<br/>
 `hex` : Color of svg. Please write without #. <br/>
 `path` : Path of svg. <br/>
