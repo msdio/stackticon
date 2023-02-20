@@ -37,25 +37,25 @@ const MotionDiv = styled(motion.div)`
 
 const JavascriptIcon = () => (
   <SvgIcon viewBox='0 0 24 24' fontSize='inherit'>
-    <path d={Svg.javascript} fill='#F7DF1E' />
+    <path d={Svg.javascript.path} fill={Svg.javascript.hex} />
   </SvgIcon>
 );
 
 const ReactIcon = () => (
   <SvgIcon viewBox='0 0 24 24' fontSize='inherit'>
-    <path d={Svg.react} fill='#61DAFB' />
+    <path d={Svg.react.path} fill={Svg.react.hex} />
   </SvgIcon>
 );
 
 const NodeJSIcon = () => (
   <SvgIcon viewBox='0 0 24 24' fontSize='inherit'>
-    <path d={Svg.nodejs} fill='#339933' />
+    <path d={Svg.nodejs.path} fill={Svg.nodejs.hex} />
   </SvgIcon>
 );
 
 const SpringIcon = () => (
   <SvgIcon viewBox='0 0 24 24' fontSize='inherit'>
-    <path d={Svg.spring} fill='#6DB33F' />
+    <path d={Svg.spring.path} fill={Svg.spring.hex} />
   </SvgIcon>
 );
 
