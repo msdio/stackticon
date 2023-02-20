@@ -1,7 +1,11 @@
 import * as icons from 'simple-icons';
 
-export const getSimpleIconInfo = (target: string) => {
-  const iconKey = ('si' + target) as keyof typeof icons;
+import { customIconObject } from './customIconObjects';
 
-  return icons[iconKey];
+export const getSimpleIconInfo = (target: string) => {
+  const allIconArr = { ...icons, ...customIconObject };
+
+  const iconKey = ('si' + target) as keyof typeof allIconArr;
+
+  return allIconArr[iconKey];
 };
