@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Button, Typography } from '@mui/material';
 import ButtonOptions from 'components/button-options/ButtonOptions';
 import { APP_NAME } from 'constants/constants';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   position: absolute;
@@ -24,6 +24,11 @@ const Buttons = styled.div`
 
 const Result = () => {
   const { state } = useLocation();
+  const navigate = useNavigate();
+
+  window.addEventListener('popstate', () => {
+    navigate('/');
+  });
 
   return (
     <Container>
