@@ -1,14 +1,41 @@
 # stackticon
 
 Make skill sets image for readme <br/>
-https://msdio.github.io/stackticon/
+
+https://msdio.github.io/stackticon/ 
+
 [![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1676566938756?alt=media&token=2376e176-1614-4b10-8503-e0a24449b3c6)](https://github.com/msdio/stackticon)
 
-### Environments
+<br/>
+
+## How To Contribute
+You can contribute with adding icon.<br/>
+You only need to add info about icon in `custom-icons.json` file.
+You should add like following:
+```
+{
+  "title": "Java",
+  "slug": "java",
+  "hex": "3174b9",
+  "path": "path",
+  "viewBox": "viewBox"
+},
+```
+`title` : Every word should start with capital letter. `ex) Two Words`<br/>
+`slug` : Same as title, but remove space between words and use small letter at very first. `ex) twoWords`<br/>
+`hex` : Color of svg. Please write without #. <br/>
+`path` : Path of svg. <br/>
+`viewBox` : ViewBox of svg. <br/>
+
+<br/>
+
+## Environments
 
 React `v18.3.0`
 
-### How to install
+<br/>
+
+## How to install
 
 you can download modules with command:
 
@@ -35,7 +62,9 @@ yarn start
 <br/>
 
 ### You can copy url and use in your project's readme<br/>
-(결과 창에서 url 복사하는 gif)
+![image](https://user-images.githubusercontent.com/59170680/219884847-dc947cbf-8232-4fc7-b938-b14bd5dc84dc.png)
+
+
 <br/>
 
 ## Authors
