@@ -1,10 +1,10 @@
 import CustomIconsJson from 'constants/custom-icons.json';
 import type { SimpleIcon } from 'simple-icons';
 
-const prefix = '<svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="';
-const preMid = '"><title>';
-const middle = '</title><path d="';
-const suffix = '"/></svg>';
+const PREFIX = '<svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="';
+const PREMID = '"><title>';
+const MIDDLE = '</title><path d="';
+const SUFFIX = '"/></svg>';
 
 interface CustomIconProps {
   viewBox: string;
@@ -17,7 +17,7 @@ interface CustomObjectProps {
 export const customIconArray: (SimpleIcon & CustomIconProps)[] = CustomIconsJson.map((obj) => ({
   ...obj,
   get svg() {
-    return prefix + this.viewBox + preMid + this.title + middle + this.path + suffix;
+    return PREFIX + this.viewBox + PREMID + this.title + MIDDLE + this.path + SUFFIX;
   },
   source: '',
   guidelines: void 0,
@@ -31,7 +31,7 @@ CustomIconsJson.forEach((item) => {
   const value: SimpleIcon & CustomIconProps = {
     ...item,
     get svg() {
-      return prefix + this.viewBox + preMid + this.title + middle + this.path + suffix;
+      return PREFIX + this.viewBox + PREMID + this.title + MIDDLE + this.path + SUFFIX;
     },
     source: '',
     guidelines: void 0,
