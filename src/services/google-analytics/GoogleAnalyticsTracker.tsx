@@ -15,7 +15,7 @@ const GoogleAnalyticsTracker = () => {
 
   useEffect(() => {
     if (initialized) {
-      ReactGA.send({ hitType: 'pageview', page: location.pathname + location.search });
+      ReactGA.send({ hitType: 'pageview', page: location.pathname + location.hash });
     }
   }, [initialized, location]);
 };
