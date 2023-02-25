@@ -1,14 +1,19 @@
 import { ThemeProvider } from '@mui/system';
-import { HashRouter } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 import RouterContainer from 'RouterContainer';
 import { theme } from 'styles/theme';
+
+const router = createHashRouter([
+  {
+    path: '/*',
+    element: <RouterContainer />,
+  },
+]);
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <HashRouter>
-        <RouterContainer />
-      </HashRouter>
+      <RouterProvider router={router} />
     </ThemeProvider>
   );
 }
