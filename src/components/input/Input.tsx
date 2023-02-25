@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Autocomplete, createFilterOptions, TextField } from '@mui/material';
+import { Autocomplete, createFilterOptions, TextField, useMediaQuery } from '@mui/material';
 import type { SimpleIcon } from 'simple-icons';
 
 import { makeIconInfoArray } from '../../utils/allIconInfo';
@@ -24,6 +24,7 @@ interface InputProps {
 }
 
 const Input = ({ handler }: InputProps) => {
+  const isMobile = useMediaQuery('(max-width: 900px)');
   const iconArr = makeIconInfoArray();
 
   const onStackChange = (e: React.SyntheticEvent, value: SimpleIcon[]) => {
@@ -36,7 +37,7 @@ const Input = ({ handler }: InputProps) => {
   };
 
   return (
-    <div style={{ width: '50%', zIndex: '50' }}>
+    <div style={{ width: isMobile ? '66%' : '50%', zIndex: '50' }}>
       <Autocomplete
         multiple
         id='tags-outlined'

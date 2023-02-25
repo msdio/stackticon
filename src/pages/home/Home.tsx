@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Box, Button, Container, SvgIcon, Typography } from '@mui/material';
+import { Box, Button, Container, SvgIcon, Typography, useMediaQuery } from '@mui/material';
 import DraggableIcon from 'components/draggable-icon';
 import Header from 'components/header';
 import Input from 'components/input';
@@ -47,6 +47,7 @@ const Home = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery('(max-width: 900px)');
 
   const navigate = useNavigate();
 
@@ -99,7 +100,7 @@ const Home = () => {
             zIndex: 50,
           }}
         >
-          Create Set
+          Create {isMobile ? '' : 'Set'}
         </Button>
 
         <DraggableIcon constraints={containerRef} icon={<ReactIcon />} bottom='10%' right='5%' />
@@ -120,6 +121,7 @@ const Home = () => {
             width: '100%',
             height: '50vh',
             display: 'flex',
+            flexDirection: isMobile ? 'column' : 'row',
             justifyContent: 'space-evenly',
             alignItems: 'center',
             gap: '10px',
@@ -138,13 +140,13 @@ const Home = () => {
           </Box>
           <Box
             sx={{
-              width: '550px',
+              width: isMobile ? '100%' : '550px',
               animation: scroll ? `${fadeFromRight} 1s` : '',
               display: scroll ? '' : 'none',
             }}
           >
             <img
-              width='550px'
+              width={isMobile ? '100%' : '550px'}
               src='https://user-images.githubusercontent.com/59170680/219634902-3ba561ac-cc65-4e1f-aff7-310fd100266e.gif'
               alt='choose stacks gif'
               loading='lazy'
@@ -156,6 +158,7 @@ const Home = () => {
             width: '100%',
             height: '40vh',
             display: 'flex',
+            flexDirection: isMobile ? 'column-reverse' : 'row',
             justifyContent: 'space-evenly',
             alignItems: 'center',
             gap: '10px',
@@ -163,13 +166,13 @@ const Home = () => {
         >
           <Box
             sx={{
-              width: '500px',
+              width: isMobile ? '100%' : '550px',
               animation: scroll ? `${fadeFromLeft} 1s` : '',
               display: scroll ? '' : 'none',
             }}
           >
             <img
-              width='500px'
+              width={isMobile ? '100%' : '550px'}
               src='https://user-images.githubusercontent.com/59170680/219640020-46b1972a-968d-495d-8f82-00bb90f03357.png'
               alt='create your own skill sets'
               loading='lazy'
