@@ -62,7 +62,12 @@ const Loading = () => {
   }, []);
 
   return (
-    <>
+    <div
+      style={{
+        height: '100vh',
+        overflowY: 'hidden',
+      }}
+    >
       <div
         style={{
           display: 'flex',
@@ -88,7 +93,7 @@ const Loading = () => {
         </Typography>
       </div>
       <Stacks ref={targetRef} selecteds={state} />
-    </>
+    </div>
   );
 };
 
