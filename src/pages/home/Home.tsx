@@ -46,23 +46,18 @@ const Home = () => {
   const [skills, setSkills] = useState<string[]>([]);
   const [buttonClicked, setButtonClicked] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const observerRef = useRef<HTMLDivElement>(null);
 
   const navigate = useNavigate();
 
-  const handleScroll = () => {
-    const { scrollTop } = document.documentElement;
-
-    if (scrollTop < 50) {
-      setScroll(false);
-    }
-    if (scrollTop >= 300) {
-      setScroll(true);
-    }
-  };
-
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const io = new IntersectionObserver(
+      (entries: IntersectionObserverEntry[]) => {
+        entries[0].isIntersecting ? setScroll(true) : setScroll(false);
+      },
+      { threshold: 0.1 },
+    );
+    io.observe(observerRef.current as HTMLElement);
   }, []);
 
   const changeSkillSet = (inputSkills: string[]) => {
@@ -114,6 +109,7 @@ const Home = () => {
       </div>
 
       <div
+        ref={observerRef}
         style={{
           width: '100%',
           height: '100vh',
@@ -179,16 +175,13 @@ const Home = () => {
               loading='lazy'
             />
           </Box>
-          <Box>
-            <Typography
-              variant='h4'
-              sx={{
-                animation: scroll ? `${fadeFromRight} 1s` : '',
-                display: scroll ? '' : 'none',
-              }}
-            >
-              Recognize in a glance
-            </Typography>
+          <Box
+            sx={{
+              animation: scroll ? `${fadeFromRight} 1s` : '',
+              display: scroll ? '' : 'none',
+            }}
+          >
+            <Typography variant='h4'>Recognize in a glance</Typography>
           </Box>
         </Container>
       </div>
