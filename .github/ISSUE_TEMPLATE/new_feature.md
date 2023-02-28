@@ -1,11 +1,11 @@
 ---
-name: 기능 구현
-about: 기능 구현 시에 선택해주세요.
+name: Features
+about: template for new features.
 title: ''
 labels: ''
 assignees: ''
 ---
 
-## 📚 작업 내용
+## 📚 Tasks
 
-## ✔ 체크리스트
+## ✔ Checklists
