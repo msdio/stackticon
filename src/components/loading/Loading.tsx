@@ -92,7 +92,7 @@ const Loading = () => {
           Making Image...
         </Typography>
       </div>
-      <Stacks ref={targetRef} selecteds={state} />
+      <Stacks ref={targetRef} selecteds={state} color='black' />
     </div>
   );
 };

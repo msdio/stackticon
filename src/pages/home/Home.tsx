@@ -67,7 +67,7 @@ const Home = () => {
 
   const submitSkills = () => {
     if (!buttonClicked && skills.length > 0) {
-      navigate('/loading', { state: skills });
+      navigate('/backgrounds', { state: skills });
       setButtonClicked(true);
     }
   };
