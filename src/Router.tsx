@@ -9,8 +9,7 @@ import { Route, Routes } from 'react-router-dom';
 const Router = () => (
   <Routes>
     <Route path='/' element={<Home />} />
-    {/* <Route path='/backgrounds' element={<RequireState component={<BackgroundColors />} />} /> */}
-    <Route path='/backgrounds' element={<BackgroundColors />} />
+    <Route path='/backgrounds' element={<RequireState component={<BackgroundColors />} />} />
     <Route path='/loading/:color' element={<RequireState component={<Loading />} />} />
     <Route path='/result' element={<RequireState component={<Result />} />} />
     <Route path='*' element={<Cute404 />} />
