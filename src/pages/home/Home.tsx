@@ -4,7 +4,8 @@ import DraggableIcon from 'components/draggable-icon';
 import Header from 'components/header';
 import Input from 'components/input';
 import { Svg } from 'constants/Svg';
-import { useEffect, useRef, useState } from 'react';
+import useIntersectionObserver from 'hooks/useIntersectionObserver';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { fadeFromLeft, fadeFromRight } from '../../constants/animations';
@@ -42,24 +43,15 @@ const SpringIcon = () => (
 );
 
 const Home = () => {
-  const [scroll, setScroll] = useState(false);
   const [skills, setSkills] = useState<string[]>([]);
   const [buttonClicked, setButtonClicked] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<HTMLDivElement>(null);
-  const isMobile = useMediaQuery('(max-width: 900px)');
-
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries: IntersectionObserverEntry[]) => {
-        entries[0].isIntersecting ? setScroll(true) : setScroll(false);
-      },
-      { threshold: 0.1 },
-    );
-    io.observe(observerRef.current as HTMLElement);
-  }, []);
+  const isMobile = useMediaQuery('(max-width: 900px)');
+
+  const activeAnimation = useIntersectionObserver({ ref: observerRef, threshold: 0.1 });
 
   const changeSkillSet = (inputSkills: string[]) => {
     setSkills(inputSkills);
@@ -80,7 +72,7 @@ const Home = () => {
         ref={containerRef}
         style={{
           width: '100vw !important',
-          height: 'calc(100vh - 80px)',
+          height: 'calc(100vh)',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -129,8 +121,8 @@ const Home = () => {
         >
           <Box
             sx={{
-              animation: scroll ? `${fadeFromLeft} 1s` : '',
-              display: scroll ? '' : 'none',
+              animation: activeAnimation ? `${fadeFromLeft} 1s` : '',
+              display: activeAnimation ? '' : 'none',
             }}
           >
             <Typography variant='h4'>Simple, Fast</Typography>
@@ -141,8 +133,8 @@ const Home = () => {
           <Box
             sx={{
               width: isMobile ? '100%' : '550px',
-              animation: scroll ? `${fadeFromRight} 1s` : '',
-              display: scroll ? '' : 'none',
+              animation: activeAnimation ? `${fadeFromRight} 1s` : '',
+              display: activeAnimation ? '' : 'none',
             }}
           >
             <img
@@ -167,8 +159,8 @@ const Home = () => {
           <Box
             sx={{
               width: isMobile ? '100%' : '550px',
-              animation: scroll ? `${fadeFromLeft} 1s` : '',
-              display: scroll ? '' : 'none',
+              animation: activeAnimation ? `${fadeFromLeft} 1s` : '',
+              display: activeAnimation ? '' : 'none',
             }}
           >
             <img
@@ -180,8 +172,8 @@ const Home = () => {
           </Box>
           <Box
             sx={{
-              animation: scroll ? `${fadeFromRight} 1s` : '',
-              display: scroll ? '' : 'none',
+              animation: activeAnimation ? `${fadeFromRight} 1s` : '',
+              display: activeAnimation ? '' : 'none',
             }}
           >
             <Typography variant='h4'>Recognize in a glance</Typography>
