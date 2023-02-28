@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Box } from '@mui/material';
 import { getSimpleIconInfo } from 'utils/simpleIconInfo';
 
 const DropdownSvg = styled.div<{ hex: string }>`
@@ -31,19 +32,17 @@ const Stack = ({ stackName }: StackProps) => {
         alignItems: 'center',
       }}
     >
-      <div
-        style={{
-          borderRadius: '15%',
-          margin: '5px',
-          backgroundColor: 'white',
-          alignItems: 'center',
-          padding: '10px',
-          width: '70px',
-          height: '70px',
-        }}
+      <Box
+        borderRadius='15%'
+        margin='5px'
+        bgcolor='white'
+        alignItems='center'
+        p='10px'
+        width='70px'
+        height='70px'
       >
         <DropdownSvg dangerouslySetInnerHTML={{ __html: svg }} hex={'#' + hex}></DropdownSvg>
-      </div>
+      </Box>
       <p style={{ margin: '0', textAlign: 'center' }}>{title}</p>
     </div>
   );

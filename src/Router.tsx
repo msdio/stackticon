@@ -11,7 +11,7 @@ const Router = () => (
     <Route path='/' element={<Home />} />
     {/* <Route path='/backgrounds' element={<RequireState component={<BackgroundColors />} />} /> */}
     <Route path='/backgrounds' element={<BackgroundColors />} />
-    <Route path='/loading' element={<RequireState component={<Loading />} />} />
+    <Route path='/loading/:color' element={<RequireState component={<Loading />} />} />
     <Route path='/result' element={<RequireState component={<Result />} />} />
     <Route path='*' element={<Cute404 />} />
   </Routes>

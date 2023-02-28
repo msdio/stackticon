@@ -3,8 +3,9 @@ import { Typography } from '@mui/material';
 import Stacks from 'components/stacks';
 import { tetromino1, tetromino2, tetromino3, tetromino4 } from 'constants/animations';
 import { useEffect, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { getCreatedImageUrl } from 'services/firebase/storage';
+import type { BgColorOption } from 'types/backgroundColors';
 import { pngToImage } from 'utils/imageConverter';
 
 const Tetrominos = styled.div`
@@ -38,6 +39,7 @@ const TetrominoBox4 = styled(Tetromino)`
 `;
 
 const Loading = () => {
+  const { color } = useParams();
   const navigate = useNavigate();
   const targetRef = useRef<HTMLDivElement>(null);
   const { state } = useLocation();
@@ -92,7 +94,7 @@ const Loading = () => {
           Making Image...
         </Typography>
       </div>
-      <Stacks ref={targetRef} selecteds={state} color='black' />
+      <Stacks ref={targetRef} selecteds={state} color={color as BgColorOption['color']} />
     </div>
   );
 };

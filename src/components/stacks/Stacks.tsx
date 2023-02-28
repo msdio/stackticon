@@ -1,9 +1,9 @@
 import { Box } from '@mui/material';
 import Stack from 'components/stack/Stack';
 import React, { forwardRef } from 'react';
+import type { BgColorOption } from 'types/backgroundColors';
 
-interface StacksProps {
-  color: 'black' | 'white';
+interface StacksProps extends BgColorOption {
   selecteds: string[];
 }
 
@@ -15,7 +15,8 @@ const Stacks = forwardRef<HTMLDivElement, StacksProps>(({ color, selecteds }, ta
       display='grid'
       gridTemplateRows='auto'
       gridTemplateColumns='1fr 1fr 1fr 1fr 1fr 1fr'
-      color='common.white'
+      color={color === 'black' ? 'common.white' : 'common.black'}
+      fontWeight='bold'
       width='700px'
       height='auto'
       padding='10px'
