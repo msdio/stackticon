@@ -58,7 +58,7 @@ const Header = () => {
             <SvgIcon viewBox='0 0 24 24'>
               <path d={Svg.github} />
             </SvgIcon>
-            <Typography color='primary.main'>source code</Typography>
+            <Typography color='primary.main'>visit github</Typography>
           </Box>
         </Link>
 
