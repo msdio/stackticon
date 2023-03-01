@@ -57,6 +57,10 @@ yarn start
 <img width="80%" src="https://user-images.githubusercontent.com/59170680/219634902-3ba561ac-cc65-4e1f-aff7-310fd100266e.gif" />
 <br/>
 
+### Choose your color<br/>
+<img width="60%" src="https://user-images.githubusercontent.com/59170680/222030335-81444560-53d7-4bde-bc9f-528fd042d3c7.png" />
+<br/>
+
 ### Create your own skill sets<br/>
 [![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1676566938756?alt=media&token=2376e176-1614-4b10-8503-e0a24449b3c6)](https://github.com/msdio/stackticon)
 <br/>
