@@ -14,10 +14,26 @@ const CustomContainer = styled.div`
 
 const StackContainer = styledMUI(Box)(({ theme }) => ({
   cursor: 'pointer',
+  position: 'relative',
   '&:hover': {
     border: `5px solid ${theme.palette.success.main}`,
+    h1: {
+      opacity: 1,
+    },
   },
 }));
+
+const Color = styled.h1<{ color: string }>`
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+  color: ${(props) => props.color};
+`;
 
 const BackgroundColors = () => {
   const [colorSelected, setColorSelected] = useState(false);
@@ -36,7 +52,7 @@ const BackgroundColors = () => {
 
   return (
     <CustomContainer>
-      <Typography variant='h3' textAlign='center' p={5}>
+      <Typography variant='h3' textAlign='center' p={5} fontWeight={'bold'} color={'#02343f'}>
         Choose Color
       </Typography>
 
@@ -52,9 +68,11 @@ const BackgroundColors = () => {
       >
         <StackContainer onClick={() => submitSkills('black')}>
           <Stacks ref={targetRef} selecteds={state} color='black' />
+          <Color color='white'>BLACK</Color>
         </StackContainer>
         <StackContainer onClick={() => submitSkills('white')}>
           <Stacks ref={targetRef} selecteds={state} color='white' />
+          <Color color='black'>WHITE</Color>
         </StackContainer>
       </Container>
     </CustomContainer>
