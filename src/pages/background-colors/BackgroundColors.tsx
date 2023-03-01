@@ -16,7 +16,7 @@ const StackContainer = styledMUI(Box)(({ theme }) => ({
   cursor: 'pointer',
   position: 'relative',
   '&:hover': {
-    border: `5px solid ${theme.palette.success.main}`,
+    outline: `5px solid ${theme.palette.success.main}`,
     h1: {
       opacity: 1,
     },
