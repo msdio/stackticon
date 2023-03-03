@@ -6,7 +6,7 @@ import { makeIconInfoArray } from '../allIconInfo';
 describe('check custom icons', () => {
   let allIconArr: SimpleIcon[];
 
-  beforeEach(() => {
+  beforeAll(() => {
     allIconArr = makeIconInfoArray();
   });
 
