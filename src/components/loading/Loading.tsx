@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { getCreatedImageUrl } from 'services/firebase/storage';
 import type { BgColorOption } from 'types/backgroundColors';
-import { pngToImage } from 'utils/imageConverter';
+import { htmlToPng } from 'utils/imageConverter';
 
 const Tetrominos = styled.div`
   position: absolute;
@@ -49,7 +49,7 @@ const Loading = () => {
   };
 
   const makeResult = async () => {
-    const imageRef = await pngToImage(targetRef);
+    const imageRef = await htmlToPng(targetRef);
     const resultUrl = imageRef && (await getCreatedImageUrl(imageRef));
     if (resultUrl) {
       navigateToResult(resultUrl);
