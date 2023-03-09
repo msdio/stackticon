@@ -1,6 +1,6 @@
 import { toPng } from 'html-to-image';
 
-export const pngToImage = async (targetRef: React.RefObject<HTMLDivElement>) => {
+export const htmlToPng = async (targetRef: React.RefObject<HTMLDivElement>) => {
   if (targetRef.current === null) {
     return;
   }
