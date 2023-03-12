@@ -1,1 +1,1 @@
-export const APP_NAME = 'Stackticon';
+export const APP_NAME = 'stackticon';

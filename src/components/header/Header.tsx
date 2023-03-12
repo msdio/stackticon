@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Link, Stack, SvgIcon, Typography } from '@mui/material';
+import LogoWithBackground from 'assets/icons/logoWithBackground';
 import { APP_NAME } from 'constants/constants';
 import { Svg } from 'constants/Svg';
 import { Link as RLink } from 'react-router-dom';
@@ -9,11 +10,9 @@ const Container = styled.header`
   align-items: center;
 
   width: 100%;
-  height: 80px;
-  /* background-color: #ddc6b6; */
-  background-color: #02343f;
-  /* background-color: #343148; */
-  padding: 10px 30px;
+  height: 86px;
+  background-color: #ffffff;
+  padding: 0px 80px;
 
   position: fixed;
 
@@ -22,15 +21,38 @@ const Container = styled.header`
 
 const RouterLink = styled(RLink)`
   text-decoration: none;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+`;
+
+const GithubLink = styled(Link)`
+  width: 201px;
+  height: 49px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(0deg, rgba(0, 102, 255, 0.2), rgba(0, 102, 255, 0.2)), #ffffff;
+
+  border-radius: 12px;
+
+  text-decoration: none;
 `;
 
 const Header = () => {
   return (
     <Container>
       <RouterLink to='/'>
+        <LogoWithBackground width={29.3} height={29.3} />
         <Typography
           variant='h4'
-          color='primary.main'
+          color='#323443'
+          fontWeight='bold'
+          fontSize='28px'
           sx={{
             cursor: 'pointer',
           }}
@@ -40,27 +62,24 @@ const Header = () => {
       </RouterLink>
 
       <Stack direction='row' spacing={2} marginLeft='auto'>
-        <Link
-          href='https://github.com/msdio/stackticon'
-          sx={{
-            textDecoration: 'none',
-          }}
-        >
+        <GithubLink href='https://github.com/msdio/stackticon'>
           <Box
             component='div'
             sx={{
               display: 'flex',
-              flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
+              gap: '10px',
             }}
           >
             <SvgIcon viewBox='0 0 24 24'>
-              <path d={Svg.github} />
+              <path d={Svg.github} fill='#0066ff' />
             </SvgIcon>
-            <Typography color='primary.main'>visit github</Typography>
+            <Typography color='#0066ff' fontWeight='600' fontSize='22px'>
+              Visit Github
+            </Typography>
           </Box>
-        </Link>
+        </GithubLink>
 
         {/* <Box
           component='div'
