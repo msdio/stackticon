@@ -40,6 +40,7 @@ const ButtonOptions = (state: any) => {
   const clickCopyOption = (e: React.MouseEvent<HTMLLIElement, MouseEvent>, index: number) => {
     setSelectedOption(index);
     setOpenOptions(false);
+    clickCopyUrl();
   };
 
   const handleToggle = () => {
