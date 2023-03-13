@@ -22,23 +22,23 @@ export const theme = createTheme({
   },
   palette: {
     p: {
-      'p/1': '#ff00aa',
-      'p/2': 'linear-gradient(0deg, rgba(0, 102, 255, 0.8), rgba(0, 102, 255, 0.8)), #FFFFFF',
-      'p/3': 'linear-gradient(0deg, rgba(0, 102, 255, 0.6), rgba(0, 102, 255, 0.6)), #FFFFFF',
-      'p/4': 'linear-gradient(0deg, rgba(0, 102, 255, 0.4), rgba(0, 102, 255, 0.4)), #FFFFFF',
-      'p/5': 'linear-gradient(0deg, rgba(0, 102, 255, 0.2), rgba(0, 102, 255, 0.2)), #FFFFFF',
-      'p/6': 'linear-gradient(0deg, rgba(0, 102, 255, 0.1), rgba(0, 102, 255, 0.1)), #FFFFFF',
-      'p/7': 'linear-gradient(0deg, rgba(0, 102, 255, 0.06), rgba(0, 102, 255, 0.06)), #FFFFFF',
-      'p/8': 'linear-gradient(0deg, rgba(0, 102, 255, 0.04), rgba(0, 102, 255, 0.04)), #FFFFFF',
+      '1': '#0066ff',
+      '2': '#3385ff',
+      '3': '#66a3ff',
+      '4': '#99c2ff',
+      '5': '#cce0ff',
+      '6': '#e6f0ff',
+      '7': '#f0f6ff',
+      '8': '#f5f9ff',
     },
 
     cg: {
-      'cg/1': '#0A1320',
-      'cg/2': '#1A2339',
-      'cg/3': '#364261',
-      'cg/4': '#4B597D',
-      'cg/5': '#7886AA',
-      'cg/6': '#B3BACD',
+      '1': '#0A1320',
+      '2': '#1A2339',
+      '3': '#364261',
+      '4': '#4B597D',
+      '5': '#7886AA',
+      '6': '#B3BACD',
     },
 
     info: {
@@ -52,81 +52,67 @@ export const theme = createTheme({
 declare module '@mui/material/styles' {
   interface Palette {
     p: {
-      'p/1': string;
-      'p/2': string;
-      'p/3': string;
-      'p/4': string;
-      'p/5': string;
-      'p/6': string;
-      'p/7': string;
-      'p/8': string;
+      '1': string;
+      '2': string;
+      '3': string;
+      '4': string;
+      '5': string;
+      '6': string;
+      '7': string;
+      '8': string;
     };
 
     cg: {
-      'cg/1': string;
-      'cg/2': string;
-      'cg/3': string;
-      'cg/4': string;
-      'cg/5': string;
-      'cg/6': string;
+      '1': string;
+      '2': string;
+      '3': string;
+      '4': string;
+      '5': string;
+      '6': string;
     };
   }
 
   interface PaletteOptions {
     p: {
-      'p/1': string;
-      'p/2': string;
-      'p/3': string;
-      'p/4': string;
-      'p/5': string;
-      'p/6': string;
-      'p/7': string;
-      'p/8': string;
+      '1': string;
+      '2': string;
+      '3': string;
+      '4': string;
+      '5': string;
+      '6': string;
+      '7': string;
+      '8': string;
     };
 
     cg: {
-      'cg/1': string;
-      'cg/2': string;
-      'cg/3': string;
-      'cg/4': string;
-      'cg/5': string;
-      'cg/6': string;
+      '1': string;
+      '2': string;
+      '3': string;
+      '4': string;
+      '5': string;
+      '6': string;
     };
   }
 
   interface PaletteColor {
-    'p/1'?: string;
-    'p/2'?: string;
-    'p/3'?: string;
-    'p/4'?: string;
-    'p/5'?: string;
-    'p/6'?: string;
-    'p/7'?: string;
-    'p/8'?: string;
-
-    'cg/1'?: string;
-    'cg/2'?: string;
-    'cg/3'?: string;
-    'cg/4'?: string;
-    'cg/5'?: string;
-    'cg/6'?: string;
+    '1'?: string;
+    '2'?: string;
+    '3'?: string;
+    '4'?: string;
+    '5'?: string;
+    '6'?: string;
+    '7'?: string;
+    '8'?: string;
   }
 
   interface SimplePaletteColorOptions {
-    'p/1'?: string;
-    'p/2'?: string;
-    'p/3'?: string;
-    'p/4'?: string;
-    'p/5'?: string;
-    'p/6'?: string;
-    'p/7'?: string;
-    'p/8'?: string;
-
-    'cg/1'?: string;
-    'cg/2'?: string;
-    'cg/3'?: string;
-    'cg/4'?: string;
-    'cg/5'?: string;
-    'cg/6'?: string;
+    '1'?: string;
+    '2'?: string;
+    '3'?: string;
+    '4'?: string;
+    '5'?: string;
+    '6'?: string;
+    '7'?: string;
+    '8'?: string;
   }
 }
