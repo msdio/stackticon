@@ -5,5 +5,5 @@ export const makeUrlIntoBracket = (url: string) => {
 };
 
 export const makeUrlIntoImgTag = (url: string) => {
-  return `<a href=${GITHUB_LINK}><img src="${url}" alt="stackticon" /></a>`;
+  return `<a href="${GITHUB_LINK}"><img src="${url}" alt="stackticon" /></a>`;
 };
