@@ -1,7 +1,9 @@
+import { GITHUB_LINK } from 'constants/constants';
+
 export const makeUrlIntoBracket = (url: string) => {
-  return `[![stackticon](${url})](https://github.com/msdio/stackticon)`;
+  return `[![stackticon](${url})](${GITHUB_LINK})`;
 };
 
 export const makeUrlIntoImgTag = (url: string) => {
-  return `<a href="https://github.com/msdio/stackticon"><img src="${url}" alt="stackticon" /></a>`;
+  return `<a href=${GITHUB_LINK}><img src="${url}" alt="stackticon" /></a>`;
 };

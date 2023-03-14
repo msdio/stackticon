@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Box, Link, Stack, SvgIcon, Typography } from '@mui/material';
 import LogoWithBackground from 'assets/icons/logoWithBackground';
-import { APP_NAME } from 'constants/constants';
+import { APP_NAME, GITHUB_LINK } from 'constants/constants';
 import { Svg } from 'constants/Svg';
 import { Link as RLink } from 'react-router-dom';
 
@@ -62,7 +62,7 @@ const Header = () => {
       </RouterLink>
 
       <Stack direction='row' spacing={2} marginLeft='auto'>
-        <GithubLink href='https://github.com/msdio/stackticon'>
+        <GithubLink href={GITHUB_LINK}>
           <Box
             component='div'
             sx={{
