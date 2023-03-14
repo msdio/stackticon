@@ -20,7 +20,6 @@ const LogoWithBackground = ({ width, height }: LogoProps) => {
       <img
         src={require('../images/logo.png')}
         alt='logo'
-        loading='lazy'
         width={`${width - 2}px)`}
         height={`calc(${height - 2}px)`}
       />
