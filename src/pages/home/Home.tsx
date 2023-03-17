@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { fadeFromLeft, fadeFromRight } from '../../constants/animations';
 
 const CustomContainer = styled.div`
-  width: 100%;
+  width: 100vw;
   height: fit-content;
   min-height: 100vh;
 
