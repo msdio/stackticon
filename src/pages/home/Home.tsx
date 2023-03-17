@@ -17,8 +17,6 @@ const CustomContainer = styled.div`
   min-height: 100vh;
 
   position: relative;
-
-  background-color: '#f9f9f9';
 `;
 
 const JavascriptIcon = () => (
@@ -75,33 +73,65 @@ const Home = () => {
         ref={containerRef}
         style={{
           width: '100vw !important',
-          height: '90vh',
+          height: '95vh',
           display: 'flex',
-          justifyContent: 'center',
+          flexDirection: 'column',
           alignItems: 'center',
-          gap: '10px',
           position: 'relative',
-          transform: 'translateY(80px)',
+          paddingTop: '150px',
+          gap: '61px',
+          backgroundColor: '#f9f9f9',
         }}
       >
-        <Input handler={changeSkillSet} />
-        <Button
-          variant='contained'
-          color='success'
-          size='large'
-          onClick={submitSkills}
-          sx={{
-            zIndex: 50,
-            backgroundColor: skills.length > 0 ? 'p.1' : 'info.main',
-            width: '175px',
-            height: '60px',
-            borderRadius: '12px',
-            fontSize: '20px',
-            fontWeight: 'bold',
+        <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
+          <img
+            src={require('../../assets/images/landing-image.png')}
+            alt='landing-image'
+            width='406px'
+            height='144px'
+          />
+          <img
+            src={require('../../assets/images/landing-label.png')}
+            alt='landing-label'
+            width='312px'
+            height='52px'
+            style={{
+              marginTop: '57px',
+              transform: 'translateX(-5px)',
+            }}
+          />
+          <Typography fontSize='24px' fontWeight='400' color='cg.4' marginTop='24px'>
+            make skill sets for your project
+          </Typography>
+        </Box>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '20px',
+            width: '100%',
           }}
         >
-          Create {isMobile ? '' : 'Set'}
-        </Button>
+          <Input handler={changeSkillSet} />
+          <Button
+            variant='contained'
+            color='success'
+            size='large'
+            onClick={submitSkills}
+            sx={{
+              zIndex: 50,
+              backgroundColor: skills.length > 0 ? 'p.1' : 'info.main',
+              width: '175px',
+              height: '60px',
+              borderRadius: '12px',
+              fontSize: '20px',
+              fontWeight: 'bold',
+            }}
+          >
+            Create {isMobile ? '' : 'Set'}
+          </Button>
+        </div>
 
         <DraggableIcon constraints={containerRef} icon={<ReactIcon />} bottom='10%' right='5%' />
         <DraggableIcon constraints={containerRef} icon={<NodeJSIcon />} top='20%' right='20%' />
@@ -122,6 +152,7 @@ const Home = () => {
           width: '100%',
           height: '100vh',
           zIndex: '3',
+          backgroundColor: '#f9f9f9',
         }}
       >
         <Container
@@ -130,7 +161,7 @@ const Home = () => {
             height: '50vh',
             display: 'flex',
             flexDirection: isMobile ? 'column' : 'row',
-            justifyContent: 'space-evenly',
+            justifyContent: 'space-between',
             alignItems: 'center',
             gap: '10px',
           }}
@@ -169,7 +200,7 @@ const Home = () => {
             height: '40vh',
             display: 'flex',
             flexDirection: isMobile ? 'column-reverse' : 'row',
-            justifyContent: 'space-evenly',
+            justifyContent: 'space-between',
             alignItems: 'center',
             gap: '10px',
           }}

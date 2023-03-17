@@ -47,6 +47,39 @@ export const theme = createTheme({
       dark: '#444A52',
     },
   },
+  components: {
+    MuiAutocomplete: {
+      styleOverrides: {
+        tag: {
+          backgroundColor: '#e6f0ff',
+          border: '1px solid #99c2ff',
+        },
+        clearIndicator: {
+          backgroundColor: '#99c2ff',
+        },
+        paper: {
+          borderRadius: '12px',
+          marginTop: '18px',
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: '12px',
+          backgroundColor: 'white',
+          fontSize: '1.1875rem',
+
+          '&.Mui-focused': {
+            border: '1px #66a3ff solid',
+          },
+        },
+        notchedOutline: {
+          border: 'none',
+        },
+      },
+    },
+  },
 });
 
 declare module '@mui/material/styles' {
