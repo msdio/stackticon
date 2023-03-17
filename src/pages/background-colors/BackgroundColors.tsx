@@ -9,7 +9,7 @@ import type { BgColorOption } from 'types/backgroundColors';
 
 const CustomContainer = styled.div`
   width: 100vw;
-  height: fit-content;
+  height: 100%;
 
   min-height: 100vh;
 
@@ -83,6 +83,8 @@ const BackgroundColors = () => {
       style={{
         backgroundColor: '#f9f9f9',
         position: 'relative',
+        width: '100%',
+        overflowX: 'hidden',
       }}
     >
       <Header />

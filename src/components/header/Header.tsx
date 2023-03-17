@@ -62,7 +62,7 @@ const Header = () => {
       </RouterLink>
 
       <Stack direction='row' spacing={2} marginLeft='auto'>
-        <GithubLink href={GITHUB_LINK}>
+        <GithubLink href={GITHUB_LINK} target='_blank' rel='noreferrer'>
           <Box
             component='div'
             sx={{

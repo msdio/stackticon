@@ -214,7 +214,7 @@ const Home = () => {
           >
             <img
               width={isMobile ? '100%' : '550px'}
-              src='https://user-images.githubusercontent.com/59170680/219640020-46b1972a-968d-495d-8f82-00bb90f03357.png'
+              src='https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1679045677747?alt=media&token=e942f72b-e054-46e0-beb0-7e6beba0542b'
               alt='create your own skill sets'
               loading='lazy'
             />
