@@ -56,9 +56,7 @@ const Input = ({ handler }: InputProps) => {
         getOptionLabel={(option) => option.title}
         onChange={(e, value) => onStackChange(e, value)}
         filterSelectedOptions
-        renderInput={(params) => (
-          <TextField {...params} label='Choose Your Stacks!' placeholder='Stacks' />
-        )}
+        renderInput={(params) => <TextField {...params} placeholder='Choose Your Stacks!' />}
         filterOptions={createFilterOptions({
           limit: 100,
         })}

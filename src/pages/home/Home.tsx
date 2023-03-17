@@ -80,7 +80,6 @@ const Home = () => {
           justifyContent: 'center',
           alignItems: 'center',
           gap: '10px',
-          // overflow: 'hidden',
           position: 'relative',
           transform: 'translateY(80px)',
         }}
@@ -93,6 +92,12 @@ const Home = () => {
           onClick={submitSkills}
           sx={{
             zIndex: 50,
+            backgroundColor: skills.length > 0 ? 'p.1' : 'info.main',
+            width: '175px',
+            height: '60px',
+            borderRadius: '12px',
+            fontSize: '20px',
+            fontWeight: 'bold',
           }}
         >
           Create {isMobile ? '' : 'Set'}
