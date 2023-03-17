@@ -188,7 +188,7 @@ const Home = () => {
           >
             <img
               width={isMobile ? '100%' : '550px'}
-              src='https://user-images.githubusercontent.com/59170680/219634902-3ba561ac-cc65-4e1f-aff7-310fd100266e.gif'
+              src='https://user-images.githubusercontent.com/59170680/225875213-1ec4667d-43a7-49b8-812e-36d3451bc535.gif'
               alt='choose stacks gif'
               loading='lazy'
             />
