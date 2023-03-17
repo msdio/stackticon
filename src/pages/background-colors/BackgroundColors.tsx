@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Container, styled as styledMUI, Typography } from '@mui/material';
+import Header from 'components/header';
 import Stacks from 'components/stacks';
 import { useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -10,6 +11,8 @@ const CustomContainer = styled.div`
   height: 100vh;
 
   justify-content: center;
+
+  padding-top: 13.0625rem;
 `;
 
 const StackContainer = styledMUI(Box)(({ theme }) => ({
@@ -51,31 +54,40 @@ const BackgroundColors = () => {
   };
 
   return (
-    <CustomContainer>
-      <Typography variant='h3' textAlign='center' p={5} fontWeight={'bold'} color={'#02343f'}>
-        Choose Color
-      </Typography>
+    <div
+      style={{
+        backgroundColor: '#f9f9f9',
+        position: 'relative',
+      }}
+    >
+      <Header />
+      <CustomContainer>
+        <Typography textAlign='center' p={5} fontWeight='800' fontSize='70px' color='cg.1'>
+          Choose Color
+        </Typography>
 
-      <Container
-        sx={{
-          width: '100%',
-          height: '80%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'space-evenly',
-        }}
-      >
-        <StackContainer onClick={() => submitSkills('black')}>
-          <Stacks ref={targetRef} selecteds={state} color='black' />
-          <Color color='white'>BLACK</Color>
-        </StackContainer>
-        <StackContainer onClick={() => submitSkills('white')}>
-          <Stacks ref={targetRef} selecteds={state} color='white' />
-          <Color color='black'>WHITE</Color>
-        </StackContainer>
-      </Container>
-    </CustomContainer>
+        <Container
+          sx={{
+            width: '100%',
+            height: '80%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '5rem',
+            marginTop: '2.8125rem',
+          }}
+        >
+          <StackContainer onClick={() => submitSkills('black')}>
+            <Stacks ref={targetRef} selecteds={state} color='black' />
+            <Color color='white'>BLACK</Color>
+          </StackContainer>
+          <StackContainer onClick={() => submitSkills('white')}>
+            <Stacks ref={targetRef} selecteds={state} color='white' />
+            <Color color='black'>WHITE</Color>
+          </StackContainer>
+        </Container>
+      </CustomContainer>
+    </div>
   );
 };
 
