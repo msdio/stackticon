@@ -19,7 +19,9 @@ const Stacks = forwardRef<HTMLDivElement, StacksProps>(({ color, selecteds }, ta
       fontWeight='bold'
       width='700px'
       height='auto'
-      padding='10px'
+      padding='25px 35px'
+      border='1px solid #b3bacd'
+      borderRadius='8px'
     >
       {selecteds.map((select: string) => (
         <Stack key={select} stackName={select}></Stack>

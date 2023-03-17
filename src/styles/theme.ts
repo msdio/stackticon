@@ -54,9 +54,6 @@ export const theme = createTheme({
           backgroundColor: '#e6f0ff',
           border: '1px solid #99c2ff',
         },
-        clearIndicator: {
-          backgroundColor: '#99c2ff',
-        },
         paper: {
           borderRadius: '12px',
           marginTop: '18px',
@@ -76,6 +73,13 @@ export const theme = createTheme({
         },
         notchedOutline: {
           border: 'none',
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        deleteIcon: {
+          color: '#99c2ff',
         },
       },
     },

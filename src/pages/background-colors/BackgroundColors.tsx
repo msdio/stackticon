@@ -8,7 +8,9 @@ import type { BgColorOption } from 'types/backgroundColors';
 
 const CustomContainer = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: fit-content;
+
+  min-height: 100vh;
 
   justify-content: center;
 

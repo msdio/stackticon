@@ -33,13 +33,15 @@ const Stack = ({ stackName }: StackProps) => {
       }}
     >
       <Box
-        borderRadius='15%'
+        borderRadius='12px'
         margin='5px'
         bgcolor='white'
+        display='flex'
         alignItems='center'
-        p='10px'
+        justifyContent='center'
         width='70px'
         height='70px'
+        border='1px solid #e1e1e1'
       >
         <DropdownSvg dangerouslySetInnerHTML={{ __html: svg }} hex={'#' + hex}></DropdownSvg>
       </Box>
