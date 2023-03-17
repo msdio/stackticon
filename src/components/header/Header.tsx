@@ -75,7 +75,7 @@ const Header = () => {
             <SvgIcon viewBox='0 0 24 24'>
               <path d={Svg.github} fill='#0066ff' />
             </SvgIcon>
-            <Typography color='#0066ff' fontWeight='600' fontSize='22px'>
+            <Typography color='#0066ff' fontWeight='600' fontSize='1.375rem'>
               Visit Github
             </Typography>
           </Box>

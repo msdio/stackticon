@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Button, Container, SvgIcon, Typography, useMediaQuery } from '@mui/material';
+import BackgroundCircle from 'components/BackgroundCircle';
 import DraggableIcon from 'components/draggable-icon';
 import Header from 'components/header';
 import Input from 'components/input';
@@ -16,6 +17,8 @@ const CustomContainer = styled.div`
   min-height: 100vh;
 
   position: relative;
+
+  background-color: '#f9f9f9';
 `;
 
 const JavascriptIcon = () => (
@@ -51,7 +54,7 @@ const Home = () => {
 
   const isMobile = useMediaQuery('(max-width: 900px)');
 
-  const activeAnimation = useIntersectionObserver({ ref: observerRef, threshold: 0.1 });
+  const activeAnimation = useIntersectionObserver({ ref: observerRef, threshold: 0.5 });
 
   const changeSkillSet = (inputSkills: string[]) => {
     setSkills(inputSkills);
@@ -72,12 +75,12 @@ const Home = () => {
         ref={containerRef}
         style={{
           width: '100vw !important',
-          height: 'calc(100vh)',
+          height: '90vh',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           gap: '10px',
-          overflow: 'hidden',
+          // overflow: 'hidden',
           position: 'relative',
           transform: 'translateY(80px)',
         }}
@@ -99,6 +102,13 @@ const Home = () => {
         <DraggableIcon constraints={containerRef} icon={<NodeJSIcon />} top='20%' right='20%' />
         <DraggableIcon constraints={containerRef} icon={<JavascriptIcon />} top='30%' left='13%' />
         <DraggableIcon constraints={containerRef} icon={<SpringIcon />} bottom='17%' left='25%' />
+
+        <Box position='absolute' left='-170px' top='-209px' zIndex='1'>
+          <BackgroundCircle />
+        </Box>
+        <Box position='absolute' right='-49px' bottom='-289px' zIndex='1'>
+          <BackgroundCircle />
+        </Box>
       </div>
 
       <div
@@ -106,6 +116,7 @@ const Home = () => {
         style={{
           width: '100%',
           height: '100vh',
+          zIndex: '3',
         }}
       >
         <Container
@@ -123,6 +134,7 @@ const Home = () => {
             sx={{
               animation: activeAnimation ? `${fadeFromLeft} 1s` : '',
               display: activeAnimation ? '' : 'none',
+              zIndex: '3',
             }}
           >
             <Typography variant='h4'>Simple, Fast</Typography>
@@ -135,6 +147,7 @@ const Home = () => {
               width: isMobile ? '100%' : '550px',
               animation: activeAnimation ? `${fadeFromRight} 1s` : '',
               display: activeAnimation ? '' : 'none',
+              zIndex: '3',
             }}
           >
             <img
