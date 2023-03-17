@@ -26,6 +26,8 @@ const MotionDiv = styled(motion.div)<PositionProps>`
   bottom: ${(props) => props.bottom};
   left: ${(props) => props.left};
   right: ${(props) => props.right};
+
+  z-index: 2;
 `;
 
 interface DraggableIconProps {

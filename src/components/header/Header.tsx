@@ -62,7 +62,7 @@ const Header = () => {
       </RouterLink>
 
       <Stack direction='row' spacing={2} marginLeft='auto'>
-        <GithubLink href={GITHUB_LINK}>
+        <GithubLink href={GITHUB_LINK} target='_blank' rel='noreferrer'>
           <Box
             component='div'
             sx={{
@@ -75,7 +75,7 @@ const Header = () => {
             <SvgIcon viewBox='0 0 24 24'>
               <path d={Svg.github} fill='#0066ff' />
             </SvgIcon>
-            <Typography color='#0066ff' fontWeight='600' fontSize='22px'>
+            <Typography color='#0066ff' fontWeight='600' fontSize='1.375rem'>
               Visit Github
             </Typography>
           </Box>

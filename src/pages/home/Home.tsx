@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Button, Container, SvgIcon, Typography, useMediaQuery } from '@mui/material';
+import BackgroundCircle from 'components/BackgroundCircle';
 import DraggableIcon from 'components/draggable-icon';
 import Header from 'components/header';
 import Input from 'components/input';
@@ -51,7 +52,7 @@ const Home = () => {
 
   const isMobile = useMediaQuery('(max-width: 900px)');
 
-  const activeAnimation = useIntersectionObserver({ ref: observerRef, threshold: 0.1 });
+  const activeAnimation = useIntersectionObserver({ ref: observerRef, threshold: 0.5 });
 
   const changeSkillSet = (inputSkills: string[]) => {
     setSkills(inputSkills);
@@ -72,33 +73,77 @@ const Home = () => {
         ref={containerRef}
         style={{
           width: '100vw !important',
-          height: 'calc(100vh)',
+          height: '95vh',
           display: 'flex',
-          justifyContent: 'center',
+          flexDirection: 'column',
           alignItems: 'center',
-          gap: '10px',
-          overflow: 'hidden',
           position: 'relative',
-          transform: 'translateY(80px)',
+          paddingTop: '150px',
+          gap: '61px',
+          backgroundColor: '#f9f9f9',
         }}
       >
-        <Input handler={changeSkillSet} />
-        <Button
-          variant='contained'
-          color='success'
-          size='large'
-          onClick={submitSkills}
-          sx={{
-            zIndex: 50,
+        <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
+          <img
+            src={require('../../assets/images/landing-image.png')}
+            alt='landing-image'
+            width='406px'
+            height='144px'
+          />
+          <img
+            src={require('../../assets/images/landing-label.png')}
+            alt='landing-label'
+            width='312px'
+            height='52px'
+            style={{
+              marginTop: '57px',
+              transform: 'translateX(-5px)',
+            }}
+          />
+          <Typography fontSize='24px' fontWeight='400' color='cg.4' marginTop='24px'>
+            make skill sets for your project
+          </Typography>
+        </Box>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '20px',
+            width: '100%',
           }}
         >
-          Create {isMobile ? '' : 'Set'}
-        </Button>
+          <Input handler={changeSkillSet} />
+          <Button
+            variant='contained'
+            color='success'
+            size='large'
+            onClick={submitSkills}
+            sx={{
+              zIndex: 50,
+              backgroundColor: skills.length > 0 ? 'p.1' : 'info.main',
+              width: '175px',
+              height: '60px',
+              borderRadius: '12px',
+              fontSize: '20px',
+              fontWeight: 'bold',
+            }}
+          >
+            Create {isMobile ? '' : 'Set'}
+          </Button>
+        </div>
 
         <DraggableIcon constraints={containerRef} icon={<ReactIcon />} bottom='10%' right='5%' />
         <DraggableIcon constraints={containerRef} icon={<NodeJSIcon />} top='20%' right='20%' />
         <DraggableIcon constraints={containerRef} icon={<JavascriptIcon />} top='30%' left='13%' />
         <DraggableIcon constraints={containerRef} icon={<SpringIcon />} bottom='17%' left='25%' />
+
+        <Box position='absolute' left='-170px' top='-209px' zIndex='1'>
+          <BackgroundCircle />
+        </Box>
+        <Box position='absolute' right='-49px' bottom='-289px' zIndex='1'>
+          <BackgroundCircle />
+        </Box>
       </div>
 
       <div
@@ -106,6 +151,8 @@ const Home = () => {
         style={{
           width: '100%',
           height: '100vh',
+          zIndex: '3',
+          backgroundColor: '#f9f9f9',
         }}
       >
         <Container
@@ -114,7 +161,7 @@ const Home = () => {
             height: '50vh',
             display: 'flex',
             flexDirection: isMobile ? 'column' : 'row',
-            justifyContent: 'space-evenly',
+            justifyContent: 'space-between',
             alignItems: 'center',
             gap: '10px',
           }}
@@ -123,6 +170,7 @@ const Home = () => {
             sx={{
               animation: activeAnimation ? `${fadeFromLeft} 1s` : '',
               display: activeAnimation ? '' : 'none',
+              zIndex: '3',
             }}
           >
             <Typography variant='h4'>Simple, Fast</Typography>
@@ -135,11 +183,12 @@ const Home = () => {
               width: isMobile ? '100%' : '550px',
               animation: activeAnimation ? `${fadeFromRight} 1s` : '',
               display: activeAnimation ? '' : 'none',
+              zIndex: '3',
             }}
           >
             <img
               width={isMobile ? '100%' : '550px'}
-              src='https://user-images.githubusercontent.com/59170680/219634902-3ba561ac-cc65-4e1f-aff7-310fd100266e.gif'
+              src='https://user-images.githubusercontent.com/59170680/225875213-1ec4667d-43a7-49b8-812e-36d3451bc535.gif'
               alt='choose stacks gif'
               loading='lazy'
             />
@@ -151,7 +200,7 @@ const Home = () => {
             height: '40vh',
             display: 'flex',
             flexDirection: isMobile ? 'column-reverse' : 'row',
-            justifyContent: 'space-evenly',
+            justifyContent: 'space-between',
             alignItems: 'center',
             gap: '10px',
           }}
@@ -165,7 +214,7 @@ const Home = () => {
           >
             <img
               width={isMobile ? '100%' : '550px'}
-              src='https://user-images.githubusercontent.com/59170680/219640020-46b1972a-968d-495d-8f82-00bb90f03357.png'
+              src='https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1679045677747?alt=media&token=e942f72b-e054-46e0-beb0-7e6beba0542b'
               alt='create your own skill sets'
               loading='lazy'
             />

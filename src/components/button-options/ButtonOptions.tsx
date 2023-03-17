@@ -62,9 +62,17 @@ const ButtonOptions = (state: any) => {
         aria-label='button with options'
         style={{ marginRight: '10px' }}
         variant='contained'
-        color='success'
+        sx={{
+          backgroundColor: 'p.1',
+          borderRadius: '12px',
+        }}
       >
-        <Button onClick={clickCopyUrl}>{copyOptions[selectedOption]}</Button>
+        <Button
+          onClick={clickCopyUrl}
+          sx={{ borderRadius: '12px 0 0 12px', fontSize: '18px', fontWeight: 'bold' }}
+        >
+          {copyOptions[selectedOption]}
+        </Button>
         <Button
           size='small'
           aria-controls={openOptions ? 'split-button-menu' : undefined}
@@ -72,8 +80,15 @@ const ButtonOptions = (state: any) => {
           aria-label='select copy options'
           aria-haspopup='menu'
           onClick={handleToggle}
+          sx={{
+            borderRadius: '0 12px 12px 0',
+          }}
         >
-          <ArrowDropDownIcon />
+          <ArrowDropDownIcon
+            sx={{
+              fontSize: '36px',
+            }}
+          />
         </Button>
       </ButtonGroup>
 
