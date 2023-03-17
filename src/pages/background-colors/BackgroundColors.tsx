@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Container, styled as styledMUI, Typography } from '@mui/material';
+import BackgroundCircle from 'components/BackgroundCircle';
 import Header from 'components/header';
 import Stacks from 'components/stacks';
 import { useRef, useState } from 'react';
@@ -121,6 +122,13 @@ const BackgroundColors = () => {
           </StackContainer>
         </Container>
       </CustomContainer>
+
+      <Box position='absolute' left='-170px' top='-209px' zIndex='1'>
+        <BackgroundCircle />
+      </Box>
+      <Box position='absolute' right='-49px' bottom='-289px' zIndex='1'>
+        <BackgroundCircle />
+      </Box>
     </div>
   );
 };
