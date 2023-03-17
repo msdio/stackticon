@@ -4,7 +4,7 @@ Make skill sets image for readme <br/>
 
 https://msdio.github.io/stackticon/ 
 
-[![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1676566938756?alt=media&token=2376e176-1614-4b10-8503-e0a24449b3c6)](https://github.com/msdio/stackticon)
+[![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1679045677747?alt=media&token=e942f72b-e054-46e0-beb0-7e6beba0542b)](https://github.com/msdio/stackticon)
 
 <br/>
 
@@ -54,20 +54,21 @@ yarn start
 ## Features
 
 ### Simply type your skill sets<br/>
-<img width="80%" src="https://user-images.githubusercontent.com/59170680/219634902-3ba561ac-cc65-4e1f-aff7-310fd100266e.gif" />
+<img width="80%" src="https://user-images.githubusercontent.com/59170680/225875213-1ec4667d-43a7-49b8-812e-36d3451bc535.gif" />
 <br/>
 
 ### Choose your color<br/>
-<img width="60%" src="https://user-images.githubusercontent.com/59170680/222030335-81444560-53d7-4bde-bc9f-528fd042d3c7.png" />
+<img width="60%" src="https://user-images.githubusercontent.com/59170680/225878139-6e87f648-8975-495a-813f-94df2b66c44a.png" />
 <br/>
 
+
 ### Create your own skill sets<br/>
-[![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1676566938756?alt=media&token=2376e176-1614-4b10-8503-e0a24449b3c6)](https://github.com/msdio/stackticon)
+[![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1679045677747?alt=media&token=e942f72b-e054-46e0-beb0-7e6beba0542b)](https://github.com/msdio/stackticon)
+<br/>
 <br/>
 
 ### You can copy url and use in your project's readme<br/>
-![image](https://user-images.githubusercontent.com/59170680/219884847-dc947cbf-8232-4fc7-b938-b14bd5dc84dc.png)
-
+![image](https://user-images.githubusercontent.com/59170680/225878420-5a8b2811-eb87-4a12-b846-9b8c1550eb5d.png)
 
 <br/>
 
