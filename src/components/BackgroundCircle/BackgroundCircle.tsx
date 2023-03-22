@@ -6,6 +6,7 @@ const BackgroundCircle = () => (
     height='36.6875rem'
     bgcolor='p.8'
     borderRadius='50%'
+    zIndex='2'
     sx={{
       filter: 'blur(25px)',
     }}

@@ -16,6 +16,10 @@ const CustomContainer = styled.div`
   justify-content: center;
 
   padding-top: 13.0625rem;
+
+  position: relative;
+
+  z-index: 5;
 `;
 
 const StackContainer = styledMUI(Box)(({ theme }) => ({
@@ -89,7 +93,7 @@ const BackgroundColors = () => {
     >
       <Header />
       <CustomContainer>
-        <Typography textAlign='center' p={5} fontWeight='800' fontSize='70px' color='cg.1'>
+        <Typography textAlign='center' p={5} fontWeight='800' fontSize='4.375rem' color='cg.1'>
           Choose Color
         </Typography>
 
