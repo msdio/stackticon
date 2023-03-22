@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Button } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import BackgroundCircle from 'components/BackgroundCircle';
 import ButtonOptions from 'components/button-options/ButtonOptions';
 import Header from 'components/header';
@@ -11,6 +12,7 @@ const Container = styled.div`
   left: 50%;
   transform: translate(-50%, -70%);
   text-align: center;
+  z-index: 5;
 `;
 
 const Img = styled.img`
@@ -21,6 +23,7 @@ const Img = styled.img`
 
 const Buttons = styled.div`
   display: flex;
+  align-items: center;
   justify-content: center;
 
   gap: 3.625rem;
@@ -29,6 +32,7 @@ const Buttons = styled.div`
 const Result = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
+  const isMobile = useMediaQuery('(max-width: 740px)');
 
   window.addEventListener('popstate', () => {
     navigate('/');
@@ -40,6 +44,7 @@ const Result = () => {
         width: '100vw',
         height: '100vh',
         backgroundColor: '#f9f9f9',
+        position: 'relative',
       }}
     >
       <Header />
@@ -50,8 +55,9 @@ const Result = () => {
           width='312px'
           height='52px'
           style={{
-            marginTop: '250px',
+            marginTop: isMobile ? '150px' : '250px',
             transform: 'translateX(-5px)',
+            scale: isMobile ? '0.7' : '1',
           }}
         />
         <div
@@ -62,7 +68,11 @@ const Result = () => {
         >
           <Img src={state} alt='stackticon result' />
         </div>
-        <Buttons>
+        <Buttons
+          style={{
+            flexDirection: isMobile ? 'column' : 'row',
+          }}
+        >
           <ButtonOptions url={state} />
           <Link to='/' style={{ textDecoration: 'none' }}>
             <Button

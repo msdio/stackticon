@@ -60,11 +60,12 @@ const ButtonOptions = (state: any) => {
       <ButtonGroup
         ref={buttonRef}
         aria-label='button with options'
-        style={{ marginRight: '10px' }}
         variant='contained'
         sx={{
+          width: 'fit-content',
           backgroundColor: 'p.1',
           borderRadius: '12px',
+          marginRight: '10px',
         }}
       >
         <Button
