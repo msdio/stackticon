@@ -120,6 +120,7 @@ const Home = () => {
             alignItems: 'center',
             gap: '20px',
             width: '100%',
+            zIndex: '5',
             scale: isMobile ? '0.7' : '1',
           }}
         >
