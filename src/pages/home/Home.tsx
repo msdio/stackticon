@@ -79,11 +79,20 @@ const Home = () => {
           alignItems: 'center',
           position: 'relative',
           paddingTop: '150px',
-          gap: '61px',
+          gap: isMobile ? '10px' : '61px',
           backgroundColor: '#f9f9f9',
         }}
       >
-        <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
+        <Box
+          display='flex'
+          flexDirection='column'
+          justifyContent='center'
+          alignItems='center'
+          zIndex='3'
+          sx={{
+            scale: isMobile ? '0.7' : '1',
+          }}
+        >
           <img
             src={require('../../assets/images/landing-image.png')}
             alt='landing-image'
@@ -111,6 +120,7 @@ const Home = () => {
             alignItems: 'center',
             gap: '20px',
             width: '100%',
+            scale: isMobile ? '0.7' : '1',
           }}
         >
           <Input handler={changeSkillSet} />
