@@ -94,7 +94,13 @@ const BackgroundColors = () => {
     >
       <Header />
       <CustomContainer>
-        <Typography textAlign='center' p={5} fontWeight='800' fontSize='4.375rem' color='cg.1'>
+        <Typography
+          textAlign='center'
+          p={5}
+          fontWeight='800'
+          fontSize={isMobile ? '2rem' : '4.375rem'}
+          color='cg.1'
+        >
           Choose Color
         </Typography>
 

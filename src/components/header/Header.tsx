@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Link, Stack, SvgIcon, Typography } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import LogoWithBackground from 'assets/icons/logoWithBackground';
 import { APP_NAME, GITHUB_LINK } from 'constants/constants';
 import { Svg } from 'constants/Svg';
@@ -12,7 +13,7 @@ const Container = styled.header`
   width: 100%;
   height: 86px;
   background-color: #ffffff;
-  padding: 0px 80px;
+  padding: 0px 4.2vw;
 
   position: fixed;
 
@@ -25,7 +26,7 @@ const RouterLink = styled(RLink)`
   display: flex;
   align-items: center;
 
-  gap: 9px;
+  gap: 0.5625rem;
 `;
 
 const GithubLink = styled(Link)`
@@ -44,6 +45,8 @@ const GithubLink = styled(Link)`
 `;
 
 const Header = () => {
+  const isMobile = useMediaQuery('(max-width: 740px)');
+
   return (
     <Container>
       <RouterLink to='/'>
@@ -52,7 +55,7 @@ const Header = () => {
           variant='h4'
           color='#323443'
           fontWeight='bold'
-          fontSize='28px'
+          fontSize='1.75rem'
           sx={{
             cursor: 'pointer',
           }}
@@ -62,7 +65,14 @@ const Header = () => {
       </RouterLink>
 
       <Stack direction='row' spacing={2} marginLeft='auto'>
-        <GithubLink href={GITHUB_LINK} target='_blank' rel='noreferrer'>
+        <GithubLink
+          href={GITHUB_LINK}
+          target='_blank'
+          rel='noreferrer'
+          sx={{
+            scale: isMobile ? '0.7' : '1',
+          }}
+        >
           <Box
             component='div'
             sx={{
