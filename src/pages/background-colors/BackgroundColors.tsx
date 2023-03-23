@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Box, Container, styled as styledMUI, Typography } from '@mui/material';
+import { Box, Container, styled as styledMUI, Typography, useMediaQuery } from '@mui/material';
 import BackgroundCircle from 'components/BackgroundCircle';
 import Header from 'components/header';
 import Stacks from 'components/stacks';
@@ -16,6 +16,10 @@ const CustomContainer = styled.div`
   justify-content: center;
 
   padding-top: 13.0625rem;
+
+  position: relative;
+
+  z-index: 5;
 `;
 
 const StackContainer = styledMUI(Box)(({ theme }) => ({
@@ -68,6 +72,7 @@ const BackgroundColors = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const targetRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery('(max-width: 740px)');
 
   const submitSkills = (color: BgColorOption['color']) => {
     const bgColor = color;
@@ -89,7 +94,13 @@ const BackgroundColors = () => {
     >
       <Header />
       <CustomContainer>
-        <Typography textAlign='center' p={5} fontWeight='800' fontSize='70px' color='cg.1'>
+        <Typography
+          textAlign='center'
+          p={5}
+          fontWeight='800'
+          fontSize={isMobile ? '2rem' : '4.375rem'}
+          color='cg.1'
+        >
           Choose Color
         </Typography>
 
@@ -108,6 +119,10 @@ const BackgroundColors = () => {
             onClick={() => submitSkills('black')}
             onMouseEnter={() => setHideBlack(true)}
             onMouseLeave={() => setHideBlack(false)}
+            sx={{
+              scale: isMobile ? '0.5' : '1',
+              transform: isMobile ? 'translateY(-10rem)' : '0',
+            }}
           >
             <Stacks ref={targetRef} selecteds={state} color='black' />
             {hideBlack && <Hider />}
@@ -117,6 +132,10 @@ const BackgroundColors = () => {
             onClick={() => submitSkills('white')}
             onMouseEnter={() => setHideWhite(true)}
             onMouseLeave={() => setHideWhite(false)}
+            sx={{
+              scale: isMobile ? '0.5' : '1',
+              transform: isMobile ? 'translateY(-30rem)' : '0',
+            }}
           >
             <Stacks ref={targetRef} selecteds={state} color='white' />
             {hideWhite && <Hider />}
