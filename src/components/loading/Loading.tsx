@@ -94,7 +94,7 @@ const Loading = () => {
           Making Image...
         </Typography>
       </div>
-      <Stacks ref={targetRef} selecteds={state} color={color as BgColorOption['color']} />
+      <Stacks ref={targetRef} selecteds={state} color={color as BgColorOption} />
     </div>
   );
 };
