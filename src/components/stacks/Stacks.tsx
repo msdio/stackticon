@@ -3,7 +3,8 @@ import Stack from 'components/stack/Stack';
 import { forwardRef } from 'react';
 import type { BgColorOption } from 'types/backgroundColors';
 
-interface StacksProps extends BgColorOption {
+interface StacksProps {
+  color: BgColorOption;
   selecteds: string[];
 }
 
