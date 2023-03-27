@@ -39,14 +39,7 @@ const Result = () => {
   });
 
   return (
-    <div
-      style={{
-        width: '100vw',
-        height: '100vh',
-        backgroundColor: '#f9f9f9',
-        position: 'relative',
-      }}
-    >
+    <Box width='100vw' height='100vh' bgcolor='#f9f9f9' position='relative'>
       <Header />
       <Container>
         <img
@@ -60,14 +53,9 @@ const Result = () => {
             scale: isMobile ? '0.7' : '1',
           }}
         />
-        <div
-          style={{
-            marginTop: '50px',
-            marginBottom: '30px',
-          }}
-        >
+        <Box marginTop='50px' marginBottom='30px'>
           <Img src={state} alt='stackticon result' />
-        </div>
+        </Box>
         <Buttons
           style={{
             flexDirection: isMobile ? 'column' : 'row',
@@ -103,7 +91,7 @@ const Result = () => {
       <Box position='absolute' right='-49px' bottom='-289px' zIndex='1'>
         <BackgroundCircle />
       </Box>
-    </div>
+    </Box>
   );
 };
 
