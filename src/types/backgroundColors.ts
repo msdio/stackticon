@@ -1,3 +1,1 @@
-export interface BgColorOption {
-  color: 'black' | 'white';
-}
+export type BgColorOption = 'black' | 'white';
