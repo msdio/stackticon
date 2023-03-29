@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Autocomplete, createFilterOptions, TextField, useMediaQuery } from '@mui/material';
+import { useEffect, useState } from 'react';
 import type { SimpleIcon } from 'simple-icons';
 
 import { makeIconInfoArray } from '../../utils/allIconInfo';
@@ -25,7 +26,7 @@ interface InputProps {
 
 const Input = ({ handler }: InputProps) => {
   const isMobile = useMediaQuery('(max-width: 900px)');
-  const iconArr = makeIconInfoArray();
+  const [iconArr, setIconarr] = useState<[] | SimpleIcon[]>([]);
 
   const onStackChange = (e: React.SyntheticEvent, value: SimpleIcon[]) => {
     handler(
@@ -35,6 +36,10 @@ const Input = ({ handler }: InputProps) => {
       ),
     );
   };
+
+  useEffect(() => {
+    setIconarr(makeIconInfoArray);
+  }, []);
 
   return (
     <div style={{ width: isMobile ? '66%' : '50%', zIndex: '50' }}>
