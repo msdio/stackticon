@@ -3,7 +3,7 @@ import { Box, Link, Stack, SvgIcon, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import LogoWithBackground from 'assets/icons/logoWithBackground';
 import { APP_NAME, GITHUB_LINK } from 'constants/constants';
-import { Svg } from 'constants/Svg';
+import { Svg } from 'constants/svgs';
 import { Link as RLink } from 'react-router-dom';
 
 const Container = styled.header`
