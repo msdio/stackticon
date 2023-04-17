@@ -6,6 +6,9 @@ import { JavascriptIcon, NodeJSIcon, ReactIcon, SpringIcon } from 'constants/ico
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import LandingImage from '../../assets/images/landing-image.png';
+import LandingLabel from '../../assets/images/landing-label.png';
+
 const Landing = ({ isMobile }: { isMobile: boolean }) => {
   const [skills, setSkills] = useState<string[]>([]);
   const [buttonClicked, setButtonClicked] = useState(false);
@@ -46,14 +49,9 @@ const Landing = ({ isMobile }: { isMobile: boolean }) => {
           scale: isMobile ? '0.7' : '1',
         }}
       >
+        <img src={LandingImage} alt='landing-image' width='406px' height='144px' />
         <img
-          src={require('../../assets/images/landing-image.png')}
-          alt='landing-image'
-          width='406px'
-          height='144px'
-        />
-        <img
-          src={require('../../assets/images/landing-label.png')}
+          src={LandingLabel}
           alt='landing-label'
           width='312px'
           height='52px'
