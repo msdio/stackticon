@@ -1,6 +1,6 @@
 import { SvgIcon } from '@mui/material';
 
-import { Svg } from './Svg';
+import { Svg } from './svgs';
 
 export const JavascriptIcon = () => (
   <SvgIcon viewBox='0 0 24 24' fontSize='inherit'>
