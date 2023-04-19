@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from '@mui/material';
-import BackgroundCircle from 'components/BackgroundCircle';
+import BackgroundCircle from 'components/background-circle';
 import DraggableIcon from 'components/draggable-icon';
 import Input from 'components/input';
 import { JavascriptIcon, NodeJSIcon, ReactIcon, SpringIcon } from 'constants/icons';

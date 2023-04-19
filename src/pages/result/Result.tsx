@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Box, Button } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import BackgroundCircle from 'components/BackgroundCircle';
+import BackgroundCircle from 'components/background-circle';
 import ButtonOptions from 'components/button-options/ButtonOptions';
 import Header from 'components/header';
 import { Link, useLocation, useNavigate } from 'react-router-dom';

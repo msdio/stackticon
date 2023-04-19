@@ -1,5 +1,5 @@
 import { Box, Container, Typography, useMediaQuery } from '@mui/material';
-import BackgroundCircle from 'components/BackgroundCircle';
+import BackgroundCircle from 'components/background-circle';
 import Header from 'components/header';
 import StackContainer from 'components/stack-container';
 import { useLocation } from 'react-router-dom';
