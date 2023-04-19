@@ -1,5 +1,7 @@
 import { Box } from '@mui/material';
 
+import Logo from '../images/logo.png';
+
 interface LogoProps {
   width: number;
   height: number;
@@ -17,12 +19,7 @@ const LogoWithBackground = ({ width, height }: LogoProps) => {
       height={`${height}px`}
       gap='9.6px'
     >
-      <img
-        src={require('../images/logo.png')}
-        alt='logo'
-        width={`${width - 2}px)`}
-        height={`calc(${height - 2}px)`}
-      />
+      <img src={Logo} alt='logo' width={`${width - 2}px)`} height={`calc(${height - 2}px)`} />
     </Box>
   );
 };

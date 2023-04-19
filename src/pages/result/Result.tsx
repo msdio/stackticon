@@ -1,10 +1,12 @@
 import styled from '@emotion/styled';
 import { Box, Button } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import BackgroundCircle from 'components/BackgroundCircle';
+import BackgroundCircle from 'components/background-circle';
 import ButtonOptions from 'components/button-options/ButtonOptions';
 import Header from 'components/header';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+
+import LandingLabel from '../../assets/images/landing-label.png';
 
 const Container = styled.div`
   position: absolute;
@@ -43,7 +45,7 @@ const Result = () => {
       <Header />
       <Container>
         <img
-          src={require('../../assets/images/landing-label.png')}
+          src={LandingLabel}
           alt='landing-label'
           width='312px'
           height='52px'
