@@ -1,3 +1,4 @@
+import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 import RouterContainer from 'RouterContainer';
@@ -13,6 +14,7 @@ const router = createHashRouter([
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <RouterProvider router={router} />
     </ThemeProvider>
   );
