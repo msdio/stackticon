@@ -1,7 +1,9 @@
 import { Box, Input } from '@mui/material';
+import { getPackageJSONObject } from 'apis/packages';
 import { bounce } from 'constants/animations';
 import type { ChangeEvent, KeyboardEvent } from 'react';
 import { useState } from 'react';
+import { getPackageJSONFromRepository } from 'utils/resultUrl';
 
 const ReadRepository = () => {
   const [address, setAddress] = useState('');
@@ -10,9 +12,12 @@ const ReadRepository = () => {
     setAddress(e.currentTarget.value);
   };
 
-  const temp2 = (e: KeyboardEvent) => {
+  const temp2 = async (e: KeyboardEvent) => {
     if (e.key === 'Enter') {
-      console.log(address);
+      const packageJSONPath = getPackageJSONFromRepository(address);
+      const res = await getPackageJSONObject(packageJSONPath);
+
+      console.log('res', res);
     }
   };
 
@@ -47,6 +52,7 @@ const ReadRepository = () => {
       <Input
         fullWidth
         placeholder='input repository here'
+        onClick={(e) => e.stopPropagation()}
         onChange={temp}
         onKeyUp={temp2}
         disableUnderline
