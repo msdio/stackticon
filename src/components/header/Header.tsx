@@ -64,6 +64,7 @@ const ReadRepositoryButton = styled(motion.div)`
 
 const Header = () => {
   const isMobile = useMediaQuery('(max-width: 740px)');
+  const isEligibleForBeta = useMediaQuery('(min-width: 1070px)');
   const [openRepositoryInput, setOpenRepositoryInput] = useState(false);
 
   const closeRepositoryInput = () => {
@@ -88,35 +89,37 @@ const Header = () => {
       </RouterLink>
 
       <Stack direction='row' spacing={3} marginLeft='auto'>
-        {openRepositoryInput && <ReadRepository />}
-        <ReadRepositoryButton
-          whileTap={{
-            scale: 0.9,
-          }}
-          onClick={(e) => {
-            setOpenRepositoryInput((prev) => !prev);
-            e.stopPropagation();
-          }}
-        >
-          <Typography
-            fontSize={'1.1rem'}
-            sx={{
-              userSelect: 'none',
+        {isEligibleForBeta && openRepositoryInput && <ReadRepository />}
+        {isEligibleForBeta && (
+          <ReadRepositoryButton
+            whileTap={{
+              scale: 0.9,
+            }}
+            onClick={(e) => {
+              setOpenRepositoryInput((prev) => !prev);
+              e.stopPropagation();
             }}
           >
-            Get stacks from repo
-          </Typography>
-          <Box
-            mb={'10px'}
-            ml={'7px'}
-            sx={{
-              scale: '1.5',
-              animation: `${wiggling} 2s infinite`,
-            }}
-          >
-            <BetaBadge />
-          </Box>
-        </ReadRepositoryButton>
+            <Typography
+              fontSize={'1.1rem'}
+              sx={{
+                userSelect: 'none',
+              }}
+            >
+              Get stacks from repo
+            </Typography>
+            <Box
+              mb={'10px'}
+              ml={'7px'}
+              sx={{
+                scale: '1.5',
+                animation: `${wiggling} 2s infinite`,
+              }}
+            >
+              <BetaBadge />
+            </Box>
+          </ReadRepositoryButton>
+        )}
 
         <GithubLink
           href={GITHUB_LINK}
