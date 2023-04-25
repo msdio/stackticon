@@ -17,6 +17,21 @@ export const theme = createTheme({
           borderRadius: '12px',
           marginTop: '18px',
         },
+        listbox: {
+          '::-webkit-scrollbar': {
+            width: '14px',
+          },
+          '::-webkit-scrollbar-track': {
+            boxShadow: 'inset 0 0 14px 14px transparent',
+            border: 'solid 4px transparent',
+            margin: 3,
+          },
+          '::-webkit-scrollbar-thumb': {
+            boxShadow: 'inset 0 0 14px 14px #D0D0D0',
+            border: 'solid 4px transparent',
+            borderRadius: '14px',
+          },
+        },
       },
     },
     MuiOutlinedInput: {

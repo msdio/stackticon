@@ -30,7 +30,7 @@ const Landing = ({ isMobile }: { isMobile: boolean }) => {
     <Box
       ref={containerRef}
       width={'100vw !important'}
-      height='95vh'
+      height='100vh'
       display='flex'
       flexDirection='column'
       alignItems='center'
