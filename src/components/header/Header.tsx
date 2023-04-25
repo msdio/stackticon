@@ -2,8 +2,13 @@ import styled from '@emotion/styled';
 import { Box, Link, Stack, SvgIcon, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import LogoWithBackground from 'assets/icons/logoWithBackground';
+import ReadRepository from 'components/read-repository';
+import { wiggling } from 'constants/animations';
 import { APP_NAME, GITHUB_LINK } from 'constants/constants';
+import { BetaBadge } from 'constants/icons';
 import { Svg } from 'constants/svgs';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { Link as RLink } from 'react-router-dom';
 
 const Container = styled.header`
@@ -44,8 +49,22 @@ const GithubLink = styled(Link)`
   text-decoration: none;
 `;
 
+const ReadRepositoryButton = styled(motion.div)`
+  width: 201px;
+  height: 49px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  cursor: pointer;
+`;
+
 const Header = () => {
   const isMobile = useMediaQuery('(max-width: 740px)');
+  const [openRepositoryReader, setOpenRepositoryReader] = useState(false);
 
   return (
     <Container>
@@ -64,7 +83,34 @@ const Header = () => {
         </Typography>
       </RouterLink>
 
-      <Stack direction='row' spacing={2} marginLeft='auto'>
+      <Stack direction='row' spacing={3} marginLeft='auto'>
+        {openRepositoryReader && <ReadRepository />}
+        <ReadRepositoryButton
+          whileTap={{
+            scale: 0.9,
+          }}
+          onClick={() => setOpenRepositoryReader((prev) => !prev)}
+        >
+          <Typography
+            fontSize={'1.1rem'}
+            sx={{
+              userSelect: 'none',
+            }}
+          >
+            Get stacks from repo
+          </Typography>
+          <Box
+            mb={'10px'}
+            ml={'7px'}
+            sx={{
+              scale: '1.5',
+              animation: `${wiggling} 2s infinite`,
+            }}
+          >
+            <BetaBadge />
+          </Box>
+        </ReadRepositoryButton>
+
         <GithubLink
           href={GITHUB_LINK}
           target='_blank'
