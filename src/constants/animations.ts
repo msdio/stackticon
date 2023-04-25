@@ -87,13 +87,13 @@ export const wiggling = keyframes`
 
 export const bounce = keyframes`
   0% {
-    transform: scale(1, 0.6) translateY(70px) translateX(280px);
+    transform: scale(1, 0.7) translateY(70px) translateX(280px);
   }
   10% {
-    transform: scale(1, 0.95) translateY(70px) translateX(280px);
+    transform: scale(1, 0.85) translateY(70px) translateX(280px);
   }
   30% { 
-    transform: scale(1, 1.15) translateY(70px) translateX(280px);
+    transform: scale(1, 1.1) translateY(70px) translateX(280px);
   }
   50% { 
     transform: scale(1, 0.95) translateY(70px) translateX(280px);

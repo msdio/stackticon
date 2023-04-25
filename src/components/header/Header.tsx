@@ -64,10 +64,14 @@ const ReadRepositoryButton = styled(motion.div)`
 
 const Header = () => {
   const isMobile = useMediaQuery('(max-width: 740px)');
-  const [openRepositoryReader, setOpenRepositoryReader] = useState(false);
+  const [openRepositoryInput, setOpenRepositoryInput] = useState(false);
+
+  const closeRepositoryInput = () => {
+    setOpenRepositoryInput(false);
+  };
 
   return (
-    <Container>
+    <Container onClick={closeRepositoryInput}>
       <RouterLink to='/'>
         <LogoWithBackground width={29.3} height={29.3} />
         <Typography
@@ -84,12 +88,15 @@ const Header = () => {
       </RouterLink>
 
       <Stack direction='row' spacing={3} marginLeft='auto'>
-        {openRepositoryReader && <ReadRepository />}
+        {openRepositoryInput && <ReadRepository />}
         <ReadRepositoryButton
           whileTap={{
             scale: 0.9,
           }}
-          onClick={() => setOpenRepositoryReader((prev) => !prev)}
+          onClick={(e) => {
+            setOpenRepositoryInput((prev) => !prev);
+            e.stopPropagation();
+          }}
         >
           <Typography
             fontSize={'1.1rem'}
