@@ -6,9 +6,9 @@ type ColorInfoType = 'light' | 'main' | 'dark';
 
 type BasicColorOptions = Record<BasicColorNumberType, string>;
 type AdditionalColorOptions = Record<AdditionalColorNumberType, string>;
+type ColorInfoOptions = Record<ColorInfoType, string>;
 
 type ColorNumberOptions = BasicColorOptions | AdditionalColorOptions;
-type ColorInfoOptions = Record<ColorInfoType, string>;
 
 export const colors: Record<ColorCategoryType, ColorNumberOptions | ColorInfoOptions> = {
   p: {
