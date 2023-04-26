@@ -108,3 +108,18 @@ export const bounce = keyframes`
     transform: scale(1, 1) translateY(70px) translateX(280px);
   }
 `;
+
+export const RandomRotate = keyframes`
+  0% {
+    rotate: 0deg;
+  }
+  1% {
+    rotate: 80deg;
+  }
+  99% {
+    rotate: 80deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+`;
