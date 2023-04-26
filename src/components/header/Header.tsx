@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { Box, Link, Stack, SvgIcon, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import LogoWithBackground from 'assets/icons/logoWithBackground';
+import LoadingAlternative from 'components/loading-alter';
 import ReadRepository from 'components/read-repository';
 import { wiggling } from 'constants/animations';
 import { APP_NAME, GITHUB_LINK } from 'constants/constants';
@@ -66,13 +67,21 @@ const Header = () => {
   const isMobile = useMediaQuery('(max-width: 740px)');
   const isEligibleForBeta = useMediaQuery('(min-width: 1070px)');
   const [openRepositoryInput, setOpenRepositoryInput] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const closeRepositoryInput = () => {
     setOpenRepositoryInput(false);
   };
 
+  const handleLoading = (state: boolean) => {
+    setIsLoading(state);
+    setOpenRepositoryInput(false);
+  };
+
   return (
     <Container onClick={closeRepositoryInput}>
+      {isLoading && <LoadingAlternative />}
+
       <RouterLink to='/'>
         <LogoWithBackground width={29.3} height={29.3} />
         <Typography
@@ -89,7 +98,7 @@ const Header = () => {
       </RouterLink>
 
       <Stack direction='row' spacing={3} marginLeft='auto'>
-        {isEligibleForBeta && openRepositoryInput && <ReadRepository />}
+        {isEligibleForBeta && openRepositoryInput && <ReadRepository handler={handleLoading} />}
         {isEligibleForBeta && (
           <ReadRepositoryButton
             whileTap={{

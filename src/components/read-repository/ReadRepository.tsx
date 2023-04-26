@@ -3,21 +3,29 @@ import { getPackageJSONObject } from 'apis/packages';
 import { bounce } from 'constants/animations';
 import type { ChangeEvent, KeyboardEvent } from 'react';
 import { useState } from 'react';
+import { extractDependencies, refineSkills } from 'utils/extractStacks';
 import { getPackageJSONFromRepository } from 'utils/resultUrl';
 
-const ReadRepository = () => {
+const ReadRepository = ({ handler }: { handler: (b: boolean) => void }) => {
   const [address, setAddress] = useState('');
 
-  const temp = (e: ChangeEvent<HTMLInputElement>) => {
+  const updateAddress = (e: ChangeEvent<HTMLInputElement>) => {
     setAddress(e.currentTarget.value);
   };
 
-  const temp2 = async (e: KeyboardEvent) => {
+  const getStacks = async (e: KeyboardEvent) => {
     if (e.key === 'Enter') {
+      handler(true);
+
       const packageJSONPath = getPackageJSONFromRepository(address);
       const res = await getPackageJSONObject(packageJSONPath);
 
-      console.log('res', res);
+      console.log('res', extractDependencies(res));
+      console.log('sec', refineSkills(extractDependencies(res)));
+
+      setTimeout(() => {
+        handler(false);
+      }, 3000);
     }
   };
 
@@ -53,8 +61,8 @@ const ReadRepository = () => {
         fullWidth
         placeholder='input repository here'
         onClick={(e) => e.stopPropagation()}
-        onChange={temp}
-        onKeyUp={temp2}
+        onChange={updateAddress}
+        onKeyUp={getStacks}
         disableUnderline
       />
     </Box>
