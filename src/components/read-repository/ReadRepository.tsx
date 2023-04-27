@@ -82,6 +82,7 @@ const ReadRepository = ({ stackHandler, inputPopupHandler }: ReadRepositoryProps
       }}
     >
       <Input
+        autoFocus
         fullWidth
         placeholder='input repository here'
         onClick={(e) => e.stopPropagation()}
