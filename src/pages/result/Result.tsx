@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Box, Button } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import BackgroundCircle from 'components/background-circle';
-import ButtonOptions from 'components/button-options/ButtonOptions';
+import ButtonOptions from 'components/button-options';
 import Header from 'components/header';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -42,7 +42,7 @@ const Result = () => {
 
   return (
     <Box width='100vw' height='100vh' bgcolor='#f9f9f9' position='relative'>
-      <Header />
+      <Header isMain={false} />
       <Container>
         <img
           src={LandingLabel}

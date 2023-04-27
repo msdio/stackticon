@@ -7,8 +7,8 @@ import * as Guide from '../../components/guides';
 
 const Home = () => {
   const observerRef = useRef<HTMLDivElement>(null);
-  const isMobile = useMediaQuery('(max-width: 900px)');
   const [skills, setSkills] = useState<string[]>([]);
+  const isMobile = useMediaQuery('(max-width: 900px)');
 
   const changeSkillSet = (inputSkills: string[]) => {
     setSkills(inputSkills);
@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <Box width='100vw' height='fit-content' minHeight='100vh' position='relative'>
-      <Header handleStacks={changeSkillSet} />
+      <Header isMain={true} handleStacks={changeSkillSet} />
 
       <Landing isMobile={isMobile} skills={skills} handleSkills={changeSkillSet} />
 

@@ -14,13 +14,12 @@ interface ReadRepositoryProps {
 
 const ReadRepository = ({ stackHandler, inputPopupHandler }: ReadRepositoryProps) => {
   const [address, setAddress] = useState('');
-  const [isError, setIsError] = useState(false);
 
   const updateAddress = (e: ChangeEvent<HTMLInputElement>) => {
     setAddress(e.currentTarget.value);
   };
 
-  const filterExistingStacks = (data: any) => {
+  const filterExistingStacks = (data: object) => {
     const stacksFromPackage = refineSkills(extractDependencies(data));
     const iconNames: Set<string> = allIconNames();
 

@@ -10,7 +10,7 @@ const BackgroundColors = () => {
 
   return (
     <Box bgcolor='#f9f9f9' position='relative' width='100%' overflow='hidden'>
-      <Header />
+      <Header isMain={false} />
       <Box
         width='100vw'
         height='100%'
