@@ -58,7 +58,7 @@ yarn start
 <br/>
 
 ### Choose your color<br/>
-<img width="60%" src="https://user-images.githubusercontent.com/59170680/225878139-6e87f648-8975-495a-813f-94df2b66c44a.png" />
+<img width="80%" src="https://user-images.githubusercontent.com/59170680/225878139-6e87f648-8975-495a-813f-94df2b66c44a.png" />
 <br/>
 
 
