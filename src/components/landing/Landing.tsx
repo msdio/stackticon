@@ -76,7 +76,7 @@ const Landing = ({ isMobile, skills, handleSkills }: LandingProps) => {
           scale: isMobile ? '0.7' : '1',
         }}
       >
-        <Input handler={handleSkills} />
+        <Input stacks={skills} handler={handleSkills} />
         <Button
           variant='contained'
           color='success'

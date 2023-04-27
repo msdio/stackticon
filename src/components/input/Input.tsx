@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 import { Autocomplete, createFilterOptions, TextField, useMediaQuery } from '@mui/material';
+import { useEffect, useState } from 'react';
 import type { SimpleIcon } from 'simple-icons';
 
-import { makeIconInfoArray } from '../../utils/allIconInfo';
+import { getIconDetail, makeIconInfoArray } from '../../utils/allIconInfo';
 
 const DropdownSvg = styled.div<{ hex: string }>`
   width: 24px;
@@ -20,12 +21,15 @@ const DropdownSvg = styled.div<{ hex: string }>`
 `;
 
 interface InputProps {
+  stacks: string[];
   handler: (p: string[]) => void;
 }
 
-const Input = ({ handler }: InputProps) => {
+const Input = ({ stacks, handler }: InputProps) => {
   const isMobile = useMediaQuery('(max-width: 900px)');
   const iconArr = makeIconInfoArray();
+
+  const [inputStacks, setInputStacks] = useState<SimpleIcon[]>([]);
 
   const onStackChange = (e: React.SyntheticEvent, value: SimpleIcon[]) => {
     handler(
@@ -35,6 +39,15 @@ const Input = ({ handler }: InputProps) => {
       ),
     );
   };
+
+  useEffect(() => {
+    const ret: SimpleIcon[] = [];
+    stacks.forEach((stk) => {
+      ret.push(getIconDetail(stk));
+    });
+
+    setInputStacks(ret);
+  }, [stacks]);
 
   return (
     <div style={{ width: isMobile ? '66%' : '50%', zIndex: '50' }}>
@@ -54,6 +67,7 @@ const Input = ({ handler }: InputProps) => {
           );
         }}
         getOptionLabel={(option) => option.title}
+        value={inputStacks}
         onChange={(e, value) => onStackChange(e, value)}
         filterSelectedOptions
         renderInput={(params) => <TextField {...params} placeholder='Choose Your Stacks!' />}
