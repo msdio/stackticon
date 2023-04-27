@@ -6,10 +6,10 @@ export const extractDependencies = (packageObj: any) => {
 };
 
 export const refineSkills = (stacks: string[]) => {
-  const refined = new Set();
+  const refined: string[] = [];
 
   stacks.forEach((stk) => {
-    stk.includes('/') ? refined.add(stk.slice(1, stk.indexOf('/'))) : refined.add(stk);
+    stk.includes('/') ? refined.push(stk.slice(1, stk.indexOf('/'))) : refined.push(stk);
   });
 
   return refined;

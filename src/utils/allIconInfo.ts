@@ -18,3 +18,13 @@ export const getIconDetail = (target: string) => {
 
   return allIconArr[iconKey];
 };
+
+export const allIconNames = () => {
+  const allIcons: any[] = makeIconInfoArray();
+
+  return allIcons.reduce((allNames: Set<string>, curIcon: SimpleIcon) => {
+    allNames.add(curIcon['slug']);
+
+    return allNames;
+  }, new Set());
+};

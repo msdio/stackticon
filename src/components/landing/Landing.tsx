@@ -9,15 +9,16 @@ import { useNavigate } from 'react-router-dom';
 import LandingImage from '../../assets/images/landing-image.png';
 import LandingLabel from '../../assets/images/landing-label.png';
 
-const Landing = ({ isMobile }: { isMobile: boolean }) => {
-  const [skills, setSkills] = useState<string[]>([]);
+interface LandingProps {
+  isMobile: boolean;
+  skills: string[];
+  handleSkills: (p: string[]) => void;
+}
+
+const Landing = ({ isMobile, skills, handleSkills }: LandingProps) => {
   const [buttonClicked, setButtonClicked] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-
-  const changeSkillSet = (inputSkills: string[]) => {
-    setSkills(inputSkills);
-  };
 
   const submitSkills = () => {
     if (!buttonClicked && skills.length > 0) {
@@ -75,7 +76,7 @@ const Landing = ({ isMobile }: { isMobile: boolean }) => {
           scale: isMobile ? '0.7' : '1',
         }}
       >
-        <Input handler={changeSkillSet} />
+        <Input handler={handleSkills} />
         <Button
           variant='contained'
           color='success'

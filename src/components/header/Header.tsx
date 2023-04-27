@@ -63,7 +63,7 @@ const ReadRepositoryButton = styled(motion.div)`
   cursor: pointer;
 `;
 
-const Header = () => {
+const Header = ({ handleStacks }: { handleStacks: (p: string[]) => void }) => {
   const isMobile = useMediaQuery('(max-width: 740px)');
   const isEligibleForBeta = useMediaQuery('(min-width: 1070px)');
   const [openRepositoryInput, setOpenRepositoryInput] = useState(false);
@@ -98,7 +98,9 @@ const Header = () => {
       </RouterLink>
 
       <Stack direction='row' spacing={3} marginLeft='auto'>
-        {isEligibleForBeta && openRepositoryInput && <ReadRepository handler={handleLoading} />}
+        {isEligibleForBeta && openRepositoryInput && (
+          <ReadRepository stackHandler={handleStacks} inputPopupHandler={handleLoading} />
+        )}
         {isEligibleForBeta && (
           <ReadRepositoryButton
             whileTap={{
