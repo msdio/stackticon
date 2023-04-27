@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Box } from '@mui/material';
-import { getSimpleIconInfo } from 'utils/simpleIconInfo';
+import { getIconDetail } from 'utils/allIconInfo';
 
 const DropdownSvg = styled.div<{ hex: string }>`
   width: 50px;
@@ -22,7 +22,7 @@ interface StackProps {
 }
 
 const Stack = ({ stackName }: StackProps) => {
-  const { title, svg, hex } = getSimpleIconInfo(stackName);
+  const { title, svg, hex } = getIconDetail(stackName);
 
   return (
     <div
