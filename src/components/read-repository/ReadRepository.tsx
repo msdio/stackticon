@@ -14,6 +14,7 @@ interface ReadRepositoryProps {
 
 const ReadRepository = ({ stackHandler, inputPopupHandler }: ReadRepositoryProps) => {
   const [address, setAddress] = useState('');
+  const [isError, setIsError] = useState(false);
 
   const updateAddress = (e: ChangeEvent<HTMLInputElement>) => {
     setAddress(e.currentTarget.value);
@@ -40,16 +41,22 @@ const ReadRepository = ({ stackHandler, inputPopupHandler }: ReadRepositoryProps
       inputPopupHandler(true);
 
       const packageJSONPath = getPackageJSONFromRepository(address);
-      const response = await getPackageJSONObject(packageJSONPath);
 
-      if (response.status === 200) {
-        const extractedStacks = filterExistingStacks(response.data);
-        setStacks(extractedStacks);
+      try {
+        const response = await getPackageJSONObject(packageJSONPath);
+
+        if (response.status === 200) {
+          const extractedStacks = filterExistingStacks(response.data);
+          setStacks(extractedStacks);
+        }
+      } catch (e) {
+        alert(e);
+        inputPopupHandler(false);
       }
 
       setTimeout(() => {
         inputPopupHandler(false);
-      }, 3000);
+      }, 2500);
     }
   };
 
