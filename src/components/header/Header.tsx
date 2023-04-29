@@ -2,8 +2,14 @@ import styled from '@emotion/styled';
 import { Box, Link, Stack, SvgIcon, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import LogoWithBackground from 'assets/icons/logoWithBackground';
+import LoadingAlternative from 'components/loading-alter';
+import ReadRepository from 'components/read-repository';
+import { wiggling } from 'constants/animations';
 import { APP_NAME, GITHUB_LINK } from 'constants/constants';
+import { BetaBadge } from 'constants/icons';
 import { Svg } from 'constants/svgs';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { Link as RLink } from 'react-router-dom';
 
 const Container = styled.header`
@@ -44,11 +50,48 @@ const GithubLink = styled(Link)`
   text-decoration: none;
 `;
 
-const Header = () => {
+const ReadRepositoryButton = styled(motion.div)`
+  width: 201px;
+  height: 49px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  cursor: pointer;
+`;
+
+interface HeaderProps {
+  isMain: boolean;
+  handleStacks?: (p: string[]) => void;
+}
+
+const Header = ({
+  isMain,
+  handleStacks = () => {
+    return true;
+  },
+}: HeaderProps) => {
   const isMobile = useMediaQuery('(max-width: 740px)');
+  const isEligibleForBeta = useMediaQuery('(min-width: 1070px)');
+  const [openRepositoryInput, setOpenRepositoryInput] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const closeRepositoryInput = () => {
+    setOpenRepositoryInput(false);
+  };
+
+  const handleLoading = (state: boolean) => {
+    setIsLoading(state);
+    setOpenRepositoryInput(false);
+  };
 
   return (
-    <Container>
+    <Container onClick={closeRepositoryInput}>
+      {isLoading && <LoadingAlternative />}
+
       <RouterLink to='/'>
         <LogoWithBackground width={29.3} height={29.3} />
         <Typography
@@ -64,7 +107,41 @@ const Header = () => {
         </Typography>
       </RouterLink>
 
-      <Stack direction='row' spacing={2} marginLeft='auto'>
+      <Stack direction='row' spacing={3} marginLeft='auto'>
+        {isEligibleForBeta && openRepositoryInput && isMain && (
+          <ReadRepository stackHandler={handleStacks} inputPopupHandler={handleLoading} />
+        )}
+        {isEligibleForBeta && isMain && (
+          <ReadRepositoryButton
+            whileTap={{
+              scale: 0.9,
+            }}
+            onClick={(e) => {
+              setOpenRepositoryInput((prev) => !prev);
+              e.stopPropagation();
+            }}
+          >
+            <Typography
+              fontSize={'1.1rem'}
+              sx={{
+                userSelect: 'none',
+              }}
+            >
+              Get stacks from repo
+            </Typography>
+            <Box
+              mb={'10px'}
+              ml={'7px'}
+              sx={{
+                scale: '1.5',
+                animation: `${wiggling} 2s infinite`,
+              }}
+            >
+              <BetaBadge />
+            </Box>
+          </ReadRepositoryButton>
+        )}
+
         <GithubLink
           href={GITHUB_LINK}
           target='_blank'

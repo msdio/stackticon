@@ -1,7 +1,7 @@
 import type { SimpleIcon } from 'simple-icons';
 
 import customIcons from '../../constants/custom-icons.json';
-import { makeIconInfoArray } from '../allIconInfo';
+import { getIconDetail, makeIconInfoArray } from '../allIconInfo';
 
 describe('check custom icons', () => {
   let allIconArr: SimpleIcon[];
@@ -25,4 +25,11 @@ describe('check custom icons', () => {
 
     expect(lastAddedIcon?.slug).toBe(makeSlug);
   });
+});
+
+test('get accurate icon object', () => {
+  const converted = getIconDetail('Reactrouter');
+
+  expect(converted.title).toBe('React Router');
+  expect(converted.slug).toBe('reactrouter');
 });

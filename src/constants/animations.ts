@@ -72,3 +72,54 @@ export const tetromino4 = keyframes`
     transform: translate(0, 0);
   }
 `;
+
+export const wiggling = keyframes`
+  0% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(7deg);
+  }
+  100% {
+    transform: rotate(-7deg);
+  }
+`;
+
+export const bounce = keyframes`
+  0% {
+    transform: scale(1, 0.7) translateY(70px) translateX(280px);
+  }
+  10% {
+    transform: scale(1, 0.85) translateY(70px) translateX(280px);
+  }
+  30% { 
+    transform: scale(1, 1.1) translateY(70px) translateX(280px);
+  }
+  50% { 
+    transform: scale(1, 0.95) translateY(70px) translateX(280px);
+  }
+  60% { 
+    transform: scale(1, 1.01) translateY(70px) translateX(280px);
+  }
+  70% { 
+    transform: scale(1, 0.99) translateY(70px) translateX(280px);
+  }
+  100% { 
+    transform: scale(1, 1) translateY(70px) translateX(280px);
+  }
+`;
+
+export const RandomRotate = keyframes`
+  0% {
+    rotate: 0deg;
+  }
+  1% {
+    rotate: 80deg;
+  }
+  99% {
+    rotate: 80deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+`;

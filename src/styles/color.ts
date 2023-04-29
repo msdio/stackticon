@@ -1,4 +1,16 @@
-export const colors = {
+type ColorCategoryType = 'p' | 'cg' | 'info';
+
+type BasicColorNumberType = '1' | '2' | '3' | '4' | '5' | '6';
+type AdditionalColorNumberType = '7' | '8';
+type ColorInfoType = 'light' | 'main' | 'dark';
+
+type BasicColorOptions = Record<BasicColorNumberType, string>;
+type AdditionalColorOptions = Record<AdditionalColorNumberType, string>;
+type ColorInfoOptions = Record<ColorInfoType, string>;
+
+type ColorNumberOptions = BasicColorOptions | AdditionalColorOptions;
+
+export const colors: Record<ColorCategoryType, ColorNumberOptions | ColorInfoOptions> = {
   p: {
     '1': '#0066ff',
     '2': '#3385ff',
