@@ -2,16 +2,18 @@
 
 Make skill sets image for readme <br/>
 
-https://msdio.github.io/stackticon/ 
+https://msdio.github.io/stackticon/
 
-[![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1679045677747?alt=media&token=e942f72b-e054-46e0-beb0-7e6beba0542b)](https://github.com/msdio/stackticon)
+[![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1682742099291?alt=media&token=076b97bc-71a6-4fb3-ba55-21335cff1a73)](https://github.com/msdio/stackticon)
 
 <br/>
 
 ## How To Contribute
+
 You can contribute with adding icon.<br/>
 You only need to add info about icon in `custom-icons.json` file.
 You should add like following:
+
 ```
 {
   "title": "Java",
@@ -21,6 +23,7 @@ You should add like following:
   "viewBox": "viewBox"
 },
 ```
+
 `title` : Every word should start with capital letter. `ex) Two Words`<br/>
 `slug` : Same as title, but remove space between words and use small letter at very first. `ex) twoWords`<br/>
 `hex` : Color of svg. Please write without #. <br/>
@@ -54,23 +57,50 @@ yarn start
 ## Features
 
 ### Simply type your skill sets<br/>
+
 <img width="80%" src="https://user-images.githubusercontent.com/59170680/225875213-1ec4667d-43a7-49b8-812e-36d3451bc535.gif" />
 <br/>
 
+### Or put your front-end app repository url (BETA)
+
+<img width="1001" alt="Screenshot 2023-04-27 at 3 20 20 PM" src="https://user-images.githubusercontent.com/59170680/234776435-b7cf6f43-7180-4c4c-ace0-fdc15ccc5d63.png">
+<br/>
+
 ### Choose your color<br/>
+
 <img width="80%" src="https://user-images.githubusercontent.com/59170680/225878139-6e87f648-8975-495a-813f-94df2b66c44a.png" />
 <br/>
 
+### Create your own skill sets
 
-### Create your own skill sets<br/>
-[![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1679045677747?alt=media&token=e942f72b-e054-46e0-beb0-7e6beba0542b)](https://github.com/msdio/stackticon)
-<br/>
+[![stackticon](https://firebasestorage.googleapis.com/v0/b/stackticon-81399.appspot.com/o/images%2F1682742099291?alt=media&token=076b97bc-71a6-4fb3-ba55-21335cff1a73)](https://github.com/msdio/stackticon)
 <br/>
 
 ### You can copy url and use in your project's readme<br/>
-![image](https://user-images.githubusercontent.com/59170680/225878420-5a8b2811-eb87-4a12-b846-9b8c1550eb5d.png)
 
+![image](https://user-images.githubusercontent.com/59170680/225878420-5a8b2811-eb87-4a12-b846-9b8c1550eb5d.png)
 <br/>
+
+## Structure
+
+<pre>
+├── App.tsx
+├── Router.tsx
+├── RouterContainer.tsx
+├── assets
+│   ├── icons
+│   └── images
+├── components
+├── constants
+├── hooks
+├── mock
+├── pages
+├── services
+├── styles
+├── types
+└── utils
+    └── test
+</pre>
 
 ## Authors
 
