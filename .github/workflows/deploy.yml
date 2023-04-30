@@ -35,6 +35,19 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Create environment variables
+        run: |
+          touch .env
+          echo VITE_API_KEY=${{ secrets.VITE_API_KEY }} >> .env
+          echo VITE_AUTHDOMAIN=${{ secrets.VITE_AUTHDOMAIN }} >> .env
+          echo VITE_PROJECT_ID=${{ secrets.VITE_PROJECT_ID }} >> .env
+          echo VITE_STORAGE_BUCKET=${{ secrets.VITE_STORAGE_BUCKET }} >> .env
+          echo VITE_MESSAGING_SENDER_ID=${{ secrets.VITE_MESSAGING_SENDER_ID }} >> .env
+          echo VITE_APP_ID=${{ secrets.VITE_APP_ID }} >> .env
+          echo VITE_MEASUREMENT_ID=${{ secrets.VITE_MEASUREMENT_ID }} >> .env
+          echo VITE_PUBLIC_URL=${{ secrets.VITE_PUBLIC_URL }} >> .env
+          echo VITE_GOOGLE_ANALYTICS_TRACKING_ID=${{ secrets.VITE_GOOGLE_ANALYTICS_TRACKING_ID }} >> .env
+
       - name: Build
         run: yarn build
 
