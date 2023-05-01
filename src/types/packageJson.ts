@@ -1,3 +1,3 @@
 export interface PackageJSONType {
-  [key: string]: string | object;
+  [key: string]: string | boolean | object;
 }
