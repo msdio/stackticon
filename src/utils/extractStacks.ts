@@ -5,12 +5,16 @@ export const extractDependencies = (packageObj: any) => {
   return [...dependencies, ...devDependencies];
 };
 
-export const refineSkills = (stacks: string[]) => {
+export const extractUniqueElements = (skills: string[]) => {
+  return new Set(skills);
+};
+
+export const refineSkills = (skills: string[]) => {
   const refined: string[] = [];
 
-  stacks.forEach((stk) => {
+  skills.forEach((stk) => {
     stk.includes('/') ? refined.push(stk.slice(1, stk.indexOf('/'))) : refined.push(stk);
   });
 
-  return refined;
+  return extractUniqueElements(refined);
 };

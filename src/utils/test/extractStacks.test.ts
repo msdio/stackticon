@@ -1,4 +1,4 @@
-import { extractDependencies, refineSkills } from 'utils/extractStacks';
+import { extractDependencies, extractUniqueElements, refineSkills } from 'utils/extractStacks';
 
 test('extract skill names from package json', () => {
   const samplePackage = {
@@ -118,6 +118,26 @@ test('extract skill names from package json', () => {
   expect(extractDependencies(samplePackage)).toEqual(resultDep);
 });
 
+test('make every element in array unique using set', () => {
+  const original = [
+    'emotion',
+    'emotion',
+    'emotion',
+    'mui',
+    'firebase',
+    'firebase',
+    'framer-motion',
+    'framer-motion',
+    'framer-motion',
+    'gh-pages',
+    'gh-pages',
+  ];
+
+  const generatedSet = new Set(['emotion', 'mui', 'firebase', 'framer-motion', 'gh-pages']);
+
+  expect(extractUniqueElements(original)).toEqual(generatedSet);
+});
+
 test('remove submodules and get stack names from array', () => {
   const original = [
     '@emotion/react',
@@ -162,7 +182,7 @@ test('remove submodules and get stack names from array', () => {
     'vite-tsconfig-paths',
   ];
 
-  const refinedSkills = [
+  const refinedSkills = new Set([
     'emotion',
     'mui',
     'firebase',
@@ -194,9 +214,7 @@ test('remove submodules and get stack names from array', () => {
     'typescript',
     'vite',
     'vite-tsconfig-paths',
-  ];
+  ]);
 
-  const refinedSet = new Set(refinedSkills);
-
-  expect(refineSkills(original)).toEqual(refinedSet);
+  expect(refineSkills(original)).toEqual(refinedSkills);
 });

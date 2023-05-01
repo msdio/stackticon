@@ -23,7 +23,7 @@ const ReadRepository = ({ stackHandler, inputPopupHandler }: ReadRepositoryProps
     const stacksFromPackage = refineSkills(extractDependencies(data));
     const iconNames: Set<string> = allIconNames();
 
-    return new Set(stacksFromPackage.filter((el) => iconNames.has(el.toLowerCase())));
+    return new Set([...stacksFromPackage].filter((el) => iconNames.has(el.toLowerCase())));
   };
 
   const setStacks = (stacks: Set<string>) => {
