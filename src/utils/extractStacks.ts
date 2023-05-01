@@ -1,4 +1,6 @@
-export const extractDependencies = (packageObj: any) => {
+import type { PackageJSONType } from 'types/packageJson';
+
+export const extractDependencies = (packageObj: PackageJSONType) => {
   const dependencies = Object.keys(packageObj['dependencies']);
   const devDependencies = Object.keys(packageObj['devDependencies']);
 
