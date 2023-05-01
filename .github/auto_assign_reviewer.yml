@@ -1,8 +1,0 @@
-addReviewers: true
-
-addAssignees: author
-
-reviewers:
-  - msdio
-
-numberOfReviewers: 0
