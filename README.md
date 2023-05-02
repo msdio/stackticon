@@ -84,9 +84,6 @@ yarn start
 ## Structure
 
 <pre>
-├── App.tsx
-├── Router.tsx
-├── RouterContainer.tsx
 ├── assets
 │   ├── icons
 │   └── images
@@ -98,8 +95,12 @@ yarn start
 ├── services
 ├── styles
 ├── types
-└── utils
-    └── test
+├── utils
+│   └── test
+│
+├── App.tsx
+├── Router.tsx
+└── RouterContainer.tsx
 </pre>
 
 ## Authors

@@ -3,6 +3,7 @@ import { getPackageJSONObject } from 'apis/packages';
 import { bounce } from 'constants/animations';
 import type { ChangeEvent, KeyboardEvent } from 'react';
 import { useState } from 'react';
+import type { PackageJSONType } from 'types/packageJson';
 import { allIconNames } from 'utils/allIconInfo';
 import { extractDependencies, refineSkills } from 'utils/extractStacks';
 import { getPackageJSONFromRepository } from 'utils/resultUrl';
@@ -19,11 +20,11 @@ const ReadRepository = ({ stackHandler, inputPopupHandler }: ReadRepositoryProps
     setAddress(e.currentTarget.value);
   };
 
-  const filterExistingStacks = (data: object) => {
+  const filterExistingStacks = (data: PackageJSONType) => {
     const stacksFromPackage = refineSkills(extractDependencies(data));
     const iconNames: Set<string> = allIconNames();
 
-    return new Set(stacksFromPackage.filter((el) => iconNames.has(el.toLowerCase())));
+    return new Set([...stacksFromPackage].filter((el) => iconNames.has(el.toLowerCase())));
   };
 
   const setStacks = (stacks: Set<string>) => {

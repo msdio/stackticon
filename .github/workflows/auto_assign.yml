@@ -1,0 +1,16 @@
+name: AutoAssignment
+
+on:
+    pull_request:
+        types: [opened, reopened, ready_for_review]
+
+jobs:
+    assignment:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Auto-assignment
+              uses: actions/checkout@v2
+              uses: kyoya0819/auto-assignment@v1.2.2
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  configuration-path: ".github/auto_assign_reviewer.yml"

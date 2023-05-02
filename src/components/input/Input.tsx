@@ -68,6 +68,9 @@ const Input = ({ stacks, handler }: InputProps) => {
         }}
         getOptionLabel={(option) => option.title}
         value={inputStacks}
+        isOptionEqualToValue={(option, value) => {
+          return option.slug === value.slug;
+        }}
         onChange={(e, value) => onStackChange(e, value)}
         filterSelectedOptions
         renderInput={(params) => <TextField {...params} placeholder='Choose Your Stacks!' />}
