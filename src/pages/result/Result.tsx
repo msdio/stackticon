@@ -1,4 +1,4 @@
-import BackgroundWithCircle from '@common/BackgroundWithCircle';
+import BackgroundWithCircle from '@common/background-with-circle';
 import styled from '@emotion/styled';
 import { Box } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';

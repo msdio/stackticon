@@ -1,4 +1,4 @@
-import BackgroundWithCircle from '@common/BackgroundWithCircle';
+import BackgroundWithCircle from '@common/background-with-circle';
 import HeadingText from '@common/HeadingText';
 import { Box, Stack, useMediaQuery } from '@mui/material';
 import Header from 'components/header';

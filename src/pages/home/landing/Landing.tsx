@@ -1,4 +1,4 @@
-import BackgroundWithCircle from '@common/BackgroundWithCircle';
+import BackgroundWithCircle from '@common/background-with-circle';
 import { Box, Button, Typography } from '@mui/material';
 import DraggableIcon from 'components/draggable-icon';
 import Input from 'components/input';
