@@ -1,6 +1,6 @@
+import BackgroundWithCircle from '@common/BackgroundWithCircle';
+import HeadingText from '@common/HeadingText';
 import { Box, Stack, useMediaQuery } from '@mui/material';
-import BackgroundWithCircle from 'components/@common/BackgroundWithCircle';
-import HeadingText from 'components/@common/HeadingText';
 import Header from 'components/header';
 import StackContainer from 'components/stack-container';
 import { useLocation } from 'react-router-dom';
