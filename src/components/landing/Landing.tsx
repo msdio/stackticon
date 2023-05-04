@@ -1,5 +1,5 @@
+import BackgroundWithCircle from '@common/BackgroundWithCircle';
 import { Box, Button, Typography } from '@mui/material';
-import BackgroundCircle from 'components/background-circle';
 import DraggableIcon from 'components/draggable-icon';
 import Input from 'components/input';
 import { JavascriptIcon, NodeJSIcon, ReactIcon, SpringIcon } from 'constants/icons';
@@ -28,19 +28,18 @@ const Landing = ({ isMobile, skills, handleSkills }: LandingProps) => {
   };
 
   return (
-    <Box
-      ref={containerRef}
-      width={'100vw !important'}
-      height='100vh'
-      display='flex'
-      flexDirection='column'
-      alignItems='center'
-      position='relative'
-      paddingTop='150px'
-      gap={isMobile ? '10px' : '61px'}
-      bgcolor='#f9f9f9'
+    <BackgroundWithCircle
+      sx={{
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        paddingTop: '150px',
+        gap: isMobile ? '10px' : '61px',
+      }}
     >
       <Box
+        ref={containerRef}
         display='flex'
         flexDirection='column'
         justifyContent='center'
@@ -100,14 +99,7 @@ const Landing = ({ isMobile, skills, handleSkills }: LandingProps) => {
       <DraggableIcon constraints={containerRef} icon={<NodeJSIcon />} top='20%' right='20%' />
       <DraggableIcon constraints={containerRef} icon={<JavascriptIcon />} top='30%' left='13%' />
       <DraggableIcon constraints={containerRef} icon={<SpringIcon />} bottom='17%' left='25%' />
-
-      <Box position='absolute' left='-170px' top='-209px' zIndex='1'>
-        <BackgroundCircle />
-      </Box>
-      <Box position='absolute' right='-49px' bottom='-289px' zIndex='1'>
-        <BackgroundCircle />
-      </Box>
-    </Box>
+    </BackgroundWithCircle>
   );
 };
 

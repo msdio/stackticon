@@ -1,7 +1,7 @@
+import BackgroundWithCircle from '@common/BackgroundWithCircle';
 import styled from '@emotion/styled';
 import { Box, Button } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import BackgroundCircle from 'components/background-circle';
 import ButtonOptions from 'components/button-options';
 import Header from 'components/header';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -41,7 +41,7 @@ const Result = () => {
   });
 
   return (
-    <Box width='100vw' height='100vh' bgcolor='#f9f9f9' position='relative'>
+    <BackgroundWithCircle sx={{ height: '100vh' }}>
       <Header isMain={false} />
       <Container>
         <img
@@ -86,14 +86,7 @@ const Result = () => {
           </Link>
         </Buttons>
       </Container>
-
-      <Box position='absolute' left='-170px' top='-209px' zIndex='1'>
-        <BackgroundCircle />
-      </Box>
-      <Box position='absolute' right='-49px' bottom='-289px' zIndex='1'>
-        <BackgroundCircle />
-      </Box>
-    </Box>
+    </BackgroundWithCircle>
   );
 };
 
