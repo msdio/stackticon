@@ -1,6 +1,6 @@
 import type { SxProps } from '@mui/material';
 import { Box } from '@mui/material';
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren, RefObject } from 'react';
 
 const BackgroundCircle = () => (
   <Box
@@ -15,8 +15,17 @@ const BackgroundCircle = () => (
   ></Box>
 );
 
-export const BackgroundWithCircle = ({ children, sx }: PropsWithChildren<{ sx: SxProps }>) => (
-  <Box width={'100vw'} position={'relative'} bgcolor={'#f9f9f9'} sx={sx}>
+interface BackgroundCircleProps {
+  sx: SxProps;
+  domRef?: RefObject<HTMLElement>;
+}
+
+export const BackgroundWithCircle = ({
+  children,
+  sx,
+  domRef,
+}: PropsWithChildren<BackgroundCircleProps>) => (
+  <Box width={'100vw'} position={'relative'} bgcolor={'#f9f9f9'} sx={sx} ref={domRef}>
     {children}
 
     <Box position='absolute' left='-170px' top='-209px' zIndex='1'>

@@ -12,6 +12,7 @@ const BackgroundColors = () => {
   return (
     <BackgroundWithCircle sx={{ overflow: 'hidden' }}>
       <Header isMain={false} />
+
       <Box
         width='100vw'
         height='100%'

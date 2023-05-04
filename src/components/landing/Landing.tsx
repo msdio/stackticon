@@ -29,6 +29,7 @@ const Landing = ({ isMobile, skills, handleSkills }: LandingProps) => {
 
   return (
     <BackgroundWithCircle
+      domRef={containerRef}
       sx={{
         height: '100vh',
         display: 'flex',

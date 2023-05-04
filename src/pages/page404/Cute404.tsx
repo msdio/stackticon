@@ -1,6 +1,5 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import React from 'react';
 import { useNavigate } from 'react-router';
 // @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lato');
 

@@ -17,7 +17,7 @@ const Container = styled.div`
   z-index: 5;
 `;
 
-const Img = styled.img`
+const ResultImage = styled.img`
   width: 80vw;
   max-width: 700px;
   margin: 30px;
@@ -55,9 +55,11 @@ const Result = () => {
             scale: isMobile ? '0.7' : '1',
           }}
         />
+
         <Box marginTop='50px' marginBottom='30px'>
-          <Img src={state} alt='stackticon result' />
+          <ResultImage src={state} alt='stackticon result' />
         </Box>
+
         <Buttons
           style={{
             flexDirection: isMobile ? 'column' : 'row',
