@@ -4,18 +4,8 @@ import { Box, Button } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import ButtonOptions from 'components/button-options';
 import Header from 'components/header';
+import { LandingLabel } from 'components/stackticon-images/StackticonImages';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-
-import LandingLabel from '../../assets/images/landing-label.png';
-
-const Container = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -70%);
-  text-align: center;
-  z-index: 5;
-`;
 
 const ResultImage = styled.img`
   width: 80vw;
@@ -41,43 +31,47 @@ const Result = () => {
   });
 
   return (
-    <BackgroundWithCircle sx={{ height: '100vh' }}>
+    <BackgroundWithCircle sx={{ height: '100vh', overflow: 'hidden' }}>
       <Header isMain={false} />
-      <Container>
-        <img
-          src={LandingLabel}
-          alt='landing-label'
-          width='312px'
-          height='52px'
-          style={{
-            marginTop: isMobile ? '150px' : '250px',
-            transform: 'translateX(-5px)',
+
+      <Box
+        position={'absolute'}
+        top={'50%'}
+        left={'50%'}
+        zIndex={5}
+        textAlign={'center'}
+        sx={{
+          transform: 'translate(-50%, -70%)',
+        }}
+      >
+        <LandingLabel
+          styles={{
+            marginTop: isMobile ? '3.75rem' : '8.125rem',
             scale: isMobile ? '0.7' : '1',
+            marginBottom: '50px',
           }}
         />
 
-        <Box marginTop='50px' marginBottom='30px'>
-          <ResultImage src={state} alt='stackticon result' />
-        </Box>
+        <ResultImage src={state} alt='stackticon result' />
 
         <Buttons
           style={{
+            marginTop: '30px',
             flexDirection: isMobile ? 'column' : 'row',
           }}
         >
           <ButtonOptions url={state} />
+
           <Link to='/' style={{ textDecoration: 'none' }}>
             <Button
+              size='large'
               variant='contained'
               endIcon='🏠'
               sx={{
-                width: '236px',
-                height: '56px',
-                backgroundColor: '#454A52',
+                backgroundColor: 'info.dark',
                 borderRadius: '12px',
                 fontSize: '20px',
                 fontWeight: 'bold',
-
                 '&:hover': {
                   backgroundColor: 'cg.1',
                 },
@@ -87,7 +81,7 @@ const Result = () => {
             </Button>
           </Link>
         </Buttons>
-      </Container>
+      </Box>
     </BackgroundWithCircle>
   );
 };

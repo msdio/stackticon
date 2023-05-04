@@ -61,8 +61,8 @@ const ButtonOptions = (state: any) => {
         ref={buttonRef}
         aria-label='button with options'
         variant='contained'
+        size='large'
         sx={{
-          width: 'fit-content',
           backgroundColor: 'p.1',
           borderRadius: '12px',
           marginRight: '10px',

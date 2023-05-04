@@ -6,8 +6,7 @@ import { JavascriptIcon, NodeJSIcon, ReactIcon, SpringIcon } from 'constants/ico
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import LandingImage from '../../assets/images/landing-image.png';
-import LandingLabel from '../../assets/images/landing-label.png';
+import * as Images from '../stackticon-images/StackticonImages';
 
 interface LandingProps {
   isMobile: boolean;
@@ -50,17 +49,9 @@ const Landing = ({ isMobile, skills, handleSkills }: LandingProps) => {
           scale: isMobile ? '0.7' : '1',
         }}
       >
-        <img src={LandingImage} alt='landing-image' width='406px' height='144px' />
-        <img
-          src={LandingLabel}
-          alt='landing-label'
-          width='312px'
-          height='52px'
-          style={{
-            marginTop: '57px',
-            transform: 'translateX(-5px)',
-          }}
-        />
+        <Images.LandingImage />
+        <Images.LandingLabel styles={{ marginTop: '57px' }} />
+
         <Typography fontSize='24px' fontWeight='400' color='cg.4' marginTop='24px'>
           make skill sets for your project
         </Typography>
