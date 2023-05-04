@@ -1,24 +1,17 @@
 import BackgroundWithCircle from '@common/BackgroundWithCircle';
 import styled from '@emotion/styled';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import ButtonOptions from 'components/button-options';
 import Header from 'components/header';
 import { LandingLabel } from 'components/stackticon-images/StackticonImages';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+import BottomButtons from './bottom-buttons';
 
 const ResultImage = styled.img`
   width: 80vw;
   max-width: 700px;
   margin: 30px;
-`;
-
-const Buttons = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 3.625rem;
 `;
 
 const Result = () => {
@@ -54,33 +47,7 @@ const Result = () => {
 
         <ResultImage src={state} alt='stackticon result' />
 
-        <Buttons
-          style={{
-            marginTop: '30px',
-            flexDirection: isMobile ? 'column' : 'row',
-          }}
-        >
-          <ButtonOptions url={state} />
-
-          <Link to='/' style={{ textDecoration: 'none' }}>
-            <Button
-              size='large'
-              variant='contained'
-              endIcon='🏠'
-              sx={{
-                backgroundColor: 'info.dark',
-                borderRadius: '12px',
-                fontSize: '20px',
-                fontWeight: 'bold',
-                '&:hover': {
-                  backgroundColor: 'cg.1',
-                },
-              }}
-            >
-              Return to main
-            </Button>
-          </Link>
-        </Buttons>
+        <BottomButtons isMobile={isMobile} state={state} />
       </Box>
     </BackgroundWithCircle>
   );

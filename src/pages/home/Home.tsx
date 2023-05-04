@@ -1,9 +1,9 @@
 import { Box, useMediaQuery } from '@mui/material';
 import Header from 'components/header';
-import Landing from 'components/landing';
+import Landing from 'pages/home/landing';
 import { useRef, useState } from 'react';
 
-import * as Guide from '../../components/guides';
+import * as Guide from './guides';
 
 const Home = () => {
   const observerRef = useRef<HTMLDivElement>(null);

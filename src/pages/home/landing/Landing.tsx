@@ -6,7 +6,7 @@ import { JavascriptIcon, NodeJSIcon, ReactIcon, SpringIcon } from 'constants/ico
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import * as Images from '../stackticon-images/StackticonImages';
+import * as Images from '../../../components/stackticon-images/StackticonImages';
 
 interface LandingProps {
   isMobile: boolean;
