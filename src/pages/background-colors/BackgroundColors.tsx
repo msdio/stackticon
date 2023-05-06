@@ -1,5 +1,6 @@
-import { Box, Container, Typography, useMediaQuery } from '@mui/material';
-import BackgroundCircle from 'components/background-circle';
+import BackgroundWithCircle from '@common/background-with-circle';
+import HeadingText from '@common/heading-text';
+import { Box, Stack, useMediaQuery } from '@mui/material';
 import Header from 'components/header';
 import StackContainer from 'components/stack-container';
 import { useLocation } from 'react-router-dom';
@@ -9,50 +10,26 @@ const BackgroundColors = () => {
   const isMobile = useMediaQuery('(max-width: 740px)');
 
   return (
-    <Box bgcolor='#f9f9f9' position='relative' width='100%' overflow='hidden'>
+    <BackgroundWithCircle sx={{ overflow: 'hidden' }}>
       <Header isMain={false} />
+
       <Box
         width='100vw'
         height='100%'
         minHeight='100vh'
         justifyContent='center'
-        paddingTop='13.0625rem'
+        paddingTop='8.125rem'
         position='relative'
         zIndex='5'
       >
-        <Typography
-          textAlign='center'
-          p={5}
-          fontWeight='800'
-          fontSize={isMobile ? '2rem' : '4.375rem'}
-          color='cg.1'
-        >
-          Choose Color
-        </Typography>
+        <HeadingText isMobile={isMobile}>Choose Color</HeadingText>
 
-        <Container
-          sx={{
-            width: '100%',
-            height: '80%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '5rem',
-            marginTop: '2.8125rem',
-          }}
-        >
+        <Stack alignItems={'center'} spacing={9} mt={'2.8125rem'}>
           <StackContainer colorSelected='black' state={state} isMobile={isMobile} />
           <StackContainer colorSelected='white' state={state} isMobile={isMobile} />
-        </Container>
+        </Stack>
       </Box>
-
-      <Box position='absolute' left='-170px' top='-209px' zIndex='1'>
-        <BackgroundCircle />
-      </Box>
-      <Box position='absolute' right='-49px' bottom='-289px' zIndex='1'>
-        <BackgroundCircle />
-      </Box>
-    </Box>
+    </BackgroundWithCircle>
   );
 };
 

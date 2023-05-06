@@ -1,13 +1,12 @@
+import BackgroundWithCircle from '@common/background-with-circle';
 import { Box, Button, Typography } from '@mui/material';
-import BackgroundCircle from 'components/background-circle';
 import DraggableIcon from 'components/draggable-icon';
 import Input from 'components/input';
 import { JavascriptIcon, NodeJSIcon, ReactIcon, SpringIcon } from 'constants/icons';
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import LandingImage from '../../assets/images/landing-image.png';
-import LandingLabel from '../../assets/images/landing-label.png';
+import * as Images from '../../../components/stackticon-images/StackticonImages';
 
 interface LandingProps {
   isMobile: boolean;
@@ -28,19 +27,19 @@ const Landing = ({ isMobile, skills, handleSkills }: LandingProps) => {
   };
 
   return (
-    <Box
-      ref={containerRef}
-      width={'100vw !important'}
-      height='100vh'
-      display='flex'
-      flexDirection='column'
-      alignItems='center'
-      position='relative'
-      paddingTop='150px'
-      gap={isMobile ? '10px' : '61px'}
-      bgcolor='#f9f9f9'
+    <BackgroundWithCircle
+      domRef={containerRef}
+      sx={{
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        paddingTop: '150px',
+        gap: isMobile ? '10px' : '61px',
+      }}
     >
       <Box
+        ref={containerRef}
         display='flex'
         flexDirection='column'
         justifyContent='center'
@@ -50,17 +49,9 @@ const Landing = ({ isMobile, skills, handleSkills }: LandingProps) => {
           scale: isMobile ? '0.7' : '1',
         }}
       >
-        <img src={LandingImage} alt='landing-image' width='406px' height='144px' />
-        <img
-          src={LandingLabel}
-          alt='landing-label'
-          width='312px'
-          height='52px'
-          style={{
-            marginTop: '57px',
-            transform: 'translateX(-5px)',
-          }}
-        />
+        <Images.LandingImage />
+        <Images.LandingLabel styles={{ marginTop: '57px' }} />
+
         <Typography fontSize='24px' fontWeight='400' color='cg.4' marginTop='24px'>
           make skill sets for your project
         </Typography>
@@ -100,14 +91,7 @@ const Landing = ({ isMobile, skills, handleSkills }: LandingProps) => {
       <DraggableIcon constraints={containerRef} icon={<NodeJSIcon />} top='20%' right='20%' />
       <DraggableIcon constraints={containerRef} icon={<JavascriptIcon />} top='30%' left='13%' />
       <DraggableIcon constraints={containerRef} icon={<SpringIcon />} bottom='17%' left='25%' />
-
-      <Box position='absolute' left='-170px' top='-209px' zIndex='1'>
-        <BackgroundCircle />
-      </Box>
-      <Box position='absolute' right='-49px' bottom='-289px' zIndex='1'>
-        <BackgroundCircle />
-      </Box>
-    </Box>
+    </BackgroundWithCircle>
   );
 };
 
