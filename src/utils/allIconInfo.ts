@@ -20,11 +20,10 @@ export const getIconDetail = (target: string) => {
 };
 
 export const allIconNames = () => {
-  const allIcons: any[] = makeIconInfoArray();
+  const allIcons: SimpleIcon[] = makeIconInfoArray();
 
-  return allIcons.reduce((allNames: Set<string>, curIcon: SimpleIcon) => {
-    allNames.add(curIcon['slug']);
+  const iconSlugs = new Set<string>();
+  allIcons.forEach((icon) => iconSlugs.add(icon.slug));
 
-    return allNames;
-  }, new Set());
+  return iconSlugs;
 };
