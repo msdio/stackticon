@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Typography } from '@mui/material';
-import Stacks from 'components/stacks';
+import StackGroup from 'components/stack-group';
 import { tetromino1, tetromino2, tetromino3, tetromino4 } from 'constants/animations';
 import { useEffect, useRef } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
@@ -94,7 +94,7 @@ const BlockLoading = () => {
           Making Image...
         </Typography>
       </div>
-      <Stacks ref={targetRef} selecteds={state} color={color as BgColorOption} />
+      <StackGroup ref={targetRef} selecteds={state} color={color as BgColorOption} />
     </div>
   );
 };

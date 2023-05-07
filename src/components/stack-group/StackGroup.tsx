@@ -8,7 +8,7 @@ interface StacksProps {
   selecteds: string[];
 }
 
-const Stacks = forwardRef<HTMLDivElement, StacksProps>(({ color, selecteds }, targetRef) => {
+const StackGroup = forwardRef<HTMLDivElement, StacksProps>(({ color, selecteds }, targetRef) => {
   return (
     <Box
       ref={targetRef}
@@ -30,6 +30,6 @@ const Stacks = forwardRef<HTMLDivElement, StacksProps>(({ color, selecteds }, ta
     </Box>
   );
 });
-Stacks.displayName = 'Stacks';
+StackGroup.displayName = 'StackGroup';
 
-export default Stacks;
+export default StackGroup;

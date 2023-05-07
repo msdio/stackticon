@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, styled as styledMUI } from '@mui/material';
-import Stacks from 'components/stacks';
+import StackGroup from 'components/stack-group';
 import { useRef, useState } from 'react';
 import type { Location } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -50,12 +50,12 @@ const Color = styled.h1`
 `;
 
 interface StackContainerProps {
-  colorSelected: BgColorOption;
+  selectedColor: BgColorOption;
   state: Location['state'];
   isMobile: boolean;
 }
 
-const StackContainer = ({ colorSelected, state, isMobile }: StackContainerProps) => {
+const StackContainer = ({ selectedColor, state, isMobile }: StackContainerProps) => {
   const [hide, setHide] = useState(false);
   const navigate = useNavigate();
   const targetRef = useRef<HTMLDivElement>(null);
@@ -70,7 +70,7 @@ const StackContainer = ({ colorSelected, state, isMobile }: StackContainerProps)
 
   return (
     <Container
-      onClick={() => submitSkills(colorSelected)}
+      onClick={() => submitSkills(selectedColor)}
       onMouseEnter={() => setHide(true)}
       onMouseLeave={() => setHide(false)}
       sx={{
@@ -78,9 +78,9 @@ const StackContainer = ({ colorSelected, state, isMobile }: StackContainerProps)
         transform: isMobile ? 'translateY(-10rem)' : '0',
       }}
     >
-      <Stacks ref={targetRef} selecteds={state} color={colorSelected} />
+      <StackGroup ref={targetRef} selecteds={state} color={selectedColor} />
       {hide && <Hider />}
-      <Color>{colorSelected.toUpperCase()}</Color>
+      <Color>{selectedColor.toUpperCase()}</Color>
     </Container>
   );
 };
