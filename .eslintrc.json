@@ -29,12 +29,12 @@
     }
   },
   "rules": {
-    "@typescript-eslint/no-unused-vars": "warn",
     "react/react-in-jsx-scope": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "no-unused-private-class-members": "error",
     "no-use-before-define": "error",
+    "@typescript-eslint/no-unused-vars": "warn",
     "no-console": "warn",
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
