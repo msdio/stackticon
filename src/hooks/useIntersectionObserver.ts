@@ -1,8 +1,8 @@
-/* eslint-disable */
+import type { RefObject } from 'react';
 import { useEffect, useState } from 'react';
 
 interface ObserverProps {
-  ref: any;
+  ref: RefObject<HTMLDivElement>;
   threshold: number;
 }
 
@@ -17,7 +17,7 @@ const useIntersectionObserver = ({ ref, threshold }: ObserverProps) => {
       { threshold: threshold },
     );
 
-    observer.observe(ref.current);
+    observer.observe(ref.current as HTMLDivElement);
   }, [ref, threshold]);
 
   return observing;
