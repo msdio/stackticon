@@ -4,3 +4,11 @@ yarn.lock
 .prettierrc
 
 .github
+
+vscode
+build
+dist
+coverage
+yarn*
+package*
+tsconfig*
