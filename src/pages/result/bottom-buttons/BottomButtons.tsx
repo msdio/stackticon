@@ -1,8 +1,9 @@
 import { Box, Button } from '@mui/material';
 import ButtonOptions from 'components/button-options';
 import { Link } from 'react-router-dom';
+import type { LocationState } from 'types/location';
 
-export const BottomButtons = ({ isMobile, state }: { isMobile: boolean; state: any }) => {
+export const BottomButtons = ({ isMobile, state }: { isMobile: boolean; state: LocationState }) => {
   return (
     <Box
       display={'flex'}
@@ -12,7 +13,7 @@ export const BottomButtons = ({ isMobile, state }: { isMobile: boolean; state: a
       mt={'30px'}
       flexDirection={isMobile ? 'column' : 'row'}
     >
-      <ButtonOptions url={state} />
+      <ButtonOptions state={state} />
 
       <Link to='/' style={{ textDecoration: 'none' }}>
         <Button
