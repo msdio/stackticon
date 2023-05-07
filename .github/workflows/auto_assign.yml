@@ -11,5 +11,4 @@ jobs:
             - name: Auto-assignment
               uses: kyoya0819/auto-assignment@v1.2.2
               with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
                   configuration-path: ".github/auto_assign_reviewer.yml"
