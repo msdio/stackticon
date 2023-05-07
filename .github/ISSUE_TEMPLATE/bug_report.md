@@ -3,7 +3,7 @@ name: Bug report
 about: template for reporting issue
 title: ''
 labels: bug
-assignees: ''
+assignees: msdio
 ---
 
 ## 📌 Describe Issue

@@ -9,7 +9,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Auto-assignment
-              uses: actions/checkout@v2
               uses: kyoya0819/auto-assignment@v1.2.2
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
