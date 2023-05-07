@@ -1,0 +1,34 @@
+#!/bin/sh
+​
+FORBIDDEN_HTTPS_URL="https://github.com/msdio/stackticon.git" # insert your remote url (https)
+FORBIDDEN_SSH_URL="git@github.com:msdio/stackticon.git" # insert your remote url (ssh)
+FORBIDDEN_REF="refs/heads/main" # insert branch ref
+​
+ARR_GIT_PARAMS=($(echo $HUSKY_GIT_PARAMS))
+ARR_GIT_STDIN=($(echo $HUSKY_GIT_STDIN))
+​
+remote=${ARR_GIT_PARAMS[0]}
+url=${ARR_GIT_PARAMS[1]}
+​
+local_ref=${ARR_GIT_STDIN[0]}
+local_sha=${ARR_GIT_STDIN[1]}
+remote_ref=${ARR_GIT_STDIN[2]}
+remote_sha=${ARR_GIT_STDIN[3]}
+​
+if [ "$url" != "$FORBIDDEN_HTTPS_URL" -a "$url" != "$FORBIDDEN_SSH_URL" ]
+then
+    exit 0 # disable in Forked Project
+fi
+​
+if [ "$remote_ref" == "$FORBIDDEN_REF" ]
+then
+    echo "DO NOT PUSH it directly to main branch"
+    exit 1
+fi
+​
+exit 0
+
+
+# check if there is an error when build project
+echo "Checking errors when build project"
+yarn build
