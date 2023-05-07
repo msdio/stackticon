@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Box, styled as styledMUI } from '@mui/material';
+import { Box, styled as styledMUI, Typography } from '@mui/material';
 import StackGroup from 'components/stack-group';
 import { useRef, useState } from 'react';
 import type { Location } from 'react-router-dom';
@@ -35,20 +35,6 @@ const Hider = styled.div`
   border-radius: 8px;
 `;
 
-const Color = styled.h1`
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 200ms ease-in-out;
-  color: white;
-
-  z-index: 10;
-`;
-
 interface StackContainerProps {
   selectedColor: BgColorOption;
   state: Location['state'];
@@ -80,7 +66,22 @@ const StackContainer = ({ selectedColor, state, isMobile }: StackContainerProps)
     >
       <StackGroup ref={targetRef} selecteds={state} color={selectedColor} />
       {hide && <Hider />}
-      <Color>{selectedColor.toUpperCase()}</Color>
+      <Typography
+        variant='h1'
+        p={0}
+        m={0}
+        position={'absolute'}
+        top={'50%'}
+        left={'50%'}
+        color={'white'}
+        zIndex={10}
+        sx={{
+          transform: 'translate(-50%, -50%)',
+          transition: 'opacity 200ms ease-in-out',
+        }}
+      >
+        {selectedColor.toUpperCase()}
+      </Typography>
     </Container>
   );
 };
