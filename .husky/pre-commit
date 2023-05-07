@@ -1,14 +1,14 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-echo "Checking before commit"
+echo "[husky] Checking commit..."
 
-echo "Checking with lint"
+echo "[husky] Checking with lint"
 yarn lint
 
-echo "Checking with tsc"
+echo "[husky] Checking with tsc"
 yarn tsc
 
-echo "Running tests"
+echo "[husky] Running tests"
 yarn test
 

@@ -13,6 +13,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "jest",
+    "lint": "eslint .",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
     "postinstall": "husky install"
