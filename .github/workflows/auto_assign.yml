@@ -9,6 +9,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Auto-assignment
-              uses: kyoya0819/auto-assignment@v1.2.2
+              uses: kentaro-m/auto-assign-action@v1.2.1
               with:
                   configuration-path: ".github/auto_assign_reviewer.yml"
