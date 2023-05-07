@@ -38,7 +38,7 @@ const TetrominoBox4 = styled(Tetromino)`
   animation: ${tetromino4} 1.5s ease-out infinite;
 `;
 
-const Loading = () => {
+const BlockLoading = () => {
   const { color } = useParams();
   const navigate = useNavigate();
   const targetRef = useRef<HTMLDivElement>(null);
@@ -99,4 +99,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default BlockLoading;

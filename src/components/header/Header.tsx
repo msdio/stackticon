@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Box, Link, Stack, SvgIcon, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import LogoWithBackground from 'assets/icons/logoWithBackground';
-import LoadingAlternative from 'components/loading-alter';
+import LogoLoading from 'components/loading/LogoLoading';
 import ReadRepository from 'components/read-repository';
 import { wiggling } from 'constants/animations';
 import { APP_NAME, GITHUB_LINK } from 'constants/constants';
@@ -90,7 +90,7 @@ const Header = ({
 
   return (
     <Container onClick={closeRepositoryInput}>
-      {isLoading && <LoadingAlternative />}
+      {isLoading && <LogoLoading loadingText='Getting Stacks From Your Repository...' />}
 
       <RouterLink to='/'>
         <LogoWithBackground width={29.3} height={29.3} />
