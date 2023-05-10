@@ -10,11 +10,12 @@ import {
   Popper,
 } from '@mui/material';
 import { Fragment, useRef, useState } from 'react';
+import type { LocationState } from 'types/location';
 import { makeUrlIntoBracket, makeUrlIntoImgTag } from 'utils/resultUrl';
 
 const copyOptions = ['copy for readme', 'copy link only', 'copy img tag'];
 
-const ButtonOptions = (state: any) => {
+const ButtonOptions = ({ state }: { state: LocationState }) => {
   const [openOptions, setOpenOptions] = useState(false);
   const [selectedOption, setSelectedOption] = useState(0);
   const buttonRef = useRef<HTMLDivElement>(null);

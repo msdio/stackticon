@@ -19,7 +19,7 @@ const Hider = styled(Box)(({ theme }) => ({
   opacity: 0.9,
 }));
 
-const LoadingAlternative = () => {
+const LogoLoading = ({ loadingText }: { loadingText: string }) => {
   return (
     <Box
       display={'flex'}
@@ -37,7 +37,7 @@ const LoadingAlternative = () => {
 
       <Box zIndex={10} display={'flex'} flexDirection={'column'} alignItems={'center'} gap={5}>
         <Typography fontSize={32} fontWeight={600} color={'white'}>
-          Getting Stacks From Your Repository...
+          {loadingText}
         </Typography>
 
         <Stack direction={'row'} spacing={10}>
@@ -70,4 +70,4 @@ const LoadingAlternative = () => {
   );
 };
 
-export default LoadingAlternative;
+export default LogoLoading;

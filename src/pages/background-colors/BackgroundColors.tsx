@@ -25,8 +25,8 @@ const BackgroundColors = () => {
         <HeadingText isMobile={isMobile}>Choose Color</HeadingText>
 
         <Stack alignItems={'center'} spacing={9} mt={'2.8125rem'}>
-          <StackContainer colorSelected='black' state={state} isMobile={isMobile} />
-          <StackContainer colorSelected='white' state={state} isMobile={isMobile} />
+          <StackContainer selectedColor='black' state={state} isMobile={isMobile} />
+          <StackContainer selectedColor='white' state={state} isMobile={isMobile} />
         </Stack>
       </Box>
     </BackgroundWithCircle>

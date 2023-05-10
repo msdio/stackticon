@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Typography } from '@mui/material';
-import Stacks from 'components/stacks';
+import StackGroup from 'components/stack-group';
 import { tetromino1, tetromino2, tetromino3, tetromino4 } from 'constants/animations';
 import { useEffect, useRef } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
@@ -38,7 +38,7 @@ const TetrominoBox4 = styled(Tetromino)`
   animation: ${tetromino4} 1.5s ease-out infinite;
 `;
 
-const Loading = () => {
+const BlockLoading = () => {
   const { color } = useParams();
   const navigate = useNavigate();
   const targetRef = useRef<HTMLDivElement>(null);
@@ -94,9 +94,9 @@ const Loading = () => {
           Making Image...
         </Typography>
       </div>
-      <Stacks ref={targetRef} selecteds={state} color={color as BgColorOption} />
+      <StackGroup ref={targetRef} selecteds={state} color={color as BgColorOption} />
     </div>
   );
 };
 
-export default Loading;
+export default BlockLoading;
