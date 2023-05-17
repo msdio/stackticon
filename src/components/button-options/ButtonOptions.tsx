@@ -1,17 +1,10 @@
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import {
-  Button,
-  ButtonGroup,
-  ClickAwayListener,
-  Grow,
-  MenuItem,
-  MenuList,
-  Paper,
-  Popper,
-} from '@mui/material';
+import { Button, ButtonGroup, MenuItem } from '@mui/material';
 import { Fragment, useRef, useState } from 'react';
 import type { LocationState } from 'types/location';
 import { makeUrlIntoBracket, makeUrlIntoImgTag } from 'utils/resultUrl';
+
+import { OptionListContainer } from './OptionListContainer';
 
 const copyOptions = ['copy for readme', 'copy link only', 'copy img tag'];
 
@@ -94,41 +87,17 @@ const ButtonOptions = ({ state }: { state: LocationState }) => {
         </Button>
       </ButtonGroup>
 
-      <Popper
-        sx={{
-          zindex: 1,
-        }}
-        open={openOptions}
-        anchorEl={buttonRef.current}
-        role={undefined}
-        transition
-        disablePortal
-      >
-        {({ TransitionProps, placement }) => (
-          <Grow
-            {...TransitionProps}
-            style={{
-              transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom',
-            }}
+      <OptionListContainer buttonRef={buttonRef.current} handleClose={handleClose}>
+        {copyOptions.map((option, idx) => (
+          <MenuItem
+            key={option + idx}
+            selected={idx === selectedOption}
+            onClick={(e) => clickCopyOption(e, idx)}
           >
-            <Paper>
-              <ClickAwayListener onClickAway={handleClose}>
-                <MenuList id='split-button-menu' autoFocusItem>
-                  {copyOptions.map((option, index) => (
-                    <MenuItem
-                      key={option}
-                      selected={index === selectedOption}
-                      onClick={(e) => clickCopyOption(e, index)}
-                    >
-                      {option}
-                    </MenuItem>
-                  ))}
-                </MenuList>
-              </ClickAwayListener>
-            </Paper>
-          </Grow>
-        )}
-      </Popper>
+            {option}
+          </MenuItem>
+        ))}
+      </OptionListContainer>
     </Fragment>
   );
 };
