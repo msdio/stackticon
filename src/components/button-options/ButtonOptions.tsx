@@ -87,17 +87,19 @@ const ButtonOptions = ({ state }: { state: LocationState }) => {
         </Button>
       </ButtonGroup>
 
-      <OptionListContainer buttonRef={buttonRef.current} handleClose={handleClose}>
-        {copyOptions.map((option, idx) => (
-          <MenuItem
-            key={option + idx}
-            selected={idx === selectedOption}
-            onClick={(e) => clickCopyOption(e, idx)}
-          >
-            {option}
-          </MenuItem>
-        ))}
-      </OptionListContainer>
+      {openOptions && (
+        <OptionListContainer buttonRef={buttonRef.current} handleClose={handleClose}>
+          {copyOptions.map((option, idx) => (
+            <MenuItem
+              key={option + idx}
+              selected={idx === selectedOption}
+              onClick={(e) => clickCopyOption(e, idx)}
+            >
+              {option}
+            </MenuItem>
+          ))}
+        </OptionListContainer>
+      )}
     </Fragment>
   );
 };
