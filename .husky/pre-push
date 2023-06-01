@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+. "$(dirname -- "$0")/common.sh"
+
 protected_branch='main'
 policy='[Policy] DO NOT PUSH it directly to '$protected_branch' branch'
 
