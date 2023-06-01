@@ -45,12 +45,13 @@ const BlockLoading = () => {
   const { state } = useLocation();
 
   const navigateToResult = (resultUrl: string) => {
-    navigate('/result', { state: resultUrl });
+    navigate('/result', { state: { url: resultUrl } });
   };
 
   const makeResult = async () => {
     const imageRef = await htmlToPng(targetRef);
     const resultUrl = imageRef && (await getCreatedImageUrl(imageRef));
+
     if (resultUrl) {
       navigateToResult(resultUrl);
       return;

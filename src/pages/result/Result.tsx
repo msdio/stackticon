@@ -18,7 +18,6 @@ const Result = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const isMobile = useMediaQuery('(max-width: 740px)');
-
   window.addEventListener('popstate', () => {
     navigate('/');
   });
@@ -45,7 +44,7 @@ const Result = () => {
           }}
         />
 
-        <ResultImage src={state} alt='stackticon result' />
+        <ResultImage src={state.url} alt='stackticon result' />
 
         <BottomButtons isMobile={isMobile} state={state} />
       </Box>
