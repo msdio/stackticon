@@ -58,6 +58,7 @@ const Input = ({ stacks, handler }: InputProps) => {
 
   const changeStackOrder = (stacks: SimpleIcon[]) => {
     setInputStacks(stacks);
+    onStackChange(stacks);
   };
 
   return (

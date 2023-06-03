@@ -24,7 +24,7 @@ export const DragContainer = ({ array, updateArray }: DragContainerProps) => {
 
   const deleteItem = (index: number) => {
     const deleted = array.filter((el, idx) => idx !== index);
-    updateArray(deleted);
+    updateArray([...deleted]);
   };
 
   const mouseUp = (index: number) => {

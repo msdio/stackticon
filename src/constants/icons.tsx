@@ -1,5 +1,4 @@
-import CloseIcon from '@mui/icons-material/Close';
-import { Box, SvgIcon } from '@mui/material';
+import { SvgIcon } from '@mui/material';
 
 import { Svg } from './svgs';
 
@@ -38,29 +37,4 @@ export const BetaBadge = () => (
       fill='white'
     />
   </SvgIcon>
-);
-
-export const DeleteTag = () => (
-  <Box
-    width={'18px'}
-    height={'18px'}
-    bgcolor={'#99c2ff'}
-    border={'none'}
-    borderRadius={'50%'}
-    display={'flex'}
-    alignItems={'center'}
-    justifyContent={'center'}
-    sx={{
-      cursor: 'pointer',
-    }}
-  >
-    <CloseIcon
-      sx={{
-        width: '90%',
-        height: '90%',
-        border: '5px',
-        color: 'white',
-      }}
-    />
-  </Box>
 );
