@@ -1,5 +1,12 @@
 import styled from '@emotion/styled';
-import { Autocomplete, createFilterOptions, TextField, useMediaQuery } from '@mui/material';
+import {
+  Autocomplete,
+  createFilterOptions,
+  ListItem,
+  TextField,
+  useMediaQuery,
+} from '@mui/material';
+import { DragContainer } from 'components/drag-container/DragContainer';
 import { useEffect, useState } from 'react';
 import type { SimpleIcon } from 'simple-icons';
 
@@ -31,7 +38,7 @@ const Input = ({ stacks, handler }: InputProps) => {
 
   const [inputStacks, setInputStacks] = useState<SimpleIcon[]>([]);
 
-  const onStackChange = (e: React.SyntheticEvent, value: SimpleIcon[]) => {
+  const onStackChange = (value: SimpleIcon[]) => {
     handler(
       value.map(
         (el: SimpleIcon) =>
@@ -49,31 +56,35 @@ const Input = ({ stacks, handler }: InputProps) => {
     setInputStacks(ret);
   }, [stacks]);
 
+  const changeStackOrder = (stacks: SimpleIcon[]) => {
+    setInputStacks(stacks);
+    onStackChange(stacks);
+  };
+
   return (
     <div style={{ width: isMobile ? '66%' : '50%', zIndex: '50' }}>
       <Autocomplete
         multiple
         id='tags-outlined'
         options={iconArr}
-        renderOption={(props, option) => {
-          return (
-            <li {...props} key={option.path}>
-              <DropdownSvg
-                dangerouslySetInnerHTML={{ __html: option.svg }}
-                hex={'#' + option.hex}
-              ></DropdownSvg>
-              {option.title}
-            </li>
-          );
-        }}
+        renderOption={(props, option) => (
+          <ListItem {...props} key={option.path}>
+            <DropdownSvg
+              dangerouslySetInnerHTML={{ __html: option.svg }}
+              hex={'#' + option.hex}
+            ></DropdownSvg>
+            {option.title}
+          </ListItem>
+        )}
         getOptionLabel={(option) => option.title}
         value={inputStacks}
         isOptionEqualToValue={(option, value) => {
           return option.slug === value.slug;
         }}
-        onChange={(e, value) => onStackChange(e, value)}
+        onChange={(e, value) => onStackChange(value)}
         filterSelectedOptions
         renderInput={(params) => <TextField {...params} placeholder='Choose Your Stacks!' />}
+        renderTags={(stacks) => <DragContainer array={stacks} updateArray={changeStackOrder} />}
         filterOptions={createFilterOptions({
           limit: 100,
         })}
