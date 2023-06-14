@@ -16,8 +16,8 @@ const ButtonOptions = ({ state }: { state: LocationState }) => {
   const bracketUrl = makeUrlIntoBracket(state.url);
   const imgTagUrl = makeUrlIntoImgTag(state.url);
 
-  const clickCopyUrl = async () => {
-    const selected = copyOptions[selectedOption];
+  const clickCopyUrl = async (index?: number) => {
+    const selected = index !== undefined ? copyOptions[index] : copyOptions[selectedOption];
     let copyText = '';
 
     if (selected.includes('readme')) {
@@ -34,7 +34,7 @@ const ButtonOptions = ({ state }: { state: LocationState }) => {
   const clickCopyOption = (e: React.MouseEvent<HTMLLIElement, MouseEvent>, index: number) => {
     setSelectedOption(index);
     setOpenOptions(false);
-    clickCopyUrl();
+    clickCopyUrl(index);
   };
 
   const handleToggle = () => {
@@ -45,7 +45,6 @@ const ButtonOptions = ({ state }: { state: LocationState }) => {
     if (buttonRef.current && buttonRef.current.contains(e.target as HTMLElement)) {
       return;
     }
-
     setOpenOptions(false);
   };
 
@@ -63,7 +62,7 @@ const ButtonOptions = ({ state }: { state: LocationState }) => {
         }}
       >
         <Button
-          onClick={clickCopyUrl}
+          onClick={() => clickCopyUrl()}
           sx={{ borderRadius: '12px 0 0 12px', fontSize: '18px', fontWeight: 'bold' }}
         >
           {copyOptions[selectedOption]}
