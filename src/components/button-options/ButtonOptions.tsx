@@ -10,14 +10,14 @@ const copyOptions = ['copy for readme', 'copy link only', 'copy img tag'];
 
 const ButtonOptions = ({ state }: { state: LocationState }) => {
   const [openOptions, setOpenOptions] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(0);
   const buttonRef = useRef<HTMLDivElement>(null);
+  const selectedOption = useRef(0);
 
   const bracketUrl = makeUrlIntoBracket(state.url);
   const imgTagUrl = makeUrlIntoImgTag(state.url);
 
-  const clickCopyUrl = async (index?: number) => {
-    const selected = index !== undefined ? copyOptions[index] : copyOptions[selectedOption];
+  const clickCopyUrl = async () => {
+    const selected = copyOptions[selectedOption.current];
     let copyText = '';
 
     if (selected.includes('readme')) {
@@ -32,9 +32,9 @@ const ButtonOptions = ({ state }: { state: LocationState }) => {
   };
 
   const clickCopyOption = (e: React.MouseEvent<HTMLLIElement, MouseEvent>, index: number) => {
-    setSelectedOption(index);
+    selectedOption.current = index;
     setOpenOptions(false);
-    clickCopyUrl(index);
+    clickCopyUrl();
   };
 
   const handleToggle = () => {
@@ -62,10 +62,10 @@ const ButtonOptions = ({ state }: { state: LocationState }) => {
         }}
       >
         <Button
-          onClick={() => clickCopyUrl()}
+          onClick={clickCopyUrl}
           sx={{ borderRadius: '12px 0 0 12px', fontSize: '18px', fontWeight: 'bold' }}
         >
-          {copyOptions[selectedOption]}
+          {copyOptions[selectedOption.current]}
         </Button>
         <Button
           size='small'
@@ -91,7 +91,7 @@ const ButtonOptions = ({ state }: { state: LocationState }) => {
           {copyOptions.map((option, idx) => (
             <MenuItem
               key={option + idx}
-              selected={idx === selectedOption}
+              selected={idx === selectedOption.current}
               onClick={(e) => clickCopyOption(e, idx)}
             >
               {option}
