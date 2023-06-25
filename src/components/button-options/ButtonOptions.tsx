@@ -8,7 +8,11 @@ import { OptionListContainer } from './OptionListContainer';
 
 const copyOptions = ['copy for readme', 'copy link only', 'copy img tag'];
 
-const ButtonOptions = ({ state }: { state: LocationState }) => {
+interface ButtonOptionProps {
+  state: LocationState;
+  setOpenToast: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const ButtonOptions = ({ state, setOpenToast }: ButtonOptionProps) => {
   const [openOptions, setOpenOptions] = useState(false);
   const buttonRef = useRef<HTMLDivElement>(null);
   const selectedOption = useRef(0);
@@ -28,7 +32,7 @@ const ButtonOptions = ({ state }: { state: LocationState }) => {
       copyText = state.url;
     }
     await navigator.clipboard.writeText(copyText);
-    alert('copied!');
+    setOpenToast(true);
   };
 
   const clickCopyOption = (e: React.MouseEvent<HTMLLIElement, MouseEvent>, index: number) => {
