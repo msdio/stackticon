@@ -1,34 +1,44 @@
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Button, ButtonGroup, MenuItem } from '@mui/material';
+// import type { CopyOptionType } from 'constants/constants';
+import type { CopyOptionType } from 'constants/constants';
+import { COPY_OPTIONS } from 'constants/constants';
 import { Fragment, useRef, useState } from 'react';
 import type { LocationState } from 'types/location';
 import { makeUrlIntoBracket, makeUrlIntoImgTag } from 'utils/resultUrl';
 
 import { OptionListContainer } from './OptionListContainer';
 
-const copyOptions = ['copy for readme', 'copy link only', 'copy img tag'];
+const copyOptions = Object.values(COPY_OPTIONS);
 
-const ButtonOptions = ({ state }: { state: LocationState }) => {
+interface ButtonOptionProps {
+  state: LocationState;
+  setOpenToast: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const ButtonOptions = ({ state, setOpenToast }: ButtonOptionProps) => {
   const [openOptions, setOpenOptions] = useState(false);
   const buttonRef = useRef<HTMLDivElement>(null);
   const selectedOption = useRef(0);
 
-  const bracketUrl = makeUrlIntoBracket(state.url);
-  const imgTagUrl = makeUrlIntoImgTag(state.url);
+  const changeOption = (option: CopyOptionType) => {
+    const bracketUrl = makeUrlIntoBracket(state.url);
+    const imgTagUrl = makeUrlIntoImgTag(state.url);
+
+    if (option === COPY_OPTIONS.COPY_README) {
+      return bracketUrl;
+    } else if (option === COPY_OPTIONS.COPY_TAG) {
+      return imgTagUrl;
+    } else {
+      return state.url;
+    }
+  };
 
   const clickCopyUrl = async () => {
     const selected = copyOptions[selectedOption.current];
-    let copyText = '';
+    const copyText = changeOption(selected);
 
-    if (selected.includes('readme')) {
-      copyText = bracketUrl;
-    } else if (selected.includes('tag')) {
-      copyText = imgTagUrl;
-    } else {
-      copyText = state.url;
-    }
     await navigator.clipboard.writeText(copyText);
-    alert('copied!');
+    setOpenToast(true);
   };
 
   const clickCopyOption = (e: React.MouseEvent<HTMLLIElement, MouseEvent>, index: number) => {

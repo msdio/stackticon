@@ -3,7 +3,13 @@ import ButtonOptions from 'components/button-options';
 import { Link } from 'react-router-dom';
 import type { LocationState } from 'types/location';
 
-export const BottomButtons = ({ isMobile, state }: { isMobile: boolean; state: LocationState }) => {
+interface BottomButtonProps {
+  isMobile: boolean;
+  state: LocationState;
+  setOpenToast: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const BottomButtons = ({ isMobile, state, setOpenToast }: BottomButtonProps) => {
   return (
     <Box
       display={'flex'}
@@ -13,7 +19,7 @@ export const BottomButtons = ({ isMobile, state }: { isMobile: boolean; state: L
       mt={'30px'}
       flexDirection={isMobile ? 'column' : 'row'}
     >
-      <ButtonOptions state={state} />
+      <ButtonOptions state={state} setOpenToast={setOpenToast} />
 
       <Link to='/' style={{ textDecoration: 'none' }}>
         <Button

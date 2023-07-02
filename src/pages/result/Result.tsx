@@ -4,6 +4,8 @@ import { Box } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Header from 'components/header';
 import { LandingLabel } from 'components/stackticon-images/StackticonImages';
+import Toast from 'components/toast';
+import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import BottomButtons from './bottom-buttons';
@@ -18,6 +20,12 @@ const Result = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const isMobile = useMediaQuery('(max-width: 740px)');
+  const [openToast, setOpenToast] = useState(false);
+
+  const closeToast = () => {
+    setOpenToast(false);
+  };
+
   window.addEventListener('popstate', () => {
     navigate('/');
   });
@@ -25,6 +33,8 @@ const Result = () => {
   return (
     <BackgroundWithCircle sx={{ height: '100vh', overflow: 'hidden' }}>
       <Header isMain={false} />
+
+      <Toast type='success' message='copied option!' open={openToast} close={closeToast} />
 
       <Box
         position={'absolute'}
@@ -46,7 +56,7 @@ const Result = () => {
 
         <ResultImage src={state.url} alt='stackticon result' />
 
-        <BottomButtons isMobile={isMobile} state={state} />
+        <BottomButtons isMobile={isMobile} state={state} setOpenToast={setOpenToast} />
       </Box>
     </BackgroundWithCircle>
   );
