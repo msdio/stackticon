@@ -10,31 +10,15 @@ https://msdio.github.io/stackticon/
 
 ## How To Contribute
 
-You can contribute with adding icon.<br/>
-You only need to add info about icon in `custom-icons.json` file.
-You should add like following:
-
-```
-{
-  "title": "Java",
-  "slug": "java",
-  "hex": "3174b9",
-  "path": "path",
-  "viewBox": "viewBox"
-},
-```
-
-`title` : Every word should start with capital letter. `ex) Two Words`<br/>
-`slug` : Same as title, but remove space between words and use small letter at very first. `ex) twoWords`<br/>
-`hex` : Color of svg. Please write without #. <br/>
-`path` : Path of svg. <br/>
-`viewBox` : ViewBox of svg. <br/>
-
-<br/>
+See [Contribution guide](https://github.com/msdio/stackticon/blob/main/CONTRIBUTING.md).
 
 ## Environments
 
-React `v18.3.0`
+| Package    | Version |
+| :--------- | :------ |
+| Node       | 18.13.0 |
+| React      | 18.2.0  |
+| Typescript | 4.9.5   |
 
 <br/>
 
