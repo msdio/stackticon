@@ -2,9 +2,12 @@ import { DEPENDENCY, DEV_DEPENDENCY } from 'constants/constants';
 import type { PackageJSONType } from 'types/packageJson';
 
 export const extractDependencies = (packageObj: PackageJSONType) => {
-  const dependencies = Object.keys(packageObj[DEPENDENCY]);
-
+  let dependencies: string[] = [];
   let devDependencies: string[] = [];
+
+  if (DEPENDENCY in packageObj) {
+    dependencies = Object.keys(packageObj[DEPENDENCY]);
+  }
   if (DEV_DEPENDENCY in packageObj) {
     devDependencies = Object.keys(packageObj[DEV_DEPENDENCY]);
   }
