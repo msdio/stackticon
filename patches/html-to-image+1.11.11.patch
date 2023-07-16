@@ -1,0 +1,13 @@
+diff --git a/node_modules/html-to-image/lib/index.js b/node_modules/html-to-image/lib/index.js
+index b8f1e89..700a6b9 100644
+--- a/node_modules/html-to-image/lib/index.js
++++ b/node_modules/html-to-image/lib/index.js
+@@ -93,6 +93,8 @@ function toCanvas(node, options) {
+                     if (!options.skipAutoScale) {
+                         (0, util_1.checkCanvasDimensions)(canvas);
+                     }
++                    canvas.setAttribute('width',canvasWidth)
++                    canvas.setAttribute('height',canvasHeight)
+                     canvas.style.width = "".concat(canvasWidth);
+                     canvas.style.height = "".concat(canvasHeight);
+                     if (options.backgroundColor) {
