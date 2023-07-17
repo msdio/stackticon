@@ -19,7 +19,7 @@ export const getPackageJSONFromRepository = (url: string) => {
   }
 
   if (!repositoryLocation.includes('/main')) {
-    repositoryLocation = repositoryLocation.concat('/master');
+    repositoryLocation = repositoryLocation.concat('/HEAD');
   }
 
   return PREFIX + repositoryLocation + SUFFIX;
