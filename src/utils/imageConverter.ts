@@ -1,4 +1,4 @@
-import { toBlob } from 'html-to-image';
+import { toBlob } from 'html-to-image/lib/index';
 
 export const htmlToPng = async (targetRef: React.RefObject<HTMLDivElement>) => {
   if (targetRef.current === null) {
