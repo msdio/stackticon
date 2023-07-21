@@ -18,9 +18,7 @@ export const getPackageJSONFromRepository = (url: string) => {
     repositoryLocation = repositoryLocation.slice(0, -1);
   }
 
-  if (!repositoryLocation.includes('/main')) {
-    repositoryLocation = repositoryLocation.concat('/HEAD');
-  }
+  repositoryLocation = repositoryLocation.concat('/HEAD');
 
   return PREFIX + repositoryLocation + SUFFIX;
 };
