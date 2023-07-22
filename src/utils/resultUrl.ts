@@ -12,15 +12,28 @@ export const getPackageJSONFromRepository = (url: string) => {
   const PREFIX = 'https://raw.githubusercontent.com/';
   const SUFFIX = '/package.json';
 
-  let repositoryLocation = url.replace('https://github.com/', '').replace('tree/', '');
+  const modifyURL = (originalURL: string, segmentAfterHEAD: string) => {
+    const treeRegex = /\/tree\/[^/]+/;
+    const hasTree = originalURL.match(treeRegex);
 
-  if (repositoryLocation.at(-1) === '/') {
-    repositoryLocation = repositoryLocation.slice(0, -1);
-  }
+    if (!hasTree) {
+      return originalURL.endsWith('/') ? `${originalURL.slice(0, -1)}/HEAD` : `${originalURL}/HEAD`;
+    }
 
-  if (!repositoryLocation.includes('/main')) {
-    repositoryLocation = repositoryLocation.concat('/main');
-  }
+    if (originalURL.endsWith('/')) originalURL = originalURL.slice(0, -1);
+
+    const modifiedURL = originalURL.replace(treeRegex, '/HEAD');
+
+    if (segmentAfterHEAD) {
+      const segmentRegex = /\/[^/]+/;
+      return modifiedURL.replace(segmentRegex, `/${segmentAfterHEAD}`);
+    }
+
+    return modifiedURL;
+  };
+
+  let repositoryLocation = url.replace('https://github.com/', '');
+  repositoryLocation = modifyURL(repositoryLocation, '');
 
   return PREFIX + repositoryLocation + SUFFIX;
 };
