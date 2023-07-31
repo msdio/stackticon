@@ -59,7 +59,7 @@ You can add icon info with following:
 ```
 
 - `title`: Every word should start with capital letter.
-- `slug`: Same as title, but in camelCase.
+- `slug`: Same as title, but in small letters, without spaces. `ex) twowords`
 - `hex`: Color of svg, please write without #.
 - `path`: Path of svg.
 - `viewBox`: ViewBox of svg.

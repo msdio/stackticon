@@ -21,7 +21,7 @@ describe('check custom icons', () => {
     const lastAddedIcon = Object.values(customIcons).at(-1);
 
     const removedSpaces = lastAddedIcon?.title.replaceAll(' ', '') ?? '';
-    const makeSlug = removedSpaces?.charAt(0).toLowerCase() + removedSpaces?.slice(1);
+    const makeSlug = removedSpaces?.toLowerCase();
 
     expect(lastAddedIcon?.slug).toBe(makeSlug);
   });
