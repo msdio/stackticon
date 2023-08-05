@@ -34,5 +34,11 @@ unset do_exit
 
 
 # check if there is an error when build project
+echo "[husky] Checking with tsc"
+yarn tsc
+
+echo "[husky] Running tests"
+yarn test
+
 echo "[husky] Checking errors when build project"
 yarn build
