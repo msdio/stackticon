@@ -1,6 +1,8 @@
 import { DEPENDENCY, DEV_DEPENDENCY } from 'constants/constants';
 import type { PackageJSONType } from 'types/packageJson';
 
+import { extractUniqueElements } from './array';
+
 export const extractDependencies = (packageObj: PackageJSONType) => {
   let dependencies: string[] = [];
   let devDependencies: string[] = [];
@@ -13,10 +15,6 @@ export const extractDependencies = (packageObj: PackageJSONType) => {
   }
 
   return [...dependencies, ...devDependencies];
-};
-
-export const extractUniqueElements = (skills: string[]) => {
-  return new Set(skills);
 };
 
 export const refineSkills = (skills: string[]) => {
