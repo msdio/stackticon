@@ -3,10 +3,8 @@ import { getPackageJSONObject } from 'apis/packages';
 import { bounce } from 'constants/animations';
 import type { ChangeEvent, KeyboardEvent } from 'react';
 import { useState } from 'react';
-import type { PackageJSONType } from 'types/packageJson';
-import { allIconNames } from 'utils/allIconInfo';
-import { extractDependencies, refineSkills } from 'utils/extractStacks';
-import { removeVersions } from 'utils/packageJson';
+import { makeIntoSlugs } from 'utils/array';
+import { getDependencies, removeVersions } from 'utils/packageJson';
 import { getPackageJSONFromRepository } from 'utils/resultUrl';
 
 interface ReadRepositoryProps {
@@ -21,55 +19,26 @@ const ReadRepository = ({ stackHandler, inputPopupHandler }: ReadRepositoryProps
     setAddress(e.currentTarget.value);
   };
 
-  const filterExistingStacks = (data: PackageJSONType) => {
-    const stacksFromPackage = refineSkills(extractDependencies(data));
-    const iconNames: Set<string> = allIconNames();
+  const getStacks = async (path: string) => {
+    try {
+      const data = await getPackageJSONObject(path);
 
-    console.log('refine', stacksFromPackage);
-    console.log('remove', removeVersions(extractDependencies(data)));
+      const stackSlugs = removeVersions(getDependencies(data)).map(makeIntoSlugs);
+      console.log('here', stackSlugs);
 
-    return new Set(
-      [...stacksFromPackage].filter((el) => iconNames.has(el.replaceAll('-', '').toLowerCase())),
-    );
+      stackHandler(['React', 'Recoil']);
+    } catch (error) {
+      alert(error);
+    } finally {
+      inputPopupHandler(false);
+    }
   };
 
-  const setStacks = (stacks: Set<string>) => {
-    const ret: string[] = [];
-
-    stacks.forEach((stk) => {
-      ret.push(stk.substring(0, 1).toUpperCase() + stk.substring(1, stk.length));
-    });
-
-    stackHandler([...ret]);
-  };
-
-  const getStacks = async (e: KeyboardEvent) => {
+  const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === 'Enter') {
-      inputPopupHandler(true);
-
       const packageJSONPath = getPackageJSONFromRepository(address);
 
-      try {
-        const response = await getPackageJSONObject(packageJSONPath);
-
-        if (response.status === 200) {
-          const extractedStacks = filterExistingStacks(response.data);
-
-          const stackSlugs = new Set<string>();
-          extractedStacks.forEach((el) => {
-            stackSlugs.add(el.replaceAll('-', '').toLowerCase());
-          });
-
-          setStacks(stackSlugs);
-        }
-      } catch (e) {
-        alert(e);
-        inputPopupHandler(false);
-      }
-
-      setTimeout(() => {
-        inputPopupHandler(false);
-      }, 2500);
+      getStacks(packageJSONPath);
     }
   };
 
@@ -107,7 +76,7 @@ const ReadRepository = ({ stackHandler, inputPopupHandler }: ReadRepositoryProps
         placeholder='input repository here'
         onClick={(e) => e.stopPropagation()}
         onChange={updateAddress}
-        onKeyUp={getStacks}
+        onKeyDown={handleKeyPress}
         disableUnderline
       />
     </Box>

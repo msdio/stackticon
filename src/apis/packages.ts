@@ -1,11 +1,12 @@
 import axios from 'axios';
+import { PackageJSONType } from 'types/packageJson';
 
 export const getPackageJSONObject = async (path: string) => {
   try {
-    const response = await axios({
+    const response = await axios<PackageJSONType>({
       method: 'get',
       url: path,
-    });
+    }).then((res) => res.data);
 
     return response;
   } catch (error) {

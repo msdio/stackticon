@@ -68,12 +68,7 @@ interface HeaderProps {
   handleStacks?: (p: string[]) => void;
 }
 
-const Header = ({
-  isMain,
-  handleStacks = () => {
-    return true;
-  },
-}: HeaderProps) => {
+const Header = ({ isMain, handleStacks = () => true }: HeaderProps) => {
   const isMobile = useMediaQuery('(max-width: 740px)');
   const isEligibleForBeta = useMediaQuery('(min-width: 1070px)');
   const [openRepositoryInput, setOpenRepositoryInput] = useState(false);

@@ -51,9 +51,9 @@ export const getDependencies = (packageObj: PackageJSONType) => {
 };
 
 export const removeVersions = (dependencies: string[]) => {
-  const onlyStackName = dependencies.map((stk) => {
-    return stk.includes('/') ? stk.split('/')[0] : stk;
-  });
+  const onlyStackName = dependencies.map((stk) =>
+    stk.includes('/') ? stk.split('/')[0].substring(1) : stk,
+  );
 
   return extractUniqueElements(onlyStackName);
 };
