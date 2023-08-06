@@ -14,19 +14,17 @@ export const getPackageJSONFromRepository = (url: string) => {
 
   const modifyURL = (originalURL: string, segmentAfterHEAD: string) => {
     const treeRegex = /\/tree\/[^/]+/;
+    const segmentRegex = /\/[^/]+/;
     const hasTree = originalURL.match(treeRegex);
 
     if (!hasTree) {
-      return originalURL.endsWith('/') ? `${originalURL.slice(0, -1)}/HEAD` : `${originalURL}/HEAD`;
+      return `${originalURL}/HEAD`;
     }
-
-    if (originalURL.endsWith('/')) originalURL = originalURL.slice(0, -1);
 
     const modifiedURL = originalURL.replace(treeRegex, '/HEAD');
 
     if (segmentAfterHEAD) {
-      const segmentRegex = /\/[^/]+/;
-      return modifiedURL.replace(segmentRegex, `/${segmentAfterHEAD}`);
+      modifiedURL.replace(segmentRegex, `/${segmentAfterHEAD}`);
     }
 
     return modifiedURL;

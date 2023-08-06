@@ -6,6 +6,7 @@ import { useState } from 'react';
 import type { PackageJSONType } from 'types/packageJson';
 import { allIconNames } from 'utils/allIconInfo';
 import { extractDependencies, refineSkills } from 'utils/extractStacks';
+import { removeVersions } from 'utils/packageJson';
 import { getPackageJSONFromRepository } from 'utils/resultUrl';
 
 interface ReadRepositoryProps {
@@ -23,6 +24,9 @@ const ReadRepository = ({ stackHandler, inputPopupHandler }: ReadRepositoryProps
   const filterExistingStacks = (data: PackageJSONType) => {
     const stacksFromPackage = refineSkills(extractDependencies(data));
     const iconNames: Set<string> = allIconNames();
+
+    console.log('refine', stacksFromPackage);
+    console.log('remove', removeVersions(extractDependencies(data)));
 
     return new Set(
       [...stacksFromPackage].filter((el) => iconNames.has(el.replaceAll('-', '').toLowerCase())),
