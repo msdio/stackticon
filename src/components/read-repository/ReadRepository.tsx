@@ -24,11 +24,14 @@ const ReadRepository = ({ stackHandler, inputPopupHandler }: ReadRepositoryProps
     const stacksFromPackage = refineSkills(extractDependencies(data));
     const iconNames: Set<string> = allIconNames();
 
-    return new Set([...stacksFromPackage].filter((el) => iconNames.has(el.toLowerCase())));
+    return new Set(
+      [...stacksFromPackage].filter((el) => iconNames.has(el.replaceAll('-', '').toLowerCase())),
+    );
   };
 
   const setStacks = (stacks: Set<string>) => {
     const ret: string[] = [];
+
     stacks.forEach((stk) => {
       ret.push(stk.substring(0, 1).toUpperCase() + stk.substring(1, stk.length));
     });
@@ -47,7 +50,13 @@ const ReadRepository = ({ stackHandler, inputPopupHandler }: ReadRepositoryProps
 
         if (response.status === 200) {
           const extractedStacks = filterExistingStacks(response.data);
-          setStacks(extractedStacks);
+
+          const stackSlugs = new Set<string>();
+          extractedStacks.forEach((el) => {
+            stackSlugs.add(el.replaceAll('-', '').toLowerCase());
+          });
+
+          setStacks(stackSlugs);
         }
       } catch (e) {
         alert(e);
