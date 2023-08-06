@@ -1,4 +1,5 @@
 import { allIconNames } from './allIconInfo';
+import { makeIntoSlugs } from './string';
 
 export const extractUniqueElements = (skills: string[]) => {
   const uniqueArray = new Set(skills);
@@ -9,9 +10,5 @@ export const extractUniqueElements = (skills: string[]) => {
 export const filterExisitingStacks = (array: string[]) => {
   const names = allIconNames();
 
-  return array.filter((el) => names.has(el.replaceAll('-', '').toLowerCase()));
-};
-
-export const makeIntoSlugs = (stk: string) => {
-  return stk.replaceAll('-', '').toLowerCase();
+  return array.filter((el) => names.has(makeIntoSlugs(el)));
 };

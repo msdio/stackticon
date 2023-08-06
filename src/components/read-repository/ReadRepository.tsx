@@ -3,10 +3,10 @@ import { getPackageJSONObject } from 'apis/packages';
 import { bounce } from 'constants/animations';
 import type { ChangeEvent, KeyboardEvent } from 'react';
 import { useState } from 'react';
-import { filterExisitingStacks, makeIntoSlugs } from 'utils/array';
-import { getDependencies, removeSubDirectories } from 'utils/packageJson';
+import { filterExisitingStacks } from 'utils/array';
+import { getDependencies, removeSubModules } from 'utils/packageJson';
 import { getPackageJSONFromRepository } from 'utils/resultUrl';
-import { capitalize } from 'utils/string';
+import { capitalize, makeIntoSlugs } from 'utils/string';
 
 interface ReadRepositoryProps {
   stackHandler: (p: string[]) => void;
@@ -24,7 +24,7 @@ const ReadRepository = ({ stackHandler, inputPopupHandler }: ReadRepositoryProps
     try {
       const data = await getPackageJSONObject(path);
 
-      const stackSlugs = removeSubDirectories(getDependencies(data)).map(makeIntoSlugs);
+      const stackSlugs = removeSubModules(getDependencies(data)).map(makeIntoSlugs);
       const existingStacks = filterExisitingStacks(stackSlugs).map(capitalize);
 
       stackHandler(existingStacks);

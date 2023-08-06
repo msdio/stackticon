@@ -50,7 +50,7 @@ export const getDependencies = (packageObj: PackageJSONType) => {
   return [...dependencies, ...devDependencies];
 };
 
-export const removeSubDirectories = (dependencies: string[]) => {
+export const removeSubModules = (dependencies: string[]) => {
   const onlyStackName = dependencies.map((stk) =>
     stk.includes('/') ? stk.split('/')[0].substring(1) : stk,
   );

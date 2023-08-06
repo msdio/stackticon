@@ -1,4 +1,5 @@
-import { extractDependencies, extractUniqueElements, refineSkills } from 'utils/extractStacks';
+import { extractUniqueElements } from 'utils/array';
+import { extractDependencies, refineSkills } from 'utils/extractStacks';
 
 describe('extract skill names from package json', () => {
   it('when dependency and dev-dependency are both exists', () => {
