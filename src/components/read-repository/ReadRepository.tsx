@@ -4,8 +4,7 @@ import { bounce } from 'constants/animations';
 import type { ChangeEvent, KeyboardEvent } from 'react';
 import { useState } from 'react';
 import { filterExisitingStacks } from 'utils/array';
-import { getDependencies, removeSubModules } from 'utils/packageJson';
-import { getPackageJSONFromRepository } from 'utils/resultUrl';
+import { getDependencies, getPackageJsonURL, removeSubModules } from 'utils/packageJson';
 import { capitalize, makeIntoSlug } from 'utils/string';
 
 interface ReadRepositoryProps {
@@ -37,7 +36,7 @@ const ReadRepository = ({ stackHandler, inputPopupHandler }: ReadRepositoryProps
 
   const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === 'Enter') {
-      const packageJSONPath = getPackageJSONFromRepository(address);
+      const packageJSONPath = getPackageJsonURL(address);
 
       getStacks(packageJSONPath);
     }
