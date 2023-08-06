@@ -1,4 +1,4 @@
-import { getPackageJSONFromRepository } from 'utils/resultUrl';
+import { getPackageJsonURL } from 'utils/packageJson';
 
 describe('get package.json location from repository', () => {
   it('in multi repo, without slash at last', () => {
@@ -6,7 +6,7 @@ describe('get package.json location from repository', () => {
     const packageFileInMultiRepo =
       'https://raw.githubusercontent.com/msdio/stackticon/HEAD/package.json';
 
-    expect(getPackageJSONFromRepository(multiRepoUrl)).toBe(packageFileInMultiRepo);
+    expect(getPackageJsonURL(multiRepoUrl)).toBe(packageFileInMultiRepo);
   });
 
   it('in multi repo, with slash at last', () => {
@@ -14,7 +14,7 @@ describe('get package.json location from repository', () => {
     const packageFileInMultiRepo =
       'https://raw.githubusercontent.com/msdio/stackticon/HEAD/package.json';
 
-    expect(getPackageJSONFromRepository(multiRepoUrl)).toBe(packageFileInMultiRepo);
+    expect(getPackageJsonURL(multiRepoUrl)).toBe(packageFileInMultiRepo);
   });
 
   it('in mono repo, without slash at last', () => {
@@ -22,7 +22,7 @@ describe('get package.json location from repository', () => {
     const packageFileInMonoRepo =
       'https://raw.githubusercontent.com/msdio/Tamago/HEAD/client/package.json';
 
-    expect(getPackageJSONFromRepository(monoRepoUrl)).toBe(packageFileInMonoRepo);
+    expect(getPackageJsonURL(monoRepoUrl)).toBe(packageFileInMonoRepo);
   });
 
   it('in mono repo, with slash at last', () => {
@@ -30,6 +30,6 @@ describe('get package.json location from repository', () => {
     const packageFileInMonoRepo =
       'https://raw.githubusercontent.com/msdio/Tamago/HEAD/client/package.json';
 
-    expect(getPackageJSONFromRepository(monoRepoUrl)).toBe(packageFileInMonoRepo);
+    expect(getPackageJsonURL(monoRepoUrl)).toBe(packageFileInMonoRepo);
   });
 });

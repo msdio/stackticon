@@ -14,6 +14,10 @@ export const getPackageJsonURL = (url: string) => {
     const segmentRegex = /\/[^/]+/;
     const hasTree = originalURL.match(treeRegex);
 
+    if (originalURL.endsWith('/')) {
+      originalURL = originalURL.slice(0, -1);
+    }
+
     if (!hasTree) {
       return `${originalURL}/HEAD`;
     }

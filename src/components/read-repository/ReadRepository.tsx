@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { filterExisitingStacks } from 'utils/array';
 import { getDependencies, removeSubModules } from 'utils/packageJson';
 import { getPackageJSONFromRepository } from 'utils/resultUrl';
-import { capitalize, makeIntoSlugs } from 'utils/string';
+import { capitalize, makeIntoSlug } from 'utils/string';
 
 interface ReadRepositoryProps {
   stackHandler: (p: string[]) => void;
@@ -24,7 +24,7 @@ const ReadRepository = ({ stackHandler, inputPopupHandler }: ReadRepositoryProps
     try {
       const data = await getPackageJSONObject(path);
 
-      const stackSlugs = removeSubModules(getDependencies(data)).map(makeIntoSlugs);
+      const stackSlugs = removeSubModules(getDependencies(data)).map(makeIntoSlug);
       const existingStacks = filterExisitingStacks(stackSlugs).map(capitalize);
 
       stackHandler(existingStacks);

@@ -1,4 +1,4 @@
-import { capitalize } from 'utils/string';
+import { capitalize, makeIntoSlug } from 'utils/string';
 
 test('capitalize first letter in given string', () => {
   const input = 'stackticon';
@@ -10,6 +10,6 @@ describe('make string into slug', () => {
   it('which has hyphen', () => {
     const input = 'styled-components';
 
-    expect(input).toBe('styledcomponents');
+    expect(makeIntoSlug(input)).toBe('styledcomponents');
   });
 });
