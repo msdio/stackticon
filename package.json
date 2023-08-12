@@ -18,6 +18,11 @@
     "deploy": "gh-pages -d build",
     "postinstall": "patch-package && husky install"
   },
+  "engines": {
+    "npm": "please use yarn, not npm",
+    "node": ">=16.0.0",
+    "yarn": ">=1.0.0"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
