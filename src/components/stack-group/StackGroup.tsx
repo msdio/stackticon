@@ -15,7 +15,7 @@ const StackGroup = forwardRef<HTMLDivElement, StacksProps>(({ color, selecteds }
       bgcolor={'common.' + color}
       display='grid'
       gridTemplateRows='auto'
-      gridTemplateColumns='1fr 1fr 1fr 1fr 1fr 1fr'
+      gridTemplateColumns='repeat(6, 1fr)'
       color={color === 'black' ? 'common.white' : 'common.black'}
       fontWeight='bold'
       width='700px'
