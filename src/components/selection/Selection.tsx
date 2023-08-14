@@ -41,7 +41,7 @@ const Label = styled.h1<{ color: BgColorOption }>`
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: opacity 200ms ease-in-out;
-  color: ${(props) => (props.color === 'white' ? 'black' : 'white')};
+  color: white;
 
   z-index: 10;
 `;
