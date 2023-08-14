@@ -1,7 +1,9 @@
+import { useRef, useState } from 'react';
+
 import { Box, useMediaQuery } from '@mui/material';
+
 import Header from 'components/header';
 import Landing from 'pages/home/landing';
-import { useRef, useState } from 'react';
 
 import * as Guide from './guides';
 

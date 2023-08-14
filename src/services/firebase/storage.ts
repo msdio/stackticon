@@ -1,8 +1,8 @@
-import type { StorageReference } from 'firebase/storage';
-import { uploadBytes } from 'firebase/storage';
-import { getDownloadURL, ref } from 'firebase/storage';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 
 import { storage } from './initialize';
+
+import type { StorageReference } from 'firebase/storage';
 
 const makeImageRef = () => {
   const miliseconds = new Date().getTime().toString();

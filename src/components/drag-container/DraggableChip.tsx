@@ -1,4 +1,5 @@
 import { Chip } from '@mui/material';
+
 import type { SimpleIcon } from 'simple-icons';
 
 interface DraggableChipProps {

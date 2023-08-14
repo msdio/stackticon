@@ -1,6 +1,8 @@
+import { createHashRouter, RouterProvider } from 'react-router-dom';
+
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/system';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
+
 import RouterContainer from 'RouterContainer';
 import { theme } from 'styles/theme';
 

@@ -1,7 +1,9 @@
+import type { RefObject } from 'react';
+
 import { Box, Container, Typography } from '@mui/material';
+
 import { fadeFromLeft, fadeFromRight } from 'constants/animations';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
-import type { RefObject } from 'react';
 
 interface GuideProps {
   isMobile: boolean;

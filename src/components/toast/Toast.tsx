@@ -1,4 +1,5 @@
 import { Alert, Snackbar } from '@mui/material';
+
 import type { ToastProps } from 'types/toast';
 
 const Toast = ({ type, message, open, close, duration = 1500 }: ToastProps) => {

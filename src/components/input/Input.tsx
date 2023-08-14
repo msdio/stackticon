@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import styled from '@emotion/styled';
 import {
   Autocomplete,
@@ -6,11 +8,12 @@ import {
   TextField,
   useMediaQuery,
 } from '@mui/material';
+
 import { DragContainer } from 'components/drag-container/DragContainer';
-import { useEffect, useState } from 'react';
-import type { SimpleIcon } from 'simple-icons';
 
 import { getIconDetail, makeIconInfoArray } from '../../utils/allIconInfo';
+
+import type { SimpleIcon } from 'simple-icons';
 
 const DropdownSvg = styled.div<{ hex: string }>`
   width: 24px;

@@ -1,5 +1,6 @@
-import { Typography } from '@mui/material';
 import type { PropsWithChildren } from 'react';
+
+import { Typography } from '@mui/material';
 
 export const HeadingText = ({ children, isMobile }: PropsWithChildren<{ isMobile: boolean }>) => (
   <Typography

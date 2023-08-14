@@ -6,36 +6,68 @@
     "node": true
   },
   "extends": [
-    "prettier",
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:import/typescript",
+    "plugin:import/recommended",
+    "prettier"
   ],
-  "plugins": ["react", "@typescript-eslint/eslint-plugin", "simple-import-sort", "unused-imports"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "plugins": ["react", "@typescript-eslint", "import", "unused-imports"],
   "settings": {
     "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
+      "typescript": {
+        "directory": "./src"
       }
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "react": {
       "version": "detect"
     }
   },
   "rules": {
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }],
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling", "index"],
+          "type",
+          "unknown"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "{react*,react*/**}",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react", "unknown"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
     "react/react-in-jsx-scope": "off",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
+    "import/default": "off",
     "no-unused-private-class-members": "error",
     "no-use-before-define": "error",
-    "@typescript-eslint/no-unused-vars": "warn",
-    "no-console": "warn",
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
       "warn",
@@ -46,6 +78,8 @@
         "argsIgnorePattern": "^_"
       }
     ],
+    "@typescript-eslint/no-unused-vars": "warn",
+    "no-console": "warn",
     "@typescript-eslint/consistent-type-imports": [
       "error",
       {
@@ -57,6 +91,12 @@
       {
         "before": false,
         "after": true
+      }
+    ],
+    "import/no-unresolved": [
+      2,
+      {
+        "ignore": [".png$", ".webp$", ".jpg$"]
       }
     ],
     "indent": ["error", 2],
