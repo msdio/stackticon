@@ -1,9 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, styled as styledMUI } from '@mui/material';
-import StackGroup from 'components/stack-group';
-import { useRef, useState } from 'react';
-import type { Location } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { type PropsWithChildren, useState } from 'react';
 import type { BgColorOption } from 'types/backgroundColors';
 
 const Container = styledMUI(Box)(({ theme }) => ({
@@ -35,7 +32,7 @@ const Hider = styled.div`
   border-radius: 8px;
 `;
 
-const Color = styled.h1`
+const Label = styled.h1<{ color: BgColorOption }>`
   padding: 0;
   margin: 0;
   position: absolute;
@@ -44,33 +41,24 @@ const Color = styled.h1`
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: opacity 200ms ease-in-out;
-  color: white;
+  color: ${(props) => (props.color === 'white' ? 'black' : 'white')};
 
   z-index: 10;
 `;
 
-interface StackContainerProps {
-  selectedColor: BgColorOption;
-  state: Location['state'];
+interface SelectionProps extends PropsWithChildren {
+  onClick: () => void;
   isMobile: boolean;
+  label: string;
+  color: BgColorOption;
 }
 
-const StackContainer = ({ selectedColor, state, isMobile }: StackContainerProps) => {
+const Selection = ({ children, onClick, isMobile, label, color }: SelectionProps) => {
   const [hide, setHide] = useState(false);
-  const navigate = useNavigate();
-  const targetRef = useRef<HTMLDivElement>(null);
-
-  const submitSkills = (color: BgColorOption) => {
-    const bgColor = color;
-
-    if (color && state) {
-      navigate(`/loading/${bgColor}`, { state });
-    }
-  };
 
   return (
     <Container
-      onClick={() => submitSkills(selectedColor)}
+      onClick={onClick}
       onMouseEnter={() => setHide(true)}
       onMouseLeave={() => setHide(false)}
       sx={{
@@ -78,11 +66,11 @@ const StackContainer = ({ selectedColor, state, isMobile }: StackContainerProps)
         transform: isMobile ? 'translateY(-10rem)' : '0',
       }}
     >
-      <StackGroup ref={targetRef} selecteds={state} color={selectedColor} />
+      {children}
       {hide && <Hider />}
-      <Color>{selectedColor.toUpperCase()}</Color>
+      <Label color={color}>{label.toUpperCase()}</Label>
     </Container>
   );
 };
 
-export default StackContainer;
+export default Selection;
