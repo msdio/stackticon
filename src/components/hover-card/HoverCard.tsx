@@ -46,14 +46,14 @@ const Label = styled.h1<{ color: BgColorOption }>`
   z-index: 10;
 `;
 
-interface SelectionProps extends PropsWithChildren {
+interface HoverCardProps extends PropsWithChildren {
   onClick: () => void;
   isMobile: boolean;
   label: string;
   color: BgColorOption;
 }
 
-const Selection = ({ children, onClick, isMobile, label, color }: SelectionProps) => {
+const HoverCard = ({ children, onClick, isMobile, label, color }: HoverCardProps) => {
   const [hide, setHide] = useState(false);
 
   return (
@@ -73,4 +73,4 @@ const Selection = ({ children, onClick, isMobile, label, color }: SelectionProps
   );
 };
 
-export default Selection;
+export default HoverCard;
