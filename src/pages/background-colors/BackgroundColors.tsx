@@ -3,7 +3,7 @@ import BackgroundWithCircle from '@common/background-with-circle';
 import HeadingText from '@common/heading-text';
 import { Box, Stack, useMediaQuery } from '@mui/material';
 import Header from 'components/header';
-import Selection from 'components/selection';
+import HoverCard from 'components/hover-card';
 import StackGroup from 'components/stack-group';
 import { useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -37,14 +37,14 @@ const BackgroundColors = () => {
         <HeadingText isMobile={isMobile}>Choose Color</HeadingText>
 
         <Stack alignItems={'center'} spacing={9} mt={'2.8125rem'}>
-          <Selection
+          <HoverCard
             label='black'
             color='black'
             onClick={() => submitColor('black')}
             isMobile={isMobile}
             children={<StackGroup ref={targetRef} selecteds={state} color='black' />}
           />
-          <Selection
+          <HoverCard
             label='white'
             color='white'
             onClick={() => submitColor('white')}
