@@ -38,6 +38,19 @@ const TetrominoBox4 = styled(Tetromino)`
   animation: ${tetromino4} 1.5s ease-out infinite;
 `;
 
+const Container = styled.div`
+  height: '100vh';
+  overflow-y: hidden;
+`;
+
+const LoadingContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+`;
+
 const BlockLoading = () => {
   const { color } = useParams();
   const navigate = useNavigate();
@@ -57,7 +70,7 @@ const BlockLoading = () => {
       return;
     }
     navigate('/');
-    throw new Error('이미지를 만드는 데 실패했습니다 다시 시도해주세요');
+    throw new Error('fail to generate image. please try again');
   };
 
   useEffect(() => {
@@ -65,21 +78,8 @@ const BlockLoading = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        height: '100vh',
-        overflowY: 'hidden',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          height: '100vh',
-        }}
-      >
+    <Container>
+      <LoadingContainer>
         <Tetrominos>
           <TetrominoBox1 />
           <TetrominoBox2 />
@@ -94,9 +94,10 @@ const BlockLoading = () => {
         >
           Making Image...
         </Typography>
-      </div>
+      </LoadingContainer>
+
       <StackGroup ref={targetRef} selecteds={state} color={color as BgColorOption} />
-    </div>
+    </Container>
   );
 };
 
