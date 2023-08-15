@@ -1,6 +1,7 @@
+import { useNavigate } from 'react-router';
+
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import { useNavigate } from 'react-router';
 // @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lato');
 
 const whiteColor = '#EDEDED';

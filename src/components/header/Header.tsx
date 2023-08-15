@@ -1,6 +1,11 @@
+import { useState } from 'react';
+import { Link as RLink } from 'react-router-dom';
+
 import styled from '@emotion/styled';
 import { Box, Link, Stack, SvgIcon, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { motion } from 'framer-motion';
+
 import LogoWithBackground from 'assets/icons/logoWithBackground';
 import LogoLoading from 'components/loading/LogoLoading';
 import ReadRepository from 'components/read-repository';
@@ -8,9 +13,6 @@ import { wiggling } from 'constants/animations';
 import { APP_NAME, GITHUB_LINK } from 'constants/constants';
 import { BetaBadge } from 'constants/icons';
 import { Svg } from 'constants/svgs';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { Link as RLink } from 'react-router-dom';
 
 const Container = styled.header`
   display: flex;

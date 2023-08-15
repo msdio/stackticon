@@ -1,6 +1,8 @@
+import { useState, type PropsWithChildren } from 'react';
+
 import styled from '@emotion/styled';
 import { Box, styled as styledMUI } from '@mui/material';
-import { type PropsWithChildren, useState } from 'react';
+
 import type { BgColorOption } from 'types/backgroundColors';
 
 const Container = styledMUI(Box)(({ theme }) => ({

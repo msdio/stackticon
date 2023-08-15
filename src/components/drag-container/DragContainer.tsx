@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import type { SimpleIcon } from 'simple-icons';
 
 import { DraggableChip } from './DraggableChip';
+
+import type { SimpleIcon } from 'simple-icons';
 
 interface DragContainerProps {
   array: SimpleIcon[];

@@ -1,8 +1,9 @@
+import { lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
+
 import BlockLoading from 'components/loading/BlockLoading';
 import RequireState from 'components/require-state';
 import Cute404 from 'pages/page404/Cute404';
-import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
 
 const Home = lazy(() => import('pages/home'));
 const BackgroundColors = lazy(() => import('pages/background-colors'));

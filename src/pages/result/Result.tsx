@@ -1,12 +1,14 @@
-import BackgroundWithCircle from '@common/background-with-circle';
+import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import styled from '@emotion/styled';
 import { Box } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
+
+import BackgroundWithCircle from '@common/background-with-circle';
 import Header from 'components/header';
 import { LandingLabel } from 'components/stackticon-images/StackticonImages';
 import Toast from 'components/toast';
-import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 import BottomButtons from './bottom-buttons';
 

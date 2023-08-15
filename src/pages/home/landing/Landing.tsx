@@ -1,10 +1,12 @@
-import BackgroundWithCircle from '@common/background-with-circle';
+import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { Box, Button, Typography } from '@mui/material';
+
+import BackgroundWithCircle from '@common/background-with-circle';
 import DraggableIcon from 'components/draggable-icon';
 import Input from 'components/input';
 import { JavascriptIcon, NodeJSIcon, ReactIcon, SpringIcon } from 'constants/icons';
-import { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import * as Images from '../../../components/stackticon-images/StackticonImages';
 

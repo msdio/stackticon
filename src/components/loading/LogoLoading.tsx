@@ -1,5 +1,6 @@
 import { Box, Stack, styled } from '@mui/material';
 import Typography from '@mui/material/Typography/Typography';
+
 import { RandomRotate } from 'constants/animations';
 
 import Loading1 from '../../assets/images/loading/loading-1.png';

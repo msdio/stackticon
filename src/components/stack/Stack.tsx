@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Typography } from '@mui/material';
+
 import { getIconDetail } from 'utils/allIconInfo';
 
 const DropdownSvg = styled.div<{ hex: string }>`

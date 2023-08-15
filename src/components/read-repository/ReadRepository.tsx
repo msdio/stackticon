@@ -1,8 +1,10 @@
-import { Box, Input } from '@mui/material';
-import { getPackageJSONObject } from 'apis/packages';
-import { bounce } from 'constants/animations';
 import type { ChangeEvent, KeyboardEvent } from 'react';
 import { useState } from 'react';
+
+import { Box, Input } from '@mui/material';
+
+import { getPackageJSONObject } from 'apis/packages';
+import { bounce } from 'constants/animations';
 import { filterExisitingStacks } from 'utils/array';
 import { getDependencies, getPackageJsonURL, removeSubModules } from 'utils/packageJson';
 import { capitalize, makeIntoSlug } from 'utils/string';

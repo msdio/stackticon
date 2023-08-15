@@ -1,12 +1,15 @@
-import styled from '@emotion/styled';
-import { Typography } from '@mui/material';
-import StackGroup from 'components/stack-group';
-import { tetromino1, tetromino2, tetromino3, tetromino4 } from 'constants/animations';
 import { useEffect, useRef } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+
+import styled from '@emotion/styled';
+import { Typography } from '@mui/material';
+
+import StackGroup from 'components/stack-group';
+import { tetromino1, tetromino2, tetromino3, tetromino4 } from 'constants/animations';
 import { getCreatedImageUrl } from 'services/firebase/storage';
-import type { BgColorOption } from 'types/backgroundColors';
 import { htmlToPng } from 'utils/imageConverter';
+
+import type { BgColorOption } from 'types/backgroundColors';
 
 const Tetrominos = styled.div`
   position: absolute;

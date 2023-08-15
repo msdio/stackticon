@@ -1,6 +1,9 @@
-import { Box } from '@mui/material';
-import Stack from 'components/stack/Stack';
 import { forwardRef } from 'react';
+
+import { Box } from '@mui/material';
+
+import Stack from 'components/stack/Stack';
+
 import type { BgColorOption } from 'types/backgroundColors';
 
 interface StacksProps {

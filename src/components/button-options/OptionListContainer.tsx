@@ -1,5 +1,6 @@
-import { ClickAwayListener, Grow, MenuList, Paper, Popper } from '@mui/material';
 import type { PropsWithChildren } from 'react';
+
+import { ClickAwayListener, Grow, MenuList, Paper, Popper } from '@mui/material';
 
 interface OptionListContainerProp {
   buttonRef: HTMLElement | null;

@@ -1,13 +1,16 @@
+import { Fragment, useRef, useState } from 'react';
+
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Button, ButtonGroup, MenuItem } from '@mui/material';
+
 // import type { CopyOptionType } from 'constants/constants';
-import type { CopyOptionType } from 'constants/constants';
 import { COPY_OPTIONS } from 'constants/constants';
-import { Fragment, useRef, useState } from 'react';
-import type { LocationState } from 'types/location';
 import { makeUrlIntoBracket, makeUrlIntoImgTag } from 'utils/resultUrl';
 
 import { OptionListContainer } from './OptionListContainer';
+
+import type { CopyOptionType } from 'constants/constants';
+import type { LocationState } from 'types/location';
 
 const copyOptions = Object.values(COPY_OPTIONS);
 

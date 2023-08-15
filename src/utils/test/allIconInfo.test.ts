@@ -1,7 +1,7 @@
-import type { SimpleIcon } from 'simple-icons';
-
 import customIcons from '../../constants/custom-icons.json';
 import { getIconDetail, makeIconInfoArray } from '../allIconInfo';
+
+import type { SimpleIcon } from 'simple-icons';
 
 describe('check custom icons', () => {
   let allIconArr: SimpleIcon[];
