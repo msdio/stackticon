@@ -1,26 +1,26 @@
 /* eslint-disable react/no-children-prop */
 import { useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { Box, Stack, useMediaQuery } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 
 import BackgroundWithCircle from '@common/background-with-circle';
 import HeadingText from '@common/heading-text';
 import Header from 'components/header';
 import HoverCard from 'components/hover-card';
 import StackGroup from 'components/stack-group';
+import { useStacks } from 'providers/StacksProvider';
 
 import type { BgColorOption } from 'types/backgroundColors';
 
 const BackgroundColors = () => {
-  const isMobile = useMediaQuery('(max-width: 740px)');
-  const { state } = useLocation();
   const navigate = useNavigate();
   const targetRef = useRef<HTMLDivElement>(null);
+  const { stacks } = useStacks();
 
   const submitColor = (color: BgColorOption) => {
-    if (color && state) {
-      navigate(`/loading/${color}`, { state });
+    if (color) {
+      navigate(`/loading/${color}`);
     }
   };
 
@@ -37,22 +37,20 @@ const BackgroundColors = () => {
         position='relative'
         zIndex='5'
       >
-        <HeadingText isMobile={isMobile}>Choose Color</HeadingText>
+        <HeadingText>Choose Color</HeadingText>
 
         <Stack alignItems={'center'} spacing={9} mt={'2.8125rem'}>
           <HoverCard
             label='black'
             color='black'
             onClick={() => submitColor('black')}
-            isMobile={isMobile}
-            children={<StackGroup ref={targetRef} selecteds={state} color='black' />}
+            children={<StackGroup ref={targetRef} selecteds={stacks} color='black' />}
           />
           <HoverCard
             label='white'
             color='white'
             onClick={() => submitColor('white')}
-            isMobile={isMobile}
-            children={<StackGroup ref={targetRef} selecteds={state} color='white' />}
+            children={<StackGroup ref={targetRef} selecteds={stacks} color='white' />}
           />
         </Stack>
       </Box>

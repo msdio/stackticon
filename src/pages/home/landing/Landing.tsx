@@ -1,29 +1,26 @@
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Typography, useMediaQuery } from '@mui/material';
 
 import BackgroundWithCircle from '@common/background-with-circle';
 import DraggableIcon from 'components/draggable-icon';
 import Input from 'components/input';
 import { JavascriptIcon, NodeJSIcon, ReactIcon, SpringIcon } from 'constants/icons';
+import { useStacks } from 'providers/StacksProvider';
 
 import * as Images from '../../../components/stackticon-images/StackticonImages';
 
-interface LandingProps {
-  isMobile: boolean;
-  skills: string[];
-  handleSkills: (p: string[]) => void;
-}
-
-const Landing = ({ isMobile, skills, handleSkills }: LandingProps) => {
+const Landing = () => {
   const [buttonClicked, setButtonClicked] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const { stacks } = useStacks();
+  const isMobile = useMediaQuery('(max-width: 900px)');
 
-  const submitSkills = () => {
-    if (!buttonClicked && skills.length > 0) {
-      navigate('/backgrounds', { state: skills });
+  const submitStacks = () => {
+    if (!buttonClicked && stacks.length > 0) {
+      navigate('/backgrounds');
       setButtonClicked(true);
     }
   };
@@ -58,26 +55,26 @@ const Landing = ({ isMobile, skills, handleSkills }: LandingProps) => {
           make skill sets for your project
         </Typography>
       </Box>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '20px',
-          width: '100%',
-          zIndex: '5',
+      <Box
+        width='100%'
+        display='flex'
+        justifyContent='center'
+        alignItems='center'
+        gap='20px'
+        zIndex='5'
+        sx={{
           scale: isMobile ? '0.7' : '1',
         }}
       >
-        <Input stacks={skills} handler={handleSkills} />
+        <Input />
         <Button
           variant='contained'
           color='success'
           size='large'
-          onClick={submitSkills}
+          onClick={submitStacks}
           sx={{
             zIndex: 50,
-            backgroundColor: skills.length > 0 ? 'p.1' : 'info.main',
+            backgroundColor: stacks.length > 0 ? 'p.1' : 'info.main',
             width: '175px',
             height: '60px',
             borderRadius: '12px',
@@ -87,7 +84,7 @@ const Landing = ({ isMobile, skills, handleSkills }: LandingProps) => {
         >
           Create {isMobile ? '' : 'Set'}
         </Button>
-      </div>
+      </Box>
 
       <DraggableIcon constraints={containerRef} icon={<ReactIcon />} bottom='10%' right='5%' />
       <DraggableIcon constraints={containerRef} icon={<NodeJSIcon />} top='20%' right='20%' />
