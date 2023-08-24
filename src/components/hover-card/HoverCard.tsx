@@ -1,7 +1,7 @@
 import { useState, type PropsWithChildren } from 'react';
 
 import styled from '@emotion/styled';
-import { Box, styled as styledMUI } from '@mui/material';
+import { Box, styled as styledMUI, useMediaQuery } from '@mui/material';
 
 import type { BgColorOption } from 'types/backgroundColors';
 
@@ -50,12 +50,12 @@ const Label = styled.h1<{ color: BgColorOption }>`
 
 interface HoverCardProps extends PropsWithChildren {
   onClick: () => void;
-  isMobile: boolean;
   label: string;
   color: BgColorOption;
 }
 
-const HoverCard = ({ children, onClick, isMobile, label, color }: HoverCardProps) => {
+const HoverCard = ({ children, onClick, label, color }: HoverCardProps) => {
+  const isMobile = useMediaQuery('(max-width: 900px)');
   const [hide, setHide] = useState(false);
 
   return (
