@@ -13,6 +13,7 @@ import { wiggling } from 'constants/animations';
 import { APP_NAME, GITHUB_LINK } from 'constants/constants';
 import { BetaBadge } from 'constants/icons';
 import { Svg } from 'constants/svgs';
+import { useStacks } from 'providers/StacksProvider';
 
 const Container = styled.header`
   display: flex;
@@ -67,14 +68,14 @@ const ReadRepositoryButton = styled(motion.div)`
 
 interface HeaderProps {
   isMain: boolean;
-  handleStacks?: (p: string[]) => void;
 }
 
-const Header = ({ isMain, handleStacks = () => true }: HeaderProps) => {
+const Header = ({ isMain }: HeaderProps) => {
   const isMobile = useMediaQuery('(max-width: 740px)');
   const isEligibleForBeta = useMediaQuery('(min-width: 1070px)');
   const [openRepositoryInput, setOpenRepositoryInput] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { update } = useStacks();
 
   const closeRepositoryInput = () => {
     setOpenRepositoryInput(false);
@@ -106,7 +107,7 @@ const Header = ({ isMain, handleStacks = () => true }: HeaderProps) => {
 
       <Stack direction='row' spacing={3} marginLeft='auto'>
         {isEligibleForBeta && openRepositoryInput && isMain && (
-          <ReadRepository stackHandler={handleStacks} inputPopupHandler={handleLoading} />
+          <ReadRepository stackHandler={update} inputPopupHandler={handleLoading} />
         )}
         {isEligibleForBeta && isMain && (
           <ReadRepositoryButton

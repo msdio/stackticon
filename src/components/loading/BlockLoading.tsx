@@ -55,9 +55,9 @@ const LoadingContainer = styled.div`
 `;
 
 const BlockLoading = () => {
-  const { color } = useParams();
-  const navigate = useNavigate();
   const targetRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  const { color } = useParams();
   const { state } = useLocation();
 
   const navigateToResult = (resultUrl: string) => {

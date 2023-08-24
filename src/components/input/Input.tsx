@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 
 import { DragContainer } from 'components/drag-container/DragContainer';
+import { useStacks } from 'providers/StacksProvider';
 
 import { getIconDetail, makeIconInfoArray } from '../../utils/allIconInfo';
 
@@ -30,25 +31,11 @@ const DropdownSvg = styled.div<{ hex: string }>`
   }
 `;
 
-interface InputProps {
-  stacks: string[];
-  handler: (p: string[]) => void;
-}
-
-const Input = ({ stacks, handler }: InputProps) => {
+const Input = () => {
+  const [inputStacks, setInputStacks] = useState<SimpleIcon[]>([]);
+  const { stacks, update } = useStacks();
   const isMobile = useMediaQuery('(max-width: 900px)');
   const iconArr = makeIconInfoArray();
-
-  const [inputStacks, setInputStacks] = useState<SimpleIcon[]>([]);
-
-  const onStackChange = (value: SimpleIcon[]) => {
-    handler(
-      value.map(
-        (el: SimpleIcon) =>
-          el.slug.substring(0, 1).toUpperCase() + el.slug.substring(1, el.slug.length),
-      ),
-    );
-  };
 
   useEffect(() => {
     const ret: SimpleIcon[] = [];
@@ -58,6 +45,15 @@ const Input = ({ stacks, handler }: InputProps) => {
 
     setInputStacks(ret);
   }, [stacks]);
+
+  const onStackChange = (value: SimpleIcon[]) => {
+    update(
+      value.map(
+        (el: SimpleIcon) =>
+          el.slug.substring(0, 1).toUpperCase() + el.slug.substring(1, el.slug.length),
+      ),
+    );
+  };
 
   const changeStackOrder = (stacks: SimpleIcon[]) => {
     setInputStacks(stacks);

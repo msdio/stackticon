@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
-import { Box, useMediaQuery } from '@mui/material';
+import { Box } from '@mui/material';
 
 import Header from 'components/header';
 import Landing from 'pages/home/landing';
@@ -9,22 +9,16 @@ import * as Guide from './guides';
 
 const Home = () => {
   const observerRef = useRef<HTMLDivElement>(null);
-  const [skills, setSkills] = useState<string[]>([]);
-  const isMobile = useMediaQuery('(max-width: 900px)');
-
-  const changeSkillSet = (inputSkills: string[]) => {
-    setSkills(inputSkills);
-  };
 
   return (
     <Box width='100vw' height='fit-content' minHeight='100vh' position='relative'>
-      <Header isMain={true} handleStacks={changeSkillSet} />
+      <Header isMain={true} />
 
-      <Landing isMobile={isMobile} skills={skills} handleSkills={changeSkillSet} />
+      <Landing />
 
       <Box ref={observerRef} width='100%' height='100vh' zIndex='3' bgcolor='#f9f9f9'>
-        <Guide.GuideUsage isMobile={isMobile} observerRef={observerRef} />
-        <Guide.GuideSample isMobile={isMobile} observerRef={observerRef} />
+        <Guide.GuideUsage observerRef={observerRef} />
+        <Guide.GuideSample observerRef={observerRef} />
       </Box>
     </Box>
   );
