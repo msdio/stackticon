@@ -1,15 +1,14 @@
-import { useLocation } from 'react-router-dom';
-
 import Cute404 from 'pages/page404';
+import { useStacks } from 'providers/StacksProvider';
 
 interface RequireStateProps {
   component: JSX.Element;
 }
 
 const RequireState = ({ component }: RequireStateProps) => {
-  const { state } = useLocation();
+  const { stacks } = useStacks();
 
-  if (!state) {
+  if (!stacks) {
     return <Cute404 />;
   }
 

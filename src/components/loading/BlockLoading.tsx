@@ -1,11 +1,12 @@
 import { useEffect, useRef } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 import { Typography } from '@mui/material';
 
 import StackGroup from 'components/stack-group';
 import { tetromino1, tetromino2, tetromino3, tetromino4 } from 'constants/animations';
+import { useStacks } from 'providers/StacksProvider';
 import { getCreatedImageUrl } from 'services/firebase/storage';
 import { htmlToPng } from 'utils/imageConverter';
 
@@ -58,7 +59,7 @@ const BlockLoading = () => {
   const targetRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const { color } = useParams();
-  const { state } = useLocation();
+  const { stacks } = useStacks();
 
   const navigateToResult = (resultUrl: string) => {
     navigate('/result', { state: { url: resultUrl } });
@@ -99,7 +100,7 @@ const BlockLoading = () => {
         </Typography>
       </LoadingContainer>
 
-      <StackGroup ref={targetRef} selecteds={state} color={color as BgColorOption} />
+      <StackGroup ref={targetRef} selecteds={stacks} color={color as BgColorOption} />
     </Container>
   );
 };
