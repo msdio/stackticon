@@ -58,7 +58,7 @@ const Result = () => {
 
         <ResultImage src={state.url} alt='stackticon result' />
 
-        <BottomButtons isMobile={isMobile} state={state} setOpenToast={setOpenToast} />
+        <BottomButtons state={state} setOpenToast={setOpenToast} />
       </Box>
     </BackgroundWithCircle>
   );

@@ -1,16 +1,16 @@
 import type { RefObject } from 'react';
 
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container, Typography, useMediaQuery } from '@mui/material';
 
 import { fadeFromLeft, fadeFromRight } from 'constants/animations';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
 
 interface GuideProps {
-  isMobile: boolean;
   observerRef: RefObject<HTMLDivElement>;
 }
 
-const GuideUsage = ({ isMobile, observerRef }: GuideProps) => {
+const GuideUsage = ({ observerRef }: GuideProps) => {
+  const isMobile = useMediaQuery('(max-width: 900px)');
   const activeAnimation = useIntersectionObserver({ ref: observerRef, threshold: 0.5 });
 
   return (

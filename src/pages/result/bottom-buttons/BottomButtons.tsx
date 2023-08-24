@@ -1,18 +1,19 @@
 import { Link } from 'react-router-dom';
 
-import { Box, Button } from '@mui/material';
+import { Box, Button, useMediaQuery } from '@mui/material';
 
 import ButtonOptions from 'components/button-options';
 
 import type { LocationState } from 'types/location';
 
 interface BottomButtonProps {
-  isMobile: boolean;
   state: LocationState;
   setOpenToast: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const BottomButtons = ({ isMobile, state, setOpenToast }: BottomButtonProps) => {
+export const BottomButtons = ({ state, setOpenToast }: BottomButtonProps) => {
+  const isMobile = useMediaQuery('(max-width: 740px)');
+
   return (
     <Box
       display={'flex'}
