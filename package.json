@@ -60,7 +60,7 @@
     "react-dom": "^18.2.0",
     "react-ga4": "^2.0.0",
     "react-router-dom": "^6.8.1",
-    "simple-icons": "^8.5.0"
+    "simple-icons": "^13.18.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
