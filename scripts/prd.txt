@@ -1,0 +1,23 @@
+<context>
+# Overview
+This project is an website which users can easily make their tech stacks as one image. 
+With this service, developers don't have to search for svgs, and edit them as one image, capture, and place in their tech stack. They just pick thier tech stacks with search, and submit, and copy & paste result.
+
+# Core Features
+- Select stacks with input on main screen
+  - Or paste user's project repository url to extract stacks in project.
+- Select background color of image
+- Select three ways to copy : image link only, image tag, markdown image
+
+# User Experience
+## User 1
+- 
+</context>
+<PRD>
+# Development Roadmap
+- Upgrade package versions, especially node.js, typescript and react
+- Refactor all over application
+- Insert google ads 
+- Optimize application
+
+</PRD>
