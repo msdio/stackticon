@@ -91,7 +91,7 @@
     "prettier": "2.8.4",
     "task-master-ai": "^0.13.2",
     "ts-jest": "^29.0.5",
-    "typescript": "^4.9.5",
+    "typescript": "^5.8.3",
     "vite": "^4.2.1",
     "vite-tsconfig-paths": "^4.2.0"
   },
