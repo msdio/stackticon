@@ -25,16 +25,6 @@ export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   base: '/stackticon/',
   // build: {
-  //   rollupOptions: {
-  //     onwarn(warning, warn) {
-  //       if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
-  //         return;
-  //       }
-  //       warn(warning);
-  //     },
-  //   },
-  // },
-  // build: {
   //   sourcemap: false,
   //   rollupOptions: {
   //     output: {
