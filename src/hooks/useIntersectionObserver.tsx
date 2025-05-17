@@ -2,7 +2,7 @@ import type { RefObject } from 'react';
 import { useEffect, useState } from 'react';
 
 interface ObserverProps {
-  ref: RefObject<HTMLDivElement>;
+  ref: RefObject<HTMLDivElement | null>;
   threshold: number;
 }
 

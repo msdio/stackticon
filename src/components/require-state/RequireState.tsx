@@ -1,8 +1,10 @@
+import type { ReactNode } from 'react';
+
 import Cute404 from 'pages/page404';
 import { useStacks } from 'providers/StacksProvider';
 
 interface RequireStateProps {
-  component: JSX.Element;
+  component: ReactNode;
 }
 
 const RequireState = ({ component }: RequireStateProps) => {

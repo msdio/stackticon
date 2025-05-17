@@ -4,7 +4,7 @@ import { Link as RLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { Box, Link, Stack, SvgIcon, Typography } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import LogoWithBackground from 'assets/icons/logoWithBackground';
 import LogoLoading from 'components/loading/LogoLoading';
