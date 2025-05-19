@@ -5,7 +5,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 // const renderChunks = (deps: Record<string, string>) => {
 //   const chunks = {};
 //   Object.keys(deps).forEach((key) => {
-//     if (['react', 'react-router-dom', 'react-dom', 'pretendard'].includes(key)) {
+//     if (['react', 'react-router', 'react-dom', 'pretendard'].includes(key)) {
 //       return;
 //     }
 
@@ -29,7 +29,7 @@ export default defineConfig({
   //   rollupOptions: {
   //     output: {
   //       manualChunks: {
-  //         vendor: ['react', 'react-router-dom', 'react-dom'],
+  //         vendor: ['react', 'react-router', 'react-dom'],
   //         ...renderChunks(dependencies),
   //       },
   //     },
