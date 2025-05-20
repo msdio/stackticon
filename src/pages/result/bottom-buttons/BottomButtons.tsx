@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 import { Box, Button, useMediaQuery } from '@mui/material';
 
@@ -25,7 +25,7 @@ export const BottomButtons = ({ state, setOpenToast }: BottomButtonProps) => {
     >
       <ButtonOptions state={state} setOpenToast={setOpenToast} />
 
-      <Link to='/' style={{ textDecoration: 'none' }}>
+      <Link to='../' style={{ textDecoration: 'none' }}>
         <Button
           size='large'
           variant='contained'

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import ReactGA from 'react-ga4';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
 const GoogleAnalyticsTracker = () => {
   const location = useLocation();

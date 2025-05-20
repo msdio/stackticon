@@ -1,5 +1,4 @@
-import { Box, Stack, styled } from '@mui/material';
-import Typography from '@mui/material/Typography/Typography';
+import { Box, Stack, styled, Typography } from '@mui/material';
 
 import { RandomRotate } from 'constants/animations';
 

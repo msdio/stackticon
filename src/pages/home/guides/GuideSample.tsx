@@ -6,7 +6,7 @@ import { fadeFromLeft, fadeFromRight } from 'constants/animations';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
 
 interface GuideProps {
-  observerRef: RefObject<HTMLDivElement>;
+  observerRef: RefObject<HTMLDivElement | null>;
 }
 
 const GuideSample = ({ observerRef }: GuideProps) => {

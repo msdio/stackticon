@@ -19,7 +19,7 @@ const BackgroundCircle = () => (
 
 interface BackgroundCircleProps {
   sx: SxProps;
-  domRef?: RefObject<HTMLElement>;
+  domRef?: RefObject<HTMLElement | null>;
 }
 
 export const BackgroundWithCircle = ({

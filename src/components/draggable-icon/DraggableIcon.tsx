@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 interface PositionProps {
   top?: string;
@@ -31,7 +31,7 @@ const MotionDiv = styled(motion.div)<PositionProps>`
 `;
 
 interface DraggableIconProps {
-  constraints: React.RefObject<HTMLDivElement>;
+  constraints: React.RefObject<HTMLDivElement | null>;
   icon: React.ReactNode;
 }
 
