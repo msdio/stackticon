@@ -1,7 +1,7 @@
 <context>
 # Overview
 This project is an website which users can easily make their tech stacks as one image. 
-With this service, developers don't have to search for svgs, and edit them as one image, capture, and place in their tech stack. They just pick thier tech stacks with search, and submit, and copy & paste result.
+With this service, developers don't have to search for svgs, and edit them as one image, capture, and place in their tech stack. They just pick their tech stacks with search, and submit, and copy & paste result.
 
 # Core Features
 - Select stacks with input on main screen
